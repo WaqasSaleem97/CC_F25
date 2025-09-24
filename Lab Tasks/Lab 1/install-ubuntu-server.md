@@ -25,7 +25,7 @@ site_name: "Ubuntu"
 
 ## 1\. Overview
 
-Ubuntu Server is a variant of the standard Ubuntu you already know, tailored for networks and services. It’s just as capable of running a simple file server as it is operating within a 50,000 node cloud.
+[Ubuntu Server](https://ubuntu.com/download/server) is a variant of the standard Ubuntu you already know, tailored for networks and services. It’s just as capable of running a simple file server as it is operating within a 50,000 node cloud. Download Ubuntu Server using [Link](https://ubuntu.com/download/server)
 
 Unlike the installation of Ubuntu Desktop, Ubuntu Server does not include a graphical installation program. Instead, it uses a text menu-based process. If you’d rather install the desktop version, take a look at our [Install Ubuntu desktop](https://tutorials.ubuntu.com/tutorial/tutorial-install-ubuntu-desktop) tutorial.
 
