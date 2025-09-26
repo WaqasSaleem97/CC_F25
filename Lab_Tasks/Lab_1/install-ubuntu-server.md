@@ -39,8 +39,7 @@ For a more detailed guide on Ubuntu Server’s capabilities and its configuratio
 
 You’ll need to consider the following before starting the installation:
 
--   Ensure you have at least 2GB of free storage space.
--   Have access to either a DVD or a USB flash drive containing the version of Ubuntu Server you want to install.
+-   Ensure you have at least 20GB of free storage space.
 -   If you’re going to install Ubuntu Server alongside data you wish to keep, ensure you have a recent backup.
 
 See the [server guide pages](https://help.ubuntu.com/lts/serverguide/preparing-to-install.html#system-requirements) for more specific details on hardware requirements. We also have [several tutorials](https://ubuntu.com/tutorials?topic=server) that explain how to create an Ubuntu DVD or USB flash drive.
@@ -49,10 +48,28 @@ See the [server guide pages](https://help.ubuntu.com/lts/serverguide/preparing-t
 
 ## 3\. Boot from install media
 
-To trigger the installation process, perform the following:
+For this lab, we will not use a physical DVD or USB. Instead, you will install Ubuntu Server inside **VMware Workstation Pro**.
 
-1.  Put the Ubuntu DVD into your DVD drive (or insert the USB stick or other install media).
-2.  Restart your computer.
+### Steps:
+
+1. **Install VMware Workstation Pro**  
+   - Download and install VMware Workstation Pro on your computer.  
+   - (If it is already installed, you can skip this step.)
+
+2. **Download Ubuntu Server ISO**  
+   - Go to the [Ubuntu Server download page](https://ubuntu.com/download/server).  
+   - Download the latest LTS version ISO file.
+
+3. **Create a new virtual machine in VMware**  
+   - Open VMware Workstation Pro.  
+   - Click **Create a New Virtual Machine**.  
+   - Select **Typical (recommended)**.  
+   - When asked for installation media, choose **Installer disc image file (ISO)** and browse to the Ubuntu Server ISO you downloaded.  
+   - Continue through the wizard, selecting the defaults unless otherwise instructed.
+
+4. **Start the virtual machine**  
+   - Once the VM is created, click **Power on this virtual machine**.  
+   - The Ubuntu Server installer will boot using the ISO file.
 
 After a few moments, you should see messages like those shown below on the screen…
 
@@ -159,6 +176,16 @@ There is no “Undo” for this step, once you confirm the changes, the indicate
 ## 12\. Set up a Profile
 
 The software is now being installed on the disk, but there is some more information the installer needs. Ubuntu Server needs to have at least one known user for the system, and a hostname. The user also needs a password.
+At this step, you must provide details for the system user.
+
+Please follow these rules carefully:
+
+- **Your name** → Enter **your own name** (example: `Ali Raza`).
+- **Your server name** → Enter **your roll number** (example: `20F-1234`).
+- **Pick a username** → Use the **same as your name**, written in without spaces (example: `AliRaza`).
+- **Choose a password** → Set a secure password that you will remember.
+
+This ensures that every student’s server setup is unique and easy to identify.
 
 [![screenshot](images/install-ubuntu-server/22deb8bda1b7df8dc94a19f6a23bb07c5b7664b0.png)](https://ubuntucommunity.s3.us-east-2.amazonaws.com/original/2X/2/22deb8bda1b7df8dc94a19f6a23bb07c5b7664b0.png "screenshot")
 
