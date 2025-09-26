@@ -213,11 +213,39 @@ Remember to remove the install media, and then press enter to reboot and start t
 
 ## 15\. What next?
 
-With Ubuntu Server installed, you can now carry on and build that file-server or multi-node cluster we mentioned!
+With Ubuntu Server installed, you can now carry on and build that file-server or multi-node cluster.
+
+### Accessing your Ubuntu Server from Windows
+
+Before moving further, let’s make sure you can connect to your Ubuntu Server from your Windows host system.
+
+1. **Find the IP address of your Ubuntu Server**
+   - Inside your Ubuntu Server VM, run the following command:
+     ```bash
+     ip addr
+     ```
+   - Look for an entry under `inet` (e.g., `192.168.126.132`) — that’s your server’s IP address.
+
+2. **Connect via SSH from Windows**
+   - On your Windows host, open **Command Prompt** or **PowerShell**.
+   - Run the following command (replace `<username>` with the one you set up during installation, and `<ip-address>` with the server’s IP you just found):
+     ```powershell
+     ssh <username>@<ip-address>
+     ```
+     Example:
+     ```powershell
+     ssh ali@192.168.126.132
+     ```
+
+3. **Accept the fingerprint** (first time only)  
+   Type `yes` when prompted.
+
+4. **Enter your password**  
+   Use the same password you set up during the Ubuntu Server installation.
+
+If everything works, you will now be logged into your Ubuntu Server remotely from your Windows machine 🎉
 
 If you are new to Ubuntu Server, we’d recommend reading the [Server Guide](https://help.ubuntu.com/lts/serverguide/installation.html).
-
-You can also check out the latest on Ubuntu Server, and what others are using it for on the [Ubuntu Server pages](https://www.ubuntu.com/server).
 
 ### Finding help
 
