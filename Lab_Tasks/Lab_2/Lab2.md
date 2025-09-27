@@ -10,13 +10,17 @@
 - [Getting Started](#getting-started)
 - [Task 1: Create Private GitHub Repository](#task-1-create-private-github-repository)
 - [Task 2: Connect Repository via SSH](#task-2-connect-repository-via-ssh)
-- [Task 3: Local Repository Management](#task-3-local-repository-management)
-- [Task 4: File Status & Staging](#task-4-file-status--staging)
-- [Task 5: Branch Creation Using GitHub GUI](#task-5-branch-creation-using-github-gui)
-- [Task 6: Branch Creation and Push Using Git Bash](#task-6-branch-creation-and-push-using-git-bash)
-- [Task 7: Branching & Merging](#task-7-branching--merging)
-- [Task 8: Pull Request and Branch Review (GitHub GUI)](#task-8-pull-request-and-branch-review-github-gui)
+- [Task 3: Configure Git Username and Email](#task-3-configure-git-username-and-email)
+- [Task 4: Explore the .git Folder](#task-4-explore-the-git-folder)
+- [Task 5: Local Repository Management](#task-5-local-repository-management)
+- [Task 6: File Status & Staging](#task-6-file-status--staging)
+- [Task 7: Branch Creation Using GitHub GUI](#task-7-branch-creation-using-github-gui)
+- [Task 8: Branch Creation and Push Using Git Bash](#task-8-branch-creation-and-push-using-git-bash)
+- [Task 9: Branching & Merging](#task-9-branching--merging)
+- [Task 10: Pull Request and Branch Review (GitHub GUI)](#task-10-pull-request-and-branch-review-github-gui)
+- [Task 11: Detailed Branch Strategy (Develop/Staging)](#task-11-detailed-branch-strategy-developstaging)
 - [Bonus Task: Simulated Team Collaboration](#bonus-task-simulated-team-collaboration)
+- [Exam Evaluation Questions](#exam-evaluation-questions)
 
 ---
 
@@ -52,7 +56,38 @@
 
 ---
 
-## Task 3: Local Repository Management
+## Task 3: Configure Git Username and Email
+
+1. **Set up your Git identity (this ensures all commits are linked to you):**
+   ```bash
+   git config --global user.name "Your Name"
+   git config --global user.email "your_email@example.com"
+   ```
+   - Save a screenshot of your terminal as `git_identity.png`.
+
+2. **Verify your configuration:**
+   ```bash
+   git config --list
+   ```
+   - Screenshot as `git_config_list.png`.
+
+---
+
+## Task 4: Explore the .git Folder
+
+1. Navigate into your cloned repository folder.
+2. Show hidden files and locate the `.git` directory.
+3. Explore what’s inside using:
+   ```bash
+   ls -a .git
+   ```
+   - Take a screenshot as `git_folder.png`.
+
+4. Note: This folder contains history, logs, and config for your repository. Do **not** modify these files manually.
+
+---
+
+## Task 5: Local Repository Management
 
 1. **Delete the existing `.git` folder from your cloned repo using Git Bash:**
    ```bash
@@ -80,7 +115,7 @@
 
 ---
 
-## Task 4: File Status & Staging
+## Task 6: File Status & Staging
 
 1. Create a new file `notes.txt` and write a note.
 2. Check status:
@@ -98,7 +133,7 @@
 
 ---
 
-## Task 5: Branch Creation Using GitHub GUI
+## Task 7: Branch Creation Using GitHub GUI
 
 1. **On GitHub (web interface), create a branch named `bugfix/user-auth-error`.**
 2. **Pull the branch to your local repository to sync.**
@@ -110,7 +145,7 @@
 
 ---
 
-## Task 6: Branch Creation and Push Using Git Bash
+## Task 8: Branch Creation and Push Using Git Bash
 
 1. **Create a branch named `feature/db-connection` using Git Bash:**
    ```bash
@@ -124,7 +159,7 @@
 
 ---
 
-## Task 7: Branching & Merging
+## Task 9: Branching & Merging
 
 1. Create and switch to a branch `feature-1`:
    ```bash
@@ -152,7 +187,7 @@
 
 ---
 
-## Task 8: Pull Request and Branch Review (GitHub GUI)
+## Task 10: Pull Request and Branch Review (GitHub GUI)
 
 1. **On GitHub, create a Pull Request from the branch `feature/db-connection` to `main`.**
 2. **Review the Pull Request and merge it using the GitHub GUI.**
@@ -161,6 +196,27 @@
      - The Pull Request creation (`pr_creation.png`)
      - The Pull Request review and merge (`pr_merge.png`)
      - The branch deletion (`branch_delete.png`)
+
+---
+
+## Task 11: Detailed Branch Strategy (Develop/Staging)
+
+1. Create the following branches to simulate a professional branching strategy:
+   - `develop`
+   - `staging`
+   - `feature/*`
+   - `bugfix/*`
+
+2. Example workflow:
+   - Developers work on `feature/*` and `bugfix/*` branches.
+   - Merge into `develop` after completion.
+   - `develop` is merged into `staging` for testing.
+   - Finally, `staging` is merged into `master` (production).
+
+3. Document the workflow with screenshots:
+   - Branch list (`branch_strategy.png`)
+   - Merges into `develop` and `staging` (`branch_merges.png`)
+   - Final merge into `master` (`final_merge.png`)
 
 ---
 
@@ -180,6 +236,30 @@
    git push origin master
    ```
    - Screenshot as `collab_merge.png`.
+
+---
+## Exam Evaluation Questions
+
+1. **Advanced Branching & Merge Verification**  
+   - Create a new branch in your repository.  
+   - Make a small change in a file and commit it.  
+   - Merge this branch back into the main branch.  
+   - Show the history of commits in a way that verifies the merge.  
+   - Screenshot as `Q1_Advanced Branching & Merge Verification.png`.
+
+2. **Multi-Stage Workflow Simulation**  
+   - Set up a branching workflow with three branches: `main`, `develop`, and `staging`.  
+   - Create a feature branch from `develop`, make changes, and commit them.  
+   - Merge the feature branch into `develop`, then move changes step by step into `staging` and finally into `main`.  
+   - Provide proof that each stage contains the updated changes before it reaches `main`.
+   - Screenshot as `Q2_Multi-Stage Workflow Simulation.png`.  
+
+3. **Collaboration & Conflict Resolution**  
+   - Work with a collaborator: both contributors should modify the same file but in separate branches.  
+   - Attempt to merge the branches and capture the conflict.  
+   - Resolve the conflict so that both contributions are preserved.  
+   - Provide evidence that the final version of the file contains both collaborators’ changes.  
+   - Screenshot as `Q3_Collaboration & Conflict Resolution.png`. 
 
 ---
 
