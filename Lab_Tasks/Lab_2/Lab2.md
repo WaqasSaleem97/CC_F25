@@ -19,6 +19,8 @@
 - [Task 9: Branching & Merging](#task-9-branching--merging)
 - [Task 10: Pull Request and Branch Review (GitHub GUI)](#task-10-pull-request-and-branch-review-github-gui)
 - [Task 11: Detailed Branch Strategy (Develop/Staging)](#task-11-detailed-branch-strategy-developstaging)
+- [Task 12: Code Review Workflow](#task-12-code-review-workflow)
+- [Task 13: Branch Cleanup Best Practices](#task-13-branch-cleanup-best-practices)
 - [Bonus Task: Simulated Team Collaboration](#bonus-task-simulated-team-collaboration)
 - [Exam Evaluation Questions](#exam-evaluation-questions)
 
@@ -238,28 +240,114 @@
    - Screenshot as `collab_merge.png`.
 
 ---
+
+## Task 11: Detailed Branch Strategy (Develop/Staging)
+
+1. **Create the following branches** to simulate a professional branching strategy:
+   - `develop`
+   - `staging`
+   - `feature/*`
+   - `bugfix/*`
+
+2. **Example Workflow:**
+   - Developers work on `feature/*` and `bugfix/*` branches.
+   - Merge completed work into `develop`.
+   - Merge `develop` into `staging` for testing.
+   - Finally, merge `staging` into `main` (production).
+
+3. **Documentation with Screenshots:**
+   - Branch list → `branch_strategy.png`
+   - Merges into `develop` and `staging` → `branch_merges.png`
+   - Final merge into `main` → `final_merge.png`
+
+---
+
+## Task 12: Code Review Workflow
+
+1. **Create a Pull Request (PR) / Merge Request (MR):**
+   - From a feature branch into `main`.
+   - Add a clear title and description summarizing the changes.
+   - Screenshot as `pr_create_details.png`.
+
+2. **Assign a reviewer** (teammate or second account).  
+   - Screenshot as `pr_assigned_reviewer.png`.
+
+3. **Reviewer Actions (capture screenshots for each):**
+   - Approve the PR → `pr_approved.png`
+   - Request changes and add comments → `pr_request_changes.png`
+   - Optionally reject/close the PR → `pr_rejected.png`
+
+4. **Author Actions:**
+   - Fix issues in the same branch and push new commits.  
+   - PR updates automatically.  
+   - Screenshot updated PR with new commits → `pr_updated_with_commits.png`.
+
+5. **Merge the PR:**
+   - Reviewer approves → merge using GitHub/GitLab UI.  
+   - Choose merge style (merge commit, squash, or rebase).  
+   - Screenshot confirmation → `pr_merge_confirm.png`.  
+   - Screenshot result → `pr_merged.png`.
+
+6. **Branch Handling After Merge:**
+   - If deleted, screenshot → `pr_branch_deleted.png`.  
+   - If kept, add explanation in `REVIEW_NOTES.md`.
+
+---
+
+## Task 13: Branch Cleanup Best Practices
+
+1. **Delete Remote Branch After Merge:**
+   - Use GitHub UI → screenshot `remote_branch_deleted.png`.  
+     - Screenshot as `remote_branch_delete_cmd.png`.
+
+2. **Update Local Repository:**
+   ```bash
+   git checkout main
+   git pull origin main
+   git branch -d <branch-name>
+   git branch
+
+## Exam Evaluation Questions
+
 ## Exam Evaluation Questions
 
 1. **Advanced Branching & Merge Verification**  
    - Create a new branch in your repository.  
+     - Screenshot as `Q1_branch_created.png`.  
    - Make a small change in a file and commit it.  
+     - Screenshot as `Q1_commit_done.png`.  
    - Merge this branch back into the main branch.  
+     - Screenshot as `Q1_merge_done.png`.  
    - Show the history of commits in a way that verifies the merge.  
-   - Screenshot as `Q1_Advanced Branching & Merge Verification.png`.
+     - Screenshot as `Q1_merge_history.png`.  
+
+---
 
 2. **Multi-Stage Workflow Simulation**  
    - Set up a branching workflow with three branches: `main`, `develop`, and `staging`.  
+     - Screenshot as `Q2_branches_created.png`.  
    - Create a feature branch from `develop`, make changes, and commit them.  
-   - Merge the feature branch into `develop`, then move changes step by step into `staging` and finally into `main`.  
-   - Provide proof that each stage contains the updated changes before it reaches `main`.
-   - Screenshot as `Q2_Multi-Stage Workflow Simulation.png`.  
+     - Screenshot as `Q2_feature_branch_commit.png`.  
+   - Merge the feature branch into `develop`.  
+     - Screenshot as `Q2_merge_into_develop.png`.  
+   - Merge `develop` into `staging`.  
+     - Screenshot as `Q2_merge_into_staging.png`.  
+   - Merge `staging` into `main`.  
+     - Screenshot as `Q2_merge_into_main.png`.  
+   - Provide proof that each stage contains the updated changes before it reaches `main`.  
+     - Screenshot as `Q2_stage_verification.png`.  
+
+---
 
 3. **Collaboration & Conflict Resolution**  
    - Work with a collaborator: both contributors should modify the same file but in separate branches.  
+     - Screenshot as `Q3_branches_modified.png`.  
    - Attempt to merge the branches and capture the conflict.  
+     - Screenshot as `Q3_merge_conflict.png`.  
    - Resolve the conflict so that both contributions are preserved.  
+     - Screenshot as `Q3_conflict_resolved.png`.  
    - Provide evidence that the final version of the file contains both collaborators’ changes.  
-   - Screenshot as `Q3_Collaboration & Conflict Resolution.png`. 
+     - Screenshot as `Q3_final_file.png`.  
 
 ---
 
