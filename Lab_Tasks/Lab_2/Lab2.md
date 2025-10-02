@@ -109,7 +109,7 @@
 4. **Connect your local repo to GitHub and push:**
    ```bash
    git remote add origin git@github.com:<yourusername>/Lab2.git
-   git push -u origin master
+   git push -u origin main
    ```
    - Save a screenshot as `first_push.png`.
 
@@ -172,15 +172,15 @@
    git commit -m "Add new function to main.py"
    ```
    - Screenshot as `feature_commit.png`.
-3. Switch back to `master` and merge:
+3. Switch back to `main` and merge:
    ```bash
-   git checkout master
+   git checkout main
    git merge feature-1
    ```
    - Screenshot as `merge.png`.
 4. Push all branches:
    ```bash
-   git push origin master
+   git push origin main
    git push origin feature-1
    ```
    - Screenshot as `push_branches.png`.
@@ -211,12 +211,12 @@
    - Developers work on `feature/*` and `bugfix/*` branches.
    - Merge into `develop` after completion.
    - `develop` is merged into `staging` for testing.
-   - Finally, `staging` is merged into `master` (production).
+   - Finally, `staging` is merged into `main` (production).
 
 3. Document the workflow with screenshots:
    - Branch list (`branch_strategy.png`)
    - Merges into `develop` and `staging` (`branch_merges.png`)
-   - Final merge into `master` (`final_merge.png`)
+   - Final merge into `main` (`final_merge.png`)
 
 ---
 
@@ -229,11 +229,11 @@
    - Add their name and fun fact to `notes.txt`.
    - Commit and push to the `collab` branch.
    - Screenshot as `collab_commit.png`.
-4. Merge `collab` into `master` and push.
+4. Merge `collab` into `main` and push.
    ```bash
-   git checkout master
+   git checkout main
    git merge collab
-   git push origin master
+   git push origin main
    ```
    - Screenshot as `collab_merge.png`.
 
