@@ -41,8 +41,8 @@ By the end of this lab, you will be able to:
 - [Task 8: Reverting a Commit (Safe Undo on Remote Branch)](#task-8--reverting-a-commit-safe-undo-on-remote-branch)
 - [Task 9: Force Push (With Caution)](#task-9--force-push-with-caution)
 - [Hands-On Practical Exam Questions](#hands-on-practical-exam-questions)
-- [Summary](#%F0%9F%A7%AD-summary)
-- [Submission](#%F0%9F%93%A4-submission)
+- [Summary](#summary)
+- [Submission](#submission)
 
 ---
 
@@ -631,7 +631,7 @@ Answer the following practical exam questions to demonstrate your understanding 
 
 ---
 
-## 🧭 Summary
+## Summary
 
 In this lab, you practiced advanced Git commands used in real-world development and DevOps workflows:
 - `git stash` – save temporary work  
@@ -643,7 +643,7 @@ In this lab, you practiced advanced Git commands used in real-world development 
 
 ---
 
-## 📤 Submission
+## Submission
 - Upload a **Word file and PDF or .md file** containing:
   - Step outputs or terminal screenshots for each task  
   - Your answers to the hands-on practical exam questions  
