@@ -31,19 +31,18 @@ By the end of this lab, you will be able to:
 **Navigation:** Click any task below to jump to its instructions.
 ## 📋 Task List
 
-- [Task 1: Handling Local and Remote Commit Conflicts (Pull vs Pull --rebase)](#⚙️-task-1--handling-local-and-remote-commit-conflicts-pull-vs-pullrebase)
-- [Task 2: Creating and Resolving Merge Conflicts Manually](#⚙️-task-2--creating-and-resolving-merge-conflicts-manually)
-- [Task 3: Managing Ignored Files with `.gitignore` and Removing Tracked Files](#⚙️-task-3--managing-ignored-files-with-gitignore-and-removing-tracked-files)
-- [Task 4: Create Temporary Changes and Use `git stash`](#⚙️-task-4--create-temporary-changes-and-use-git-stash)
-- [Task 5: Checkout a Specific Commit Using `git log`](#⚙️-task-5--checkout-a-specific-commit-using-git-log)
-- [Task 6: Resetting Commits (Soft vs Hard Reset)](#⚙️-task-6--resetting-commits-soft-vs-hard-reset)
-- [Task 7: Amending the Last Commit](#⚙️-task-7--amending-the-last-commit)
-- [Task 8: Reverting a Commit (Safe Undo on Remote Branch)](#⚙️-task-8--reverting-a-commit-safe-undo-on-remote-branch)
-- [Task 9: Force Push (With Caution)](#⚙️-task-9--force-push-with-caution)
-- [Hands-On Practical Exam Questions](#📝-hands-on-practical-exam-questions)
-- [Summary](#🧭-summary)
-- [Submission](#📤-submission)
-
+- [Task 1: Handling Local and Remote Commit Conflicts (Pull vs Pull --rebase)](#task-1--handling-local-and-remote-commit-conflicts-pull-vs-pull---rebase)
+- [Task 2: Creating and Resolving Merge Conflicts Manually](#task-2--creating-and-resolving-merge-conflicts-manually)
+- [Task 3: Managing Ignored Files with .gitignore and Removing Tracked Files](#task-3--managing-ignored-files-with-gitignore-and-removing-tracked-files)
+- [Task 4: Create Temporary Changes and Use git stash](#task-4--create-temporary-changes-and-use-git-stash)
+- [Task 5: Checkout a Specific Commit Using git log](#task-5--checkout-a-specific-commit-using-git-log)
+- [Task 6: Resetting Commits (Soft vs Hard Reset)](#task-6--resetting-commits-soft-vs-hard-reset-with-verification-steps)
+- [Task 7: Amending the Last Commit](#task-7--amending-the-last-commit)
+- [Task 8: Reverting a Commit (Safe Undo on Remote Branch)](#task-8--reverting-a-commit-safe-undo-on-remote-branch)
+- [Task 9: Force Push (With Caution)](#task-9--force-push-with-caution)
+- [Hands-On Practical Exam Questions](#hands-on-practical-exam-questions)
+- [Summary](#summary)
+- [Submission](#submission)
 ---
 
 ## ⚙️ Task 1 – Handling Local and Remote Commit Conflicts (Pull vs Pull --rebase)
