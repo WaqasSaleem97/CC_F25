@@ -633,7 +633,7 @@ Answer the following practical exam questions to demonstrate your understanding 
 
 ## Summary
 
-In this lab, you practiced advanced Git commands used in real-world development and DevOps workflows:
+In this lab, you practiced advanced Git commands used in real-world development, cloud computing and DevOps workflows:
 - `git stash` – save temporary work  
 - `git reset` – undo commits locally (soft/hard)  
 - `git commit --amend` – modify the latest commit  
