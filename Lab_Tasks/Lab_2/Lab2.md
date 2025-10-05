@@ -307,7 +307,6 @@
    git branch -d <branch-name>
    git branch
 
-## Exam Evaluation Questions
 
 ## Exam Evaluation Questions
 
