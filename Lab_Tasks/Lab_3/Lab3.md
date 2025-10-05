@@ -41,11 +41,12 @@ By the end of this lab, you will be able to:
 - [Task 8: Reverting a Commit (Safe Undo on Remote Branch)](#task-8--reverting-a-commit-safe-undo-on-remote-branch)
 - [Task 9: Force Push (With Caution)](#task-9--force-push-with-caution)
 - [Hands-On Practical Exam Questions](#hands-on-practical-exam-questions)
-- [Summary](#summary)
-- [Submission](#submission)
+- [Summary](#%F0%9F%A7%AD-summary)
+- [Submission](#%F0%9F%93%A4-submission)
+
 ---
 
-## ⚙️ Task 1 – Handling Local and Remote Commit Conflicts (Pull vs Pull --rebase)
+## Task 1 – Handling Local and Remote Commit Conflicts (Pull vs Pull --rebase)
 
 This task demonstrates what happens when your local repository and remote repository both have new commits — and how `git pull` and `git pull --rebase` behave differently.
 
@@ -123,7 +124,7 @@ This task demonstrates what happens when your local repository and remote reposi
 
 ---
 
-## ⚙️ Task 2 – Creating and Resolving Merge Conflicts Manually
+## Task 2 – Creating and Resolving Merge Conflicts Manually
 
 This task will help you understand how Git handles file conflicts when two people modify the same line of code differently.
 
@@ -207,7 +208,7 @@ This task will help you understand how Git handles file conflicts when two peopl
 
 ---
 
-## ⚙️ Task 3 – Managing Ignored Files with `.gitignore` and Removing Tracked Files
+## Task 3 – Managing Ignored Files with .gitignore and Removing Tracked Files
 
 In this task, you will learn how to use a `.gitignore` file to exclude files or directories from version control and how to remove them from Git’s tracking while keeping them locally.
 
@@ -278,7 +279,7 @@ In this task, you will learn how to use a `.gitignore` file to exclude files or 
 
 ---
 
-## ⚙️ Task 4 – Create Temporary Changes and Use `git stash`
+## Task 4 – Create Temporary Changes and Use git stash
 
 This task demonstrates how `git stash` allows you to temporarily save uncommitted changes so that you can safely switch branches without losing work.
 
@@ -360,7 +361,7 @@ This task demonstrates how `git stash` allows you to temporarily save uncommitte
 
 ---
 
-## ⚙️ Task 5 – Checkout a Specific Commit Using `git log`
+## Task 5 – Checkout a Specific Commit Using git log
 
 1. View commit history:
    ```bash
@@ -393,7 +394,7 @@ This task demonstrates how `git stash` allows you to temporarily save uncommitte
 
 ---
 
-## ⚙️ Task 6 – Resetting Commits (Soft vs Hard Reset) **(With Verification Steps)**
+## Task 6 – Resetting Commits (Soft vs Hard Reset) **(With Verification Steps)**
 
 This task demonstrates the difference between a soft and hard reset in Git. In this version, you will **verify the presence of changes in files and confirm the existence of commits after each reset**.
 
@@ -500,7 +501,7 @@ This task demonstrates the difference between a soft and hard reset in Git. In t
 
 ---
 
-## ⚙️ Task 7 – Amending the Last Commit
+## Task 7 – Amending the Last Commit
 
 1. Make a small change in any file.  
 2. Stage it and commit:
@@ -530,7 +531,7 @@ This task demonstrates the difference between a soft and hard reset in Git. In t
 
 ---
 
-## ⚙️ Task 8 – Reverting a Commit (Safe Undo on Remote Branch)
+## Task 8 – Reverting a Commit (Safe Undo on Remote Branch)
 
 1. Make a change and commit it:
    ```bash
@@ -566,7 +567,7 @@ This task demonstrates the difference between a soft and hard reset in Git. In t
 
 ---
 
-## ⚙️ Task 9 – Force Push (With Caution)
+## Task 9 – Force Push (With Caution)
 
 > ⚠️ Use this only in your own branch (never on `main` or `develop`).
 
@@ -609,7 +610,7 @@ This task demonstrates the difference between a soft and hard reset in Git. In t
 
 ---
 
-## 📝 Hands-On Practical Exam Questions
+## Hands-On Practical Exam Questions
 
 Answer the following practical exam questions to demonstrate your understanding of the Git concepts covered in this lab. Provide commands, screenshots, and explanations as required. **Do not provide solutions here; only attempt these questions in your submission file.**
 
