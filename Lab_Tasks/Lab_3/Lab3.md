@@ -663,6 +663,12 @@ This task will guide you through forking a repository, running a full web applic
 - `gitea_new_repo.png`
 
 ---
+**Summary:**  
+- You forked a repo and ran a real-world application using Docker Compose in Codespaces.
+- You installed and configured a self-hosted Git service (Gitea) from scratch.
+- You practiced using both GitHub and Gitea to create and manage repositories.
+
+---
 
 ## Task 11 – Creating a GitHub Pages Portfolio Site
 
@@ -698,7 +704,7 @@ This task will guide you through creating a personal portfolio/static site using
 4. **Check GitHub Pages Settings**
    - Go to your repository on GitHub.
    - Click **Settings** > **Pages**.
-   - Confirm that your site is published and see the link to your live site (e.g., https://<your-username>.github.io).
+   - Confirm that your site is published and see the link to your live site (e.g., https://your-username.github.io).
    - Save a screenshot of the Pages settings as `github_pages_settings.png`.
 
 5. **Visit Your Live Site**
@@ -721,43 +727,119 @@ This task will guide you through creating a personal portfolio/static site using
 
 ---
 
-**Summary:**  
-- You forked a repo and ran a real-world application using Docker Compose in Codespaces.
-- You installed and configured a self-hosted Git service (Gitea) from scratch.
-- You practiced using both GitHub and Gitea to create and manage repositories.
-
----
 
 ## Hands-On Practical Exam Questions
 
-Answer the following practical exam questions to demonstrate your understanding of the Git concepts covered in this lab. Provide commands, screenshots, and explanations as required. **Do not provide solutions here; only attempt these questions in your submission file.**
 
-1. **Local vs Remote Conflict Resolution:**  
-   Simulate a scenario where both your local and remote repositories have new commits on the same file. Demonstrate how to resolve the conflict using both `git pull` (merge) and `git pull --rebase`. Show the difference in history and provide screenshots.
+### 1. Local vs Remote Conflict Resolution
 
-2. **Manual Merge Conflict Handling:**  
-   Create a manual conflict between your local and remote branches on the same line in a file. Show how to resolve the conflict, commit the resolution, and push the changes. Provide conflict markers and the final resolved file screenshot.
-
-3. **Managing Ignored and Tracked Files:**  
-   Add a directory with files to your repo, then add it to your `.gitignore`. Show the process and commands needed to remove the directory from tracking while keeping it locally. Include before and after screenshots of your repo.
-
-4. **Using Stash for Temporary Changes:**  
-   Make changes to a file without committing. Use `git stash` to save work, switch branches, and then restore stashed changes. Document the process with commands and screenshots showing the stash and restore steps.
-
-5. **Commit History Manipulation and Recovery:**  
-   Make two commits, then perform a soft reset and a hard reset, confirming the state of your files and commit history after each. Explain the difference and show evidence with screenshots.
+**Steps:**
+1. On GitHub, edit a file (e.g., `README.md`) and commit the change.  
+   - Screenshot as `Q1_remote_edit.png`
+2. On your local machine, edit the same file differently and commit.  
+   - Screenshot as `Q1_local_edit.png`
+3. Try to push your local commit and observe the error.  
+   - Screenshot as `Q1_push_error.png`
+4. Resolve the conflict by running `git pull` (merge), then push.  
+   - Screenshot as `Q1_merge_resolution.png`
+5. Repeat with another remote/local change, but resolve using `git pull --rebase`, then push.  
+   - Screenshot as `Q1_rebase_resolution.png`
 
 ---
 
+### 2. Manual Merge Conflict Handling
+
+**Steps:**
+1. On GitHub, change a specific line in a file and commit.  
+   - Screenshot as `Q2_remote_conflict_edit.png`
+2. Locally, change the same line differently and commit.  
+   - Screenshot as `Q2_local_conflict_edit.png`
+3. Try to push your local change and observe the conflict error.  
+   - Screenshot as `Q2_conflict_push_error.png`
+4. Use `git pull --rebase` to fetch changes and trigger the conflict.  
+   - Screenshot as `Q2_rebase_conflict.png`
+5. Edit the conflicted file to resolve the conflict manually.  
+   - Screenshot as `Q2_resolved_file.png`
+6. Mark the conflict resolved (`git add <file>`, `git rebase --continue`) and push.  
+   - Screenshot as `Q2_resolution_complete.png`
+
+---
+
+### 3. Managing Ignored and Tracked Files
+
+**Steps:**
+1. Create a new folder (e.g., `textfiles`) and add several files inside.  
+   - Screenshot as `Q3_folder_created.png`
+2. Commit and push the folder/files to GitHub.  
+   - Screenshot as `Q3_files_pushed.png`
+3. Add the folder to your `.gitignore` file.  
+   - Screenshot as `Q3_gitignore_added.png`
+4. Commit and push the `.gitignore` update.  
+   - Screenshot as `Q3_gitignore_pushed.png`
+5. Remove the folder from tracking using `git rm -r --cached <folder>`.  
+   - Screenshot as `Q3_folder_untracked.png`
+6. Commit and push the change, then verify the folder is no longer tracked on GitHub.  
+   - Screenshot as `Q3_folder_removed_github.png`
+
+---
+
+### 4. Commit History Manipulation and Recovery
+
+**Steps:**
+1. Make a change and commit it.  
+   - Screenshot as `Q4_first_commit.png`
+2. Make another change and commit again.  
+   - Screenshot as `Q4_second_commit.png`
+3. View your commit history.  
+   - Screenshot as `Q4_commit_history.png`
+4. Perform a soft reset (`git reset --soft HEAD~1`) and observe your file and history.  
+   - Screenshot as `Q4_soft_reset.png`
+5. Perform a hard reset (`git reset --hard HEAD~1`) and observe the changes.  
+   - Screenshot as `Q4_hard_reset.png`
+
+---
+
+**Reminder:**  
+Take a screenshot after every step and name it as shown above. Include all screenshots in your submission for full credit.
+
 ## Summary
 
-In this lab, you practiced advanced Git commands used in real-world development, cloud computing and DevOps workflows:
-- `git stash` – save temporary work  
-- `git reset` – undo commits locally (soft/hard)  
-- `git commit --amend` – modify the latest commit  
-- `git checkout <hash>` – revisit previous versions  
-- `git revert` – safely undo commits remotely  
-- `git push --force` – override remote history (use carefully)
+In this lab, you practiced a broad range of advanced Git commands and real-world development workflows used in cloud computing, DevOps, and modern software engineering:
+
+- **Conflict Resolution:**  
+  - Handled situations where both local and remote repositories have new commits using `git pull` and `git pull --rebase`.
+  - Learned the differences between merge and rebase strategies for integrating changes.
+
+- **Manual Merge Conflict Handling:**  
+  - Created and resolved manual merge conflicts, using conflict markers and manual file edits to safely integrate changes from different sources.
+
+- **Managing Ignored and Tracked Files:**  
+  - Used `.gitignore` to prevent new files from being tracked.
+  - Untracked already committed files with `git rm --cached`, keeping them locally but removing them from the remote repository.
+
+- **Temporary Change Management:**  
+  - Used `git stash` to save work-in-progress changes, switch branches, and later restore your work—an essential tool for managing feature development and avoiding accidental data loss.
+
+- **Commit History Manipulation and Recovery:**  
+  - Inspected commit history with `git log`.
+  - Used soft and hard resets (`git reset --soft`, `git reset --hard`) to roll back commits, understanding the differences and implications for your files and history.
+
+- **Amending and Reverting Commits:**  
+  - Modified the most recent commit with `git commit --amend`.
+  - Safely reverted committed changes on the remote branch with `git revert`, without rewriting history.
+
+- **Force Push (With Caution):**  
+  - Practiced rewriting remote branch history with `git push --force`, understanding when (and when not) to use this powerful but risky command.
+
+- **Working with GitHub Codespaces and Docker Compose:**  
+  - Forked and ran a full web application (Gitea) inside GitHub Codespaces using Docker Compose.
+  - Installed and configured a self-hosted Git service, created repositories in Gitea, and documented the workflow with screenshots.
+
+- **Publishing a Static Website with GitHub Pages:**  
+  - Created a personalized GitHub Pages repository using your username.
+  - Published a portfolio or CV as a static website and confirmed its live status using GitHub’s Pages feature.
+
+You now have hands-on experience with advanced Git commands, conflict resolution, repository management, cloud-based development environments, and static site hosting—all essential skills for modern DevOps and collaborative software development.
 
 ---
 
