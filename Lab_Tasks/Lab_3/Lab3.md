@@ -683,7 +683,7 @@ This task will guide you through creating a personal portfolio/static site using
    - Save a screenshot of the newly created repository as `github_pages_repo.png`.
 
 2. **Add Static Website Code**
-   - Prepare a simple static website (e.g., your CV or portfolio) in HTML/CSS/JS.
+   - Prepare a simple static website (e.g., your CV or portfolio) in HTML/CSS/JS by using the sample code provided in the repository [Iqra Bashir CV](https://github.com/WaqasSaleem97/assignment-CV).
    - Put your files in a local folder.
    - Save a screenshot of your local files as `local_static_site.png`.
 
