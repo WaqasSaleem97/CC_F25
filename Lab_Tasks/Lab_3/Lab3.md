@@ -41,6 +41,7 @@ By the end of this lab, you will be able to:
 - [Task 8: Reverting a Commit (Safe Undo on Remote Branch)](#task-8--reverting-a-commit-safe-undo-on-remote-branch)
 - [Task 9: Force Push (With Caution)](#task-9--force-push-with-caution)
 - [Task 10: Running Gitea in GitHub Codespaces via Docker Compose](#task-10--running-gitea-in-github-codespaces-via-docker-compose)
+- [Task 11: Creating a GitHub Pages Portfolio Site](#task-11--creating-a-github-pages-portfolio-site)
 - [Hands-On Practical Exam Questions](#hands-on-practical-exam-questions)
 - [Summary](#summary)
 - [Submission](#submission)
@@ -618,7 +619,7 @@ This task will guide you through forking a repository, running a full web applic
 ### Steps
 
 1. **Fork the Gitea Repository**
-   - Go to [WaqasSaleem97/Gitea](https://github.com/WaqasSaleem97/Gitea).
+   - Go to [Gitea](https://github.com/WaqasSaleem97/Gitea).
    - Click the **Fork** button at the top right and fork it into your own GitHub account.
    - Save a screenshot of your forked repository page as `forked_gitea.png`.
 
@@ -660,6 +661,63 @@ This task will guide you through forking a repository, running a full web applic
 - `admin_setup.png`  
 - `gitea_dashboard.png`  
 - `gitea_new_repo.png`
+
+---
+
+## Task 11 – Creating a GitHub Pages Portfolio Site
+
+This task will guide you through creating a personal portfolio/static site using GitHub Pages.
+
+### Steps
+
+1. **Create a GitHub Pages Repository**
+   - Go to GitHub and create a new repository named `<your-username>.github.io`  
+     (e.g., if your username is `WaqasSaleem97`, the repo should be `WaqasSaleem97.github.io`).
+   - Make sure the repository is **public**.
+   - Save a screenshot of the newly created repository as `github_pages_repo.png`.
+
+2. **Add Static Website Code**
+   - Prepare a simple static website (e.g., your CV or portfolio) in HTML/CSS/JS.
+   - Put your files in a local folder.
+   - Save a screenshot of your local files as `local_static_site.png`.
+
+3. **Push the Files to GitHub**
+   - Initialize git in your folder (if not already):
+     ```bash
+     git init
+     git remote add origin git@github.com:<your-username>/<your-username>.github.io.git
+     ```
+   - Add and commit your files:
+     ```bash
+     git add .
+     git commit -m "Add portfolio site for GitHub Pages"
+     git push -u origin main
+     ```
+   - Save a screenshot of your terminal showing a successful push as `push_static_site.png`.
+
+4. **Check GitHub Pages Settings**
+   - Go to your repository on GitHub.
+   - Click **Settings** > **Pages**.
+   - Confirm that your site is published and see the link to your live site (e.g., https://<your-username>.github.io).
+   - Save a screenshot of the Pages settings as `github_pages_settings.png`.
+
+5. **Visit Your Live Site**
+   - Open your GitHub Pages site in the browser.
+   - Save a screenshot of your live site as `live_site.png`.
+
+📸 **Screenshot Required:**  
+- `github_pages_repo.png`  
+- `local_static_site.png`  
+- `push_static_site.png`  
+- `github_pages_settings.png`  
+- `live_site.png`
+
+---
+
+**Summary:**  
+- You created a GitHub Pages repository using your username.
+- You published a static website (such as your portfolio or CV) using GitHub Pages.
+- You confirmed your site is live and accessible from the provided URL.
 
 ---
 
