@@ -736,7 +736,7 @@ This task will guide you through creating a personal portfolio/static site using
 **Steps:**
 1. On GitHub, edit a file (e.g., `README.md`) and commit the change.  
    - Screenshot as `Q1_remote_edit.png`
-2. On your local machine, edit the same file differently and commit.  
+2. On your local machine, edit the same file differently (Avoid Conflict) and commit.  
    - Screenshot as `Q1_local_edit.png`
 3. Try to push your local commit and observe the error.  
    - Screenshot as `Q1_push_error.png`
@@ -794,7 +794,9 @@ This task will guide you through creating a personal portfolio/static site using
    - Screenshot as `Q4_commit_history.png`
 4. Perform a soft reset (`git reset --soft HEAD~1`) and observe your file and history.  
    - Screenshot as `Q4_soft_reset.png`
-5. Perform a hard reset (`git reset --hard HEAD~1`) and observe the changes.  
+5. Make commit again.
+   - Screenshot as `Q4_third_commit.png`
+6. Perform a hard reset (`git reset --hard HEAD~1`) and observe the changes.  
    - Screenshot as `Q4_hard_reset.png`
 
 ---
