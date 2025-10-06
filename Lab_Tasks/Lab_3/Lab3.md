@@ -40,6 +40,7 @@ By the end of this lab, you will be able to:
 - [Task 7: Amending the Last Commit](#task-7--amending-the-last-commit)
 - [Task 8: Reverting a Commit (Safe Undo on Remote Branch)](#task-8--reverting-a-commit-safe-undo-on-remote-branch)
 - [Task 9: Force Push (With Caution)](#task-9--force-push-with-caution)
+- [Task 10: Running Gitea in GitHub Codespaces via Docker Compose](#task-10--running-gitea-in-github-codespaces-via-docker-compose)
 - [Hands-On Practical Exam Questions](#hands-on-practical-exam-questions)
 - [Summary](#summary)
 - [Submission](#submission)
@@ -607,6 +608,65 @@ This task demonstrates the difference between a soft and hard reset in Git. In t
 - Force push (`git push --force`) rewrites remote branch history, overwriting changes.
 - Only use on non-shared branches to avoid disrupting collaborators.
 - Always double-check before force-pushing.
+
+---
+
+## Task 10 – Running Gitea in GitHub Codespaces via Docker Compose
+
+This task will guide you through forking a repository, running a full web application in a GitHub Codespace, and interacting with Gitea (a self-hosted Git service) inside Codespaces.
+
+### Steps
+
+1. **Fork the Gitea Repository**
+   - Go to [WaqasSaleem97/Gitea](https://github.com/WaqasSaleem97/Gitea).
+   - Click the **Fork** button at the top right and fork it into your own GitHub account.
+   - Save a screenshot of your forked repository page as `forked_gitea.png`.
+
+2. **Open the Forked Repo in GitHub Codespaces**
+   - On your forked repo, click **Code** > **Codespaces** > **Create codespace on main**.
+   - Save a screenshot of the Codespace loading as `codespace_loading.png`.
+
+3. **Start Gitea with Docker Compose**
+   - In the Codespace terminal, run:
+     ```bash
+     docker compose up
+     ```
+   - Wait for the containers to start.
+   - Save a screenshot of the terminal showing the containers running as `docker_up.png`.
+
+4. **Access Gitea Web Interface**
+   - In Codespaces, forward **port 3000** (see Codespaces port forwarding UI).
+   - Click the forwarded port 3000 link to open Gitea in your browser tab.
+   - Save a screenshot of the Gitea install page as `gitea_install_page.png`.
+
+5. **Install Gitea**
+   - Fill out the installation form, providing an **admin username** and **password** (e.g., `admin` / `yourpassword`).
+   - Save a screenshot of the completed setup (show the admin account setup) as `admin_setup.png`.
+
+6. **Log In to Gitea**
+   - Use your admin credentials to log in.
+   - Save a screenshot of the Gitea dashboard after login as `gitea_dashboard.png`.
+
+7. **Create a New Repository in Gitea**
+   - Click **New Repository** or **+** > **New Repository** in Gitea.
+   - Fill out the repository details and create it.
+   - Save a screenshot of the new repository page as `gitea_new_repo.png`.
+
+📸 **Screenshot Required:**  
+- `forked_gitea.png`  
+- `codespace_loading.png`  
+- `docker_up.png`  
+- `gitea_install_page.png`  
+- `admin_setup.png`  
+- `gitea_dashboard.png`  
+- `gitea_new_repo.png`
+
+---
+
+**Summary:**  
+- You forked a repo and ran a real-world application using Docker Compose in Codespaces.
+- You installed and configured a self-hosted Git service (Gitea) from scratch.
+- You practiced using both GitHub and Gitea to create and manage repositories.
 
 ---
 
