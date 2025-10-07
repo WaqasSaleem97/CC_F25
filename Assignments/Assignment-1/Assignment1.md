@@ -105,4 +105,4 @@
 ---
 
 **Note:**  
-You are encouraged to explore official documentation for each tool/platform. Use HTTPS for all repository operations.  
+You are encouraged to explore official documentation for each tool/platform.
