@@ -88,7 +88,7 @@ This task demonstrates what happens when your local repository and remote reposi
 
 4. To fix this, pull the latest changes from remote:
    ```bash
-   git pull origin main
+   git pull --no-rebase origin main
    ```
    - Git will **merge** your local and remote commits, creating a *merge commit*.
    - Save a screenshot as `merge_commit.png`.
