@@ -825,7 +825,7 @@ Take a screenshot after every step and name it as shown above. Include all scree
 In this lab, you practiced a broad range of advanced Git commands and real-world development workflows used in cloud computing, DevOps, and modern software engineering:
 
 - **Conflict Resolution:**  
-  - Handled situations where both local and remote repositories have new commits using `git pull` and `git pull --rebase`.
+  - Handled situations where both local and remote repositories have new commits using `git pull --no-rebase` and `git pull --rebase`.
   - Learned the differences between merge and rebase strategies for integrating changes.
 
 - **Manual Merge Conflict Handling:**  
