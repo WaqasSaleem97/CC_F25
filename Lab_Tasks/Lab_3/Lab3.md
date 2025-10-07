@@ -653,6 +653,7 @@ This task will guide you through forking a repository, running a full web applic
 
 4. **Access Gitea Web Interface**
    - In Codespaces, forward **port 3000** (see Codespaces port forwarding UI).
+   - Change the Visibility of port from private to **public**.
    - Click the forwarded port 3000 link to open Gitea in your browser tab.
    - Save a screenshot of the Gitea install page as `gitea_install_page.png`.
 
