@@ -95,7 +95,7 @@ This task demonstrates what happens when your local repository and remote reposi
 
 5. Push again:
    ```bash
-   git push origin main
+   git push -u origin main
    ```
    - Save a screenshot as `push_after_merge.png`.
 
@@ -108,6 +108,11 @@ This task demonstrates what happens when your local repository and remote reposi
      ```
      - Git will **replay your local commits on top** of the pulled commits, keeping history linear.
      - Save a screenshot as `rebase_pull.png`.
+   - Push again:
+     ```bash
+     git push -u origin main
+     ```
+     - Save a screenshot as `push_after_rebase.png`. 
 
 📸 **Screenshot Required:**  
 - `remote_edit.png`  
@@ -116,11 +121,12 @@ This task demonstrates what happens when your local repository and remote reposi
 - `merge_commit.png`  
 - `push_after_merge.png`  
 - `rebase_pull.png`
+- `push_after_rebase.png`
 
 ---
 
 **Summary:**  
-- `git pull` merges remote changes with your local commits, possibly creating a merge commit.
+- `git pull --no-rebase` merges remote changes with your local commits, possibly creating a merge commit.
 - `git pull --rebase` keeps commit history linear by replaying your local commits on top of the updated remote branch.
 - Both are ways to resolve push conflicts when your local repo is behind the remote.
 
@@ -159,7 +165,7 @@ This task will help you understand how Git handles file conflicts when two peopl
 
 4. Try to push:
    ```bash
-   git push origin main
+   git push -u origin main
    ```
    - The push will be **rejected**, since the remote version has conflicting changes.  
    - Save a screenshot of this error as `conflict_push_error.png`.
@@ -191,7 +197,7 @@ This task will help you understand how Git handles file conflicts when two peopl
 
 8. Finally, push your changes:
    ```bash
-   git push origin main
+   git push -u origin main
    ```
    - Save a screenshot as `push_after_resolve.png`.
 
@@ -287,17 +293,20 @@ This task demonstrates how `git stash` allows you to temporarily save uncommitte
 
 ### Steps
 
-1. Open your repository folder in **VS Code**.  
+1. Create a `feature-branch`.  
+   ```bash
+   git checkout -b feature-branch
+   ```
 2. Modify any file (for example, `README.md`) by adding a few test lines.  
+   ```bash
+   git add README.md
+   git commit -m "Changes the README.md file"
+   ```   
    - Save a screenshot as `modified_readme.png`.
-
-3. Without committing or stashing the changes, try to switch to another branch:
+3. Modify any file (for example, `README.md`) by adding a few new lines.
+4. Without committing or stashing the changes, try to switch to another branch:
    ```bash
    git checkout main
-   ```
-   or
-   ```bash
-   git checkout -b new-feature
    ```
    You’ll see an error message similar to:
    ```
@@ -307,25 +316,25 @@ This task demonstrates how `git stash` allows you to temporarily save uncommitte
    ```
    - Save a screenshot as `checkout_error.png`.
 
-4. To fix this, **stash your changes**:
+5. To fix this, **stash your changes**:
    ```bash
    git stash
    ```
    - Save a screenshot as `stash_command.png`.
 
-5. Try switching branches again — it should now work:
+6. Try switching branches again — it should now work:
    ```bash
    git checkout main
    ```
    - Save a screenshot as `branch_switched.png`.
 
-6. Return to your previous branch (for example, `feature-branch`):
+7. Return to your previous branch (for example, `feature-branch`):
    ```bash
    git checkout feature-branch
    ```
    - Save a screenshot as `back_to_feature.png`.
 
-7. Check your working directory status:
+8. Check your working directory status:
    ```bash
    git status
    ```
@@ -335,7 +344,7 @@ This task demonstrates how `git stash` allows you to temporarily save uncommitte
    ```
    - Save a screenshot as `status_clean.png`.
 
-8. Now restore your stashed changes:
+9. Now restore your stashed changes:
    ```bash
    git stash pop
    ```
@@ -348,7 +357,7 @@ This task demonstrates how `git stash` allows you to temporarily save uncommitte
    ```
    - Save a screenshot as `stash_pop.png`.
 
-9. Confirm that your previous edits are back in the file.
+10. Confirm that your previous edits are back in the file.
 
 📸 **Screenshot Required:**  
 `modified_readme.png`, `checkout_error.png`, `stash_command.png`, `branch_switched.png`,  
@@ -594,14 +603,21 @@ This task demonstrates the difference between a soft and hard reset in Git. In t
    ```
    - Save a screenshot as `hard_reset_force.png`.
 
-5. Now force-push to remote:
+5. Push again
+   ```bash
+   git push origin test-force
+   ```
+   - Rejected by remote repository
+   - Save a screenshot as `normal_push.png`.
+
+6. Now force-push to remote:
    ```bash
    git push origin test-force --force
    ```
    - Save a screenshot as `force_push.png`.
 
 📸 **Screenshot Required:**  
-`new_branch.png`, `force_commit.png`, `push_force_branch.png`, `hard_reset_force.png`, `force_push.png`
+`new_branch.png`, `force_commit.png`, `push_force_branch.png`, `hard_reset_force.png`, `normal_push.png`, `force_push.png`
 
 ---
 
