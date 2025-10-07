@@ -42,7 +42,7 @@ By the end of this lab, you will be able to:
 - [Task 9: Force Push (With Caution)](#task-9--force-push-with-caution)
 - [Task 10: Running Gitea in GitHub Codespaces via Docker Compose](#task-10--running-gitea-in-github-codespaces-via-docker-compose)
 - [Task 11: Creating a GitHub Pages Portfolio Site](#task-11--creating-a-github-pages-portfolio-site)
-- [Hands-On Practical Exam Questions](#hands-on-practical-exam-questions)
+- [Exam Evaluation Questions](#exam-evaluation-questions)
 - [Summary](#summary)
 - [Submission](#submission)
 
@@ -744,7 +744,7 @@ This task will guide you through creating a personal portfolio/static site using
 ---
 
 
-## Hands-On Practical Exam Questions
+## Exam Evaluation Questions
 
 
 ### 1. Local vs Remote Conflict Resolution
@@ -784,7 +784,7 @@ This task will guide you through creating a personal portfolio/static site using
 ### 3. Managing Ignored and Tracked Files
 
 **Steps:**
-1. Create a new folder (e.g., `textfiles`) and add several files inside.  
+1. Create a new folder (e.g., `DocFiles`) and add several files inside.  
    - Screenshot as `Q3_folder_created.png`
 2. Commit and push the folder/files to GitHub.  
    - Screenshot as `Q3_files_pushed.png`
