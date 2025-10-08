@@ -202,9 +202,14 @@ This task will help you understand how Git handles file conflicts when two peopl
    - Save a screenshot as `push_after_resolve.png`.
 
 📸 **Screenshot Required:**  
-`remote_conflict_edit.png`, `local_conflict_edit.png`, `local_conflict_commit.png`,  
-`conflict_push_error.png`, `conflict_message.png`, `resolved_readme.png`,  
-`rebase_continue.png`, `push_after_resolve.png`
+- `remote_conflict_edit.png`
+- `local_conflict_edit.png`
+- `local_conflict_commit.png`
+- `conflict_push_error.png`
+- `conflict_message.png`
+- `resolved_readme.png`
+- `rebase_continue.png`
+- `push_after_resolve.png`
 
 ---
 
@@ -275,8 +280,11 @@ In this task, you will learn how to use a `.gitignore` file to exclude files or 
    - Save a screenshot as `repo_textfiles_removed.png`.
 
 📸 **Screenshot Required:**  
-`push_textfiles.png`, `gitignore_push.png`, `repo_still_has_textfiles.png`,  
-`rm_cached_push.png`, `repo_textfiles_removed.png`
+- `push_textfiles.png`
+- `gitignore_push.png`
+- `repo_still_has_textfiles.png`
+- `rm_cached_push.png`
+- `repo_textfiles_removed.png`
 
 ---
 
@@ -360,8 +368,13 @@ This task demonstrates how `git stash` allows you to temporarily save uncommitte
 10. Confirm that your previous edits are back in the file.
 
 📸 **Screenshot Required:**  
-`modified_readme.png`, `checkout_error.png`, `stash_command.png`, `branch_switched.png`,  
-`back_to_feature.png`, `status_clean.png`, `stash_pop.png`
+- `modified_readme.png`
+- `checkout_error.png`
+- `stash_command.png`
+- `branch_switched.png`
+- `back_to_feature.png`
+- `status_clean.png`
+- `stash_pop.png`
 
 ---
 
@@ -394,7 +407,9 @@ This task demonstrates how `git stash` allows you to temporarily save uncommitte
    - Save a screenshot as `back_to_main.png`.
 
 📸 **Screenshot Required:**  
-`log_before_checkout.png`, `detached_head.png`, `back_to_main.png`
+- `log_before_checkout.png`
+- `detached_head.png`
+- `back_to_main.png`
 
 ---
 
@@ -531,7 +546,8 @@ This task demonstrates the difference between a soft and hard reset in Git. In t
    - Save a screenshot as `amend_commit.png`.
 
 📸 **Screenshot Required:**  
-`first_amend_commit.png`, `amend_commit.png`
+- `first_amend_commit.png`
+- `amend_commit.png`
 
 ---
 
@@ -567,7 +583,9 @@ This task demonstrates the difference between a soft and hard reset in Git. In t
    - Save a screenshot as `revert_push.png`.
 
 📸 **Screenshot Required:**  
-`commit_temp_file.png`, `revert_commit.png`, `revert_push.png`
+- `commit_temp_file.png`
+- `revert_commit.png`
+- `revert_push.png`
 
 ---
 
@@ -617,7 +635,12 @@ This task demonstrates the difference between a soft and hard reset in Git. In t
    - Save a screenshot as `force_push.png`.
 
 📸 **Screenshot Required:**  
-`new_branch.png`, `force_commit.png`, `push_force_branch.png`, `hard_reset_force.png`, `normal_push.png`, `force_push.png`
+- `new_branch.png`
+- `force_commit.png`
+- `push_force_branch.png`
+- `hard_reset_force.png`
+- `normal_push.png`
+- `force_push.png`
 
 ---
 
