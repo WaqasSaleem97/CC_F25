@@ -669,7 +669,7 @@ This task will guide you through forking a repository, running a full web applic
 3. **Start Gitea with Docker Compose**
    - In the Codespace terminal, run:
      ```bash
-     docker compose up
+     docker compose up -d
      ```
    - Wait for the containers to start.
    - Save a screenshot of the terminal showing the containers running as `docker_up.png`.
