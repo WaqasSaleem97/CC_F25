@@ -32,8 +32,8 @@ By the end of this lab you will be able to:
 
 - [Task 1: Verify VM resources in VMware](#task-1--verify-vm-resources-in-vmware)  
 - [Task 2: Start VM and log in (use your preferred host terminal method only)](#task-2--start-vm-and-log-in-use-your-preferred-host-terminal-method-only)  
-- [Task 3: Filesystem exploration — root tree and dotfiles](#task-3--filesystem-exploration---root-tree-and-dotfiles)  
-- [Task 4: Essential CLI tasks — navigation and file operations](#task-4--essential-cli-tasks---navigation-and-file-operations)  
+- [Task 3: Filesystem exploration — root tree and dotfiles](#task-3--filesystem-exploration--root-tree-and-dotfiles)  
+- [Task 4: Essential CLI tasks — navigation and file operations](#task-4--essential-cli-tasks--navigation-and-file-operations)    
 - [Task 5: System info, resources & processes](#task-5--system-info-resources--processes)  
 - [Task 6: Users and account verification (no sudo group change)](#task-6--users-and-account-verification-no-sudo-group-change)  
 - [Bonus Task 7: Create a small demo script using an editor and run it (optional)](#bonus-task-7--create-a-small-demo-script-using-an-editor-and-run-it-optional)  
