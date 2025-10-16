@@ -36,7 +36,7 @@ By the end of this lab you will be able to:
 - [Task 4: Essential CLI tasks — navigation and file operations](#task-4--essential-cli-tasks--navigation-and-file-operations)    
 - [Task 5: System info, resources & processes](#task-5--system-info-resources--processes)  
 - [Task 6: Users and account verification (no sudo group change)](#task-6--users-and-account-verification-no-sudo-group-change)  
-- [Bonus Task 7: Create a small demo script using an editor and run it (optional)](#bonus-task-7--create-a-small-demo-script-using-an-editor-and-run-it-optional)  
+- [Bonus Task 7: Create a small demo script using an editor and run it (optional)](#bonus-task-7--create-a-small-demo-script-using-an-editor-and-run-it)  
 - [Exam Evaluation Questions](#exam-evaluation-questions)  
 - [Summary](#summary)  
 - [Submission](#submission)
@@ -326,12 +326,12 @@ df -h
 ```
 - Save screenshot as `diskinfo.png`.
 
-5. Block devices:
+5. Os Release:
 
 ```bash
-lsblk
+cat /etc/os-release
 ```
-- Save screenshot as `lsblk.png`.
+- Save screenshot as `os-release.png`.
 
 6. Processes (show top lines of ps output):
 
@@ -345,7 +345,7 @@ ps aux
 - `cpuinfo.png`  
 - `meminfo.png`  
 - `diskinfo.png`  
-- `lsblk.png`  
+- `os-release.png`  
 - `processes.png`
 
 ---
@@ -376,12 +376,12 @@ su - lab4user
 ```
 - Save screenshot as `su_lab4user.png`.
 
-4. (Optional) From the new user you may attempt a sudo command to show that sudo is not available for this account (expected failure), e.g.:
+4. From the new user you may attempt a sudo command to show that sudo is not available for this account (expected failure), e.g.:
 
 ```bash
 sudo whoami
 ```
-- If attempted, capture the terminal output (expected: "lab4user is not in the sudoers file" or similar) and save screenshot as `sudo_whoami.png`.
+- Save screenshot as `sudo_whoami.png`.
 
 5. Return to the original user:
 
@@ -401,13 +401,13 @@ sudo deluser --remove-home lab4user
 - `adduser_lab4user.png`  
 - `lab4user_passwd.png`  
 - `su_lab4user.png`  
-- `sudo_whoami.png` (optional — only if you attempted the sudo command and want to show the expected failure)  
+- `sudo_whoami.png` (You attempted the sudo command and want to show the expected failure)  
 - `exit_back.png`  
 - (optional) `deluser.png`
 
 ---
 
-## Bonus Task 7 – Create a small demo script using an editor and run it (optional)
+## Bonus Task 7 – Create a small demo script using an editor and run it
 
 This task is optional — complete it for extra practice or extra credit. It is not required for passing the core lab tasks.
 
