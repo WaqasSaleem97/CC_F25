@@ -890,3 +890,4 @@ You now have hands-on experience with advanced Git commands, conflict resolution
   - Step outputs or terminal screenshots for each task  
   - Your answers to the hands-on practical exam questions  
   - Your GitHub repository link showing relevant commits
+---
