@@ -460,78 +460,102 @@ sudo ~/lab4/workspace/run-demo.sh
 
 ## Exam Evaluation Questions
 
-Answer these short tasks and include screenshots as proof. For written answers, use your editor and capture them as `answers_md.png` (a screenshot). Do NOT submit a `.txt` or `.md` file — only screenshots are accepted as proof.
+### 1. Remote Access Verification (Cyber Login Check)
 
-### Q1. VM verification
-- Deliverable screenshot: `vm_settings.png`.  
-- In your editor write one sentence explaining why you chose the VM's network mode (NAT / Bridged / Host-only), capture it as `answers_md.png`.
+**Scenario:**  
+You are part of a SOC (Security Operations Center) investigating unauthorized access to a Linux server hosted on VMware. Prove you can securely connect and verify your identity.
 
-### Q2. Filesystem knowledge
-- Deliverable screenshots: `ls_root.png`, `ls_etc.png`, `home_ls.png`.  
-- In your editor write a one-line answer: where are system configuration files stored? Capture it as `answers_md.png` (same screenshot may include multiple answers).
-
-### Q3. CLI basics
-- Deliverable screenshots: `workspace_ls.png`, `history.png`.  
-- In your editor write one-line answer: how do you recursively copy a directory on Linux? Capture it as `answers_md.png`.
-
-### Q4. System info
-- Deliverable screenshots: `cpuinfo.png`, `meminfo.png`.  
-- In your editor write one-line answer: how much memory does your VM have? (report the number shown by `free -h`) and capture as `answers_md.png`.
-
-### Q5. Users & privileges
-- Deliverable screenshots: `lab4user_passwd.png`, `su_lab4user.png`.  
-- If you attempted the sudo test, include `sudo_whoami.png` showing the expected failure (optional).  
-- In your editor write one-line answer: why should you avoid running commands as root unless necessary? Capture it as `answers_md.png`.
-
-📸 Screenshot Required (Summary of all required screenshots)
-- `vm_settings.png`  
-- `vm_login.png` (optional)  
-- `whoami_pwd.png`  
-- `ls_root.png`  
-- `os_release.png`  
-- `ls_bin.png`  
-- `ls_sbin.png`  
-- `ls_usr.png`  
-- `ls_opt.png`  
-- `ls_etc.png`  
-- `ls_dev.png`  
-- `ls_var.png`  
-- `ls_tmp.png`  
-- `home_ls.png`  
-- `answers_md.png`  
-- `mkdir_workspace.png`  
-- `cd_workspace.png`  
-- `pwd_workspace.png`  
-- `nano_readme.png`  
-- `nano_main.png`  
-- `nano_env.png`  
-- `workspace_ls.png`  
-- `cp_readme.png`  
-- `mv_readme.png`  
-- `rm_readme.png`  
-- `mkdir_java_app.png`  
-- `cp_recursive.png`  
-- `copy_verify.png`  
-- `history.png`  
-- `tab_completion.png`  
-- `uname.png`  
-- `cpuinfo.png`  
-- `meminfo.png`  
-- `diskinfo.png`  
-- `lsblk.png`  
-- `processes.png`  
-- `adduser_lab4user.png`  
-- `lab4user_passwd.png`  
-- `su_lab4user.png`  
-- `sudo_whoami.png` (optional)  
-- `exit_back.png`  
-- (Optional / Bonus) `nano_run_demo.png`  
-- (Optional / Bonus) `chmod_run_demo.png`  
-- (Optional / Bonus) `run_demo_output.png`  
-- (Optional / Bonus) `run_demo_output_sudo.png`  
-- (Optional cleanup) `deluser.png`
+**Steps:**
+1. Connect to the Ubuntu VM remotely from your host terminal.  
+   - Screenshot as `Q1_remote_connection.png`
+2. Verify your current user and home directory path.  
+   - Screenshot as `Q1_user_verification.png`
+3. Confirm you are connected to the correct host machine.  
+   - Screenshot as `Q1_host_confirmation.png`
 
 ---
+
+### 2. Filesystem Inspection for Forensic Evidence
+
+**Scenario:**  
+The incident response team suspects malicious files in system directories. You must explore the filesystem to locate and document the system’s structure.
+
+**Steps:**
+1. Display the contents of the root directory.  
+   - Screenshot as `Q2_root_listing.png`
+2. Display the OS version and release information.  
+   - Screenshot as `Q2_os_version.png`
+3. Explore and record directory listings for `/bin`, `/sbin`, `/usr`, `/opt`, `/etc`, `/dev`, `/var`, and `/tmp`.  
+   - Screenshot as `Q2_directory_evidence.png`
+4. Display all hidden files in your home directory.  
+   - Screenshot as `Q2_hidden_files.png`
+5. Create a markdown file summarizing your findings on key binary directories.  
+   - Screenshot as `Q2_report_file.png`
+
+---
+
+### 3. Evidence Handling & File Operations
+
+**Scenario:**  
+You are creating a sandbox environment to safely analyze and handle suspicious files collected from a compromised system.
+
+**Steps:**
+1. Create a structured folder hierarchy under your home directory for analysis.  
+   - Screenshot as `Q3_workspace_created.png`
+2. Create three text files, including one hidden file, in your workspace.  
+   - Screenshot as `Q3_files_created.png`
+3. Create a backup copy of one file, rename it, and then delete it after verification.  
+   - Screenshot as `Q3_backup_handling.png`
+4. Copy the entire workspace as an evidence backup folder.  
+   - Screenshot as `Q3_workspace_backup.png`
+5. Display your command history to document all actions performed.  
+   - Screenshot as `Q3_command_history.png`
+6. Demonstrate Linux auto-completion by typing a partial command or filename.  
+   - Screenshot as `Q3_autocomplete.png`
+
+---
+
+### 4. System Profiling and Process Monitoring
+
+**Scenario:**  
+You are investigating a potential malware infection that is consuming excessive resources on the Linux VM.
+
+**Steps:**
+1. Display the system’s OS and kernel version for the investigation report.  
+   - Screenshot as `Q4_system_info.png`
+2. Display CPU, memory, and disk usage information.  
+   - Screenshot as `Q4_resource_info.png`
+3. Display all active running processes to identify suspicious activity.  
+   - Screenshot as `Q4_process_list.png`
+
+---
+
+### 5. User Account Audit & Privilege Escalation Simulation
+
+**Scenario:**  
+You are performing a **user activity audit** on a compromised Linux server.  
+The SOC suspects a newly created account (`lab4user`) may have been used for unauthorized access.  
+Your task is to simulate the account creation, perform privilege tests, and analyze authentication logs for forensic evidence.
+
+**Steps:**
+1. Create a new test user named `lab4user`.  
+   - Screenshot as `Q5_user_created.png`
+2. Verify that the new user record exists in the system’s user database.  
+   - Screenshot as `Q5_user_verified.png`
+3. Log in as `lab4user` and confirm successful login.  
+   - Screenshot as `Q5_user_login.png`
+4. Attempt to run an administrative command as `lab4user` (expect permission denied).  
+   - Screenshot as `Q5_permission_denied.png`
+5. Switch back to your main analyst account.  
+   - Screenshot as `Q5_switch_back.png`
+6. Inspect the system authentication logs located at `/var/log/auth.log` to determine whether the `lab4user` account attempted any logins (successful or failed).  
+   - Screenshot as `Q5_authlog_analysis.png`
+7. (Optional) Remove the `lab4user` account after the audit and verify deletion.  
+   - Screenshot as `Q5_user_removed.png`
+---
+
+**Reminder:**  
+Take a screenshot after every step and name it as shown above. Include all screenshots in your submission for full credit.
 
 ## Summary
 
@@ -543,19 +567,14 @@ In this lab you:
 - (Optional) Wrote and executed a simple demo script using an editor.
 
 ---
-
 ## Submission
-
-- Create a ZIP or push a Git repository named `CC_<student_Name>_<student_roll_number>` containing:
-  - `Lab4.md` (this file)  
-  - `vm_plan.md` — one paragraph describing VM resources and networking choice (use Markdown file, not .txt)  
+- Upload a **Word file and PDF or .md file** containing:
+  - Step outputs or terminal screenshots for each task  
+  - Your answers to the hands-on practical exam questions
   - `workspace/` — folder containing files you created in the workspace:
     - `README.md`, `main.py`, `.env` (required)
     - `run-demo.sh` (optional / bonus)
-  - `screenshots/` — folder containing all required screenshots listed above (preferred), including `answers_md.png`  
-  - Optional: export notes or snapshot if your instructor requests it
-
-- ZIP the repository (or push to GitHub) and submit link or ZIP file per instructor guidelines. Include PDF or Markdown versions of your answers if required by instructor.
+  - `screenshots/` — folder containing all required screenshots listed above (preferred), including `answers_md.png`
 
 ---
 
@@ -567,20 +586,8 @@ In this lab you:
 - [ ] Collected system info screenshots (`cpuinfo.png`, `meminfo.png`, `diskinfo.png`, `lsblk.png`, `uname.png`)  
 - [ ] Created `lab4user` and verified account (`lab4user_passwd.png`, `su_lab4user.png`)  
 - [ ] Captured written answers as `answers_md.png`  
-- [ ] (Optional) Created and ran `run-demo.sh` and captured output (`run_demo_output.png`)  
-- [ ] Packaged and pushed repository `CC_<student_Name>_<student_roll_number>`
+- [ ] (Optional) Created and ran `run-demo.sh` and captured output (`run_demo_output.png`)
+- [ ] Successfully completed the Exam Evaluation Questions with screenshots.
+- [ ] Pushed repository `CC_<student_Name>_<student_roll_number>`
 
 ---
-
-**Notes & Tips**
-- Use screenshots to capture command outputs and written answers since we are not using redirection or pipes in this course.  
-- Save your short written answers in an editor (e.g., nano) and capture them as `answers_md.png`. Do not submit the `.md` file—submit the screenshot only.  
-- If you need to copy terminal output into a file, open an editor (nano/vim), paste the text, and save the file. Do not use `>` redirection for this course.  
-- Take snapshots before risky changes in VMware Workstation.
-
----
-
-## Submission (format)
-- ZIP the repository (or push to GitHub) and submit link or ZIP file per instructor guidelines. Include both PDF and Markdown or a Word export of your answers if required.
-
-Good luck — when you finish, provide your repository link here and I will run a quick checklist to verify required files exist.
