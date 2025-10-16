@@ -36,7 +36,7 @@ By the end of this lab you will be able to:
 - [Task 4: Essential CLI tasks — navigation and file operations](#task-4--essential-cli-tasks--navigation-and-file-operations)    
 - [Task 5: System info, resources & processes](#task-5--system-info-resources--processes)  
 - [Task 6: Users and account verification (no sudo group change)](#task-6--users-and-account-verification-no-sudo-group-change)  
-- [Bonus Task 7: Create a small demo script using an editor and run it (optional)](#bonus-task-7--create-a-small-demo-script-using-an-editor-and-run-it)  
+- [Bonus Task 7: Create a small demo script using an editor and run it](#bonus-task-7--create-a-small-demo-script-using-an-editor-and-run-it)  
 - [Exam Evaluation Questions](#exam-evaluation-questions)  
 - [Summary](#summary)  
 - [Submission](#submission)
