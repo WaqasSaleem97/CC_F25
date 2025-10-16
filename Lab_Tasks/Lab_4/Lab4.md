@@ -1,4 +1,4 @@
-# 🧪 Lab 4 – Virtualization & Linux Fundamentals (using existing Ubuntu Server VM)
+# 🧪 Lab 4 – Virtualization & Linux Fundamentals
 
 **Estimated Duration:** 3 hours  
 **Instructions:** Complete all practical tasks in a repository named `Lab4`. When finished, push your work to a repository named `CC_<student_Name>_<student_roll_number>`.
