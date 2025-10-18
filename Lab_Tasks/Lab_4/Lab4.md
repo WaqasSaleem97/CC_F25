@@ -99,15 +99,7 @@ ls -la /
 
 - Save screenshot as: `ls_root.png`
 
-2. View OS release information:
-
-```bash
-cat /etc/os-release
-```
-
-- Save screenshot as: `os_release.png`
-
-3. Inspect these directories (run each command and screenshot the output):
+2. Inspect these directories (run each command and screenshot the output):
 
 ```bash
 ls -la /bin
@@ -149,7 +141,7 @@ ls -la /tmp
 ```
 - Save screenshot as `ls_tmp.png`.
 
-4. List your home directory and show hidden (dot) files:
+3. List your home directory and show hidden (dot) files:
 
 ```bash
 ls -la ~
@@ -157,7 +149,7 @@ ls -la ~
 
 - Save screenshot as: `home_ls.png`
 
-5. Write a short paragraph (3–5 sentences) that explains the difference between `/bin`, `/usr/bin` and `/usr/local/bin`. Open your editor:
+4. Write a short paragraph (3–5 sentences) that explains the difference between `/bin`, `/usr/bin` and `/usr/local/bin`. Open your editor:
 
 ```bash
 nano ~/answers.md
@@ -170,7 +162,6 @@ nano ~/answers.md
 
 📸 Screenshot Required:
 - `ls_root.png`  
-- `os_release.png`  
 - `ls_bin.png`  
 - `ls_sbin.png`  
 - `ls_usr.png`  
@@ -326,7 +317,7 @@ df -h
 ```
 - Save screenshot as `diskinfo.png`.
 
-5. Os Release:
+5. View OS release information:
 
 ```bash
 cat /etc/os-release
