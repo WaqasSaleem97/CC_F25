@@ -29,11 +29,20 @@
    - Create a new repository on your Gitea server.
    - Add a `README.md` file **listing each student's name and roll number**.
 
-3. **Add Remote Repo:**
+3. **Generate a Personal Access Token (PAT) in Gitea**
+   - Click your profile picture → Settings
+   - Go to Applications → Manage Access Tokens
+      - Name: codespace-token
+      - Scopes: ✅ repo
+   - Copy the generated token (you’ll need it once below).
+
+4. **Add Remote Repo:**
    - Use the following command to add your Gitea repository as a remote:
      ```
-     git remote add gitea <your_gitea_repo_https_url>
+     git remote add gitea https://<user_name>:<new_token>@<your_gitea_repo_https_url>
      ```
+     e.g. `git remote add gitea https://Admin:<NEW_TOKEN>@crispy-tribble-wrjwvwjwqpvv25rvg-3000.app.github.dev/Admin/StudentsDemo.git`
+     
    - Push your initial commit containing the `README.md` to Gitea.
 
 ---
