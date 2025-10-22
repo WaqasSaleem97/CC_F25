@@ -43,7 +43,7 @@ By the end of this lab you will be able to:
 
 ## 📋 Task List
 
-- [Task 1: Discover missing command & install Java using apt suggestion](#task-1---discover-missing-command--install-java-using-apt-suggestion)  
+- [Task 1: Discover missing command & install Java using apt suggestion](#task-1--discover-missing-command--install-java-using-apt-suggestion)  
 - [Task 2: Install & remove Java using apt-get (explicitly)](#task-2---install--remove-java-using-apt-get-explicitly)  
 - [Task 3: apt update vs apt upgrade — run & explain](#task-3---apt-update-vs-apt-upgrade---run--explain)  
 - [Task 4: Install Visual Studio Code via snap on CLI and verify (DO NOT remove Code)](#task-4---install-visual-studio-code-via-snap-on-cli-and-verify-do-not-remove-code)  
@@ -60,7 +60,7 @@ By the end of this lab you will be able to:
 
 ---
 
-## Task 1 — Discover missing command & install Java using apt suggestion
+## Task 1 - Discover missing command & install Java using apt suggestion
 
 Goal: Run the `java` command when it's not installed, follow the system suggestion to install a Java package using apt, verify, then remove and clear shell cache.
 
