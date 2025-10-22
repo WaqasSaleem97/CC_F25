@@ -47,7 +47,7 @@ By the end of this lab you will be able to:
 - [Task 2: Install & remove Java using apt-get (explicitly)](#task-2---install--remove-java-using-apt-get-explicitly)
 - [Task 3: apt update vs apt upgrade — run & explain](#task-3---apt-update-vs-apt-upgrade---run--explain)
 - [Task 4: Install Visual Studio Code via snap on CLI and verify (DO NOT remove Code)](#task-4---install-visual-studio-code-via-snap-on-cli-and-verify-do-not-remove-code)
-- [Task 5: Install XFCE GUI + XRDP — minimal desktop and remote access (GUI) and launch VS Code](#task-5---install-xfce-gui---xrdp---minimal-desktop-and-remote-access-gui-and-launch-vs-code)
+- [Task 5: Install XFCE GUI + XRDP — minimal desktop and remote access (GUI) and launch VS Code](#task-5---install-xfce-gui--xrdp---minimal-desktop-and-remote-access-gui-and-launch-vs-code)
 - [Task 6: GUI verification — start GUI, open VS Code, take snapshot, then end (GUI)](#task-6---gui-verification---start-gui-open-vs-code-take-snapshot-then-end-gui)
 - [Task 7: Install Google Chrome by adding its apt source & key (Chrome)](#task-7---install-google-chrome-by-adding-its-apt-source--key-chrome)
 - [Task 8: Install applications via PPA (Audacity & OBS) and launch](#task-8---install-applications-via-ppa-audacity--obs-and-launch)
