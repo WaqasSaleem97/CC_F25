@@ -43,20 +43,21 @@ By the end of this lab you will be able to:
 
 ## 📋 Task List
 
-- [Task 1: Discover missing command & install Java using apt suggestion](#task-1--discover-missing-command--install-java-using-apt-suggestion)  
-- [Task 2: Install & remove Java using apt-get (explicitly)](#task-2---install--remove-java-using-apt-get-explicitly)  
-- [Task 3: apt update vs apt upgrade — run & explain](#task-3---apt-update-vs-apt-upgrade---run--explain)  
-- [Task 4: Install Visual Studio Code via snap on CLI and verify (DO NOT remove Code)](#task-4---install-visual-studio-code-via-snap-on-cli-and-verify-do-not-remove-code)  
-- [Task 5: Install XFCE GUI + XRDP — minimal desktop and remote access (GUI) and launch VS Code](#task-5---install-xfce-gui--xrdp---minimal-desktop-and-remote-access-gui-and-launch-vs-code)  
-- [Task 6: GUI verification — start GUI, open VS Code, take snapshot, then end (GUI)](#task-6---gui-verification---start-gui-open-vs-code-take-snapshot-then-end-gui)  
-- [Task 7: Install Google Chrome by adding its apt source & key (Chrome)](#task-7---install-google-chrome-by-adding-its-apt-source--key-chrome)  
-- [Task 8: Install applications via PPA (Audacity & OBS) and launch](#task-8---install-applications-via-ppa-audacity--obs-and-launch)  
-- [Task 9: Create a Kubernetes sample YAML using vim](#task-9---create-a-kubernetes-sample-yaml-using-vim)  
-- [Task 10: Edit the Kubernetes YAML — add annotation, verify, then discard temporary change](#task-10---edit-the-kubernetes-yaml---add-annotation-verify-then-discard-temporary-change)  
-- [Task 11: Vim editing practice — delete, undo, numeric deletes, navigation](#task-11---vim-editing-practice---delete-undo-numeric-deletes-navigation)  
-- [Task 12: Vim search, add matches, substitute, undo](#task-12---vim-search-add-matches-substitute-undo)  
-- [Task 13: Exam Evaluation Question](#task-13---exam-evaluation-question)  
-- [Submission and Checklist](#submission-and-checklist)
+- [Task 1: Discover missing command & install Java using apt suggestion](#task-1---discover-missing-command--install-java-using-apt-suggestion)
+- [Task 2: Install & remove Java using apt-get (explicitly)](#task-2---install--remove-java-using-apt-get-explicitly)
+- [Task 3: apt update vs apt upgrade — run & explain](#task-3---apt-update-vs-apt-upgrade---run--explain)
+- [Task 4: Install Visual Studio Code via snap on CLI and verify (DO NOT remove Code)](#task-4---install-visual-studio-code-via-snap-on-cli-and-verify-do-not-remove-code)
+- [Task 5: Install XFCE GUI + XRDP — minimal desktop and remote access (GUI) and launch VS Code](#task-5---install-xfce-gui---xrdp---minimal-desktop-and-remote-access-gui-and-launch-vs-code)
+- [Task 6: GUI verification — start GUI, open VS Code, take snapshot, then end (GUI)](#task-6---gui-verification---start-gui-open-vs-code-take-snapshot-then-end-gui)
+- [Task 7: Install Google Chrome by adding its apt source & key (Chrome)](#task-7---install-google-chrome-by-adding-its-apt-source--key-chrome)
+- [Task 8: Install applications via PPA (Audacity & OBS) and launch](#task-8---install-applications-via-ppa-audacity--obs-and-launch)
+- [Task 9: Create a Kubernetes sample YAML using vim](#task-9---create-a-kubernetes-sample-yaml-using-vim)
+- [Task 10: Edit the Kubernetes YAML — add annotation, verify, then discard temporary change](#task-10---edit-the-kubernetes-yaml---add-annotation-verify-then-discard-temporary-change)
+- [Task 11: Vim editing practice — delete, undo, numeric deletes, navigation](#task-11---vim-editing-practice---delete-undo-numeric-deletes-navigation)
+- [Task 12: Vim search, add matches, substitute, undo](#task-12---vim-search-add-matches-substitute-undo)
+- [Task 13: Exam Evaluation Question](#task-13---exam-evaluation-question)
+- [Submission and](#submission)
+- [Checklist (for students)](#checklist-for-students)
 
 ---
 
@@ -129,7 +130,7 @@ Notes:
 
 ---
 
-## Task 2 — Install & remove Java using apt-get (explicitly)
+## Task 2 - Install & remove Java using apt-get (explicitly)
 
 Goal: Repeat install/remove using the apt-get tool to show both package managers.
 
@@ -180,7 +181,7 @@ Notes:
 
 ---
 
-## Task 3 — apt update vs apt upgrade — run & explain
+## Task 3 - apt update vs apt upgrade - run & explain
 
 Goal: Run the commands and document the difference.
 
@@ -223,7 +224,7 @@ Hint (what to mention):
 
 ---
 
-## Task 4 — Install Visual Studio Code via snap on CLI and verify (DO NOT remove Code)
+## Task 4 - Install Visual Studio Code via snap on CLI and verify (DO NOT remove Code)
 
 Goal: Install a snap package (example: VS Code) on a CLI-only server and verify installation using commands that work without a GUI. Keep Code installed for later GUI tasks.
 
@@ -274,7 +275,7 @@ Notes:
 
 ---
 
-## Task 5 — Install XFCE GUI + XRDP — minimal desktop and remote access (GUI) and launch VS Code
+## Task 5 - Install XFCE GUI + XRDP - minimal desktop and remote access (GUI) and launch VS Code
 
 Goal: Install a lightweight GUI (XFCE), enable XRDP for remote desktop access, and learn how to control whether the GUI login screen appears at boot. After starting the GUI, launch the VS Code installed in Task 4 to verify GUI app launch. This task is for this lab.
 
@@ -461,7 +462,7 @@ sudo systemctl stop lightdm   # stop GUI now
 
 ---
 
-## Task 6 — GUI verification — start GUI, open VS Code, take snapshot, then end (GUI)
+## Task 6 - GUI verification - start GUI, open VS Code, take snapshot, then end (GUI)
 
 Goal: Verify the GUI environment by starting the GUI, launching VS Code (installed in Task 4), taking a screenshot of the running VS Code window, closing VS Code, and ending the task. This task is for this lab and the first command is to start the Ubuntu GUI.
 
@@ -493,7 +494,7 @@ code
 
 ---
 
-## Task 7 — Install Google Chrome by adding its apt source & key (Chrome)
+## Task 7 - Install Google Chrome by adding its apt source & key (Chrome)
 
 Goal: Add Google's apt source and signing key so that `sudo apt install google-chrome-stable` succeeds. This task intentionally begins by attempting to install Chrome directly (the install will fail if the repository/key are not yet configured) — capture that failure as evidence, then proceed to add the repository/key and install successfully. Also includes an alternate (preferred) one-line list method.
 
@@ -647,7 +648,7 @@ sudo apt install google-chrome-stable -y
 
 ---
 
-## Task 8 — Install applications via PPA (Audacity & OBS) and launch
+## Task 8 - Install applications via PPA (Audacity & OBS) and launch
 
 Goal: Add PPAs for Audacity and OBS Studio, update apt, install the packages, and launch them (or verify installation) from the CLI/GUI. Capture screenshots for each step.
 
@@ -718,7 +719,7 @@ Notes:
 
 ---
 
-## Task 9 — Create a Kubernetes sample YAML using vim
+## Task 9 - Create a Kubernetes sample YAML using vim
 
 Goal: Confirm vim availability, create a working directory for Lab5, and use vim to create and save a Kubernetes Pod manifest named `k8s-sample.yaml`.
 
@@ -790,7 +791,7 @@ spec:
 
 ---
 
-## Task 10 — Edit the Kubernetes YAML — add annotation, verify, then discard temporary change
+## Task 10 - Edit the Kubernetes YAML - add annotation, verify, then discard temporary change
 
 Goal: Practice vim edits: add a permanent annotation under metadata, verify it, then open the file again, make a temporary edit and discard it (no save). This demonstrates saving and discarding changes in vim.
 
@@ -864,7 +865,7 @@ Notes:
 
 ---
 
-## Task 11 — Vim editing practice — delete, undo, numeric deletes, navigation
+## Task 11 - Vim editing practice - delete, undo, numeric deletes, navigation
 
 Goal: Practice common vim commands: delete a single line with `dd`, undo with `u`, delete multiple lines with a numeric prefix, undo again, and practice basic navigation commands (`1G`, `G`, `$`, `0`). Capture verification screenshots showing the file before/after where appropriate.
 
@@ -949,7 +950,7 @@ Notes:
 
 ---
 
-## Task 12 — Vim search, add matches, substitute, undo
+## Task 12 - Vim search, add matches, substitute, undo
 
 Goal: Practice searching in vim with `/`, navigate matches with `n` and `N`, add additional matches, substitute across the file, undo, and exit without saving. Capture screenshots to show each verification step.
 
@@ -1027,7 +1028,7 @@ Notes:
 
 ---
 
-## Task 13 — Exam Evaluation Question
+## Task 13 - Exam Evaluation Question
 
 Goal: This is an exam-style evaluation prompt. Students are asked to install Docker Desktop as part of the evaluation exercise. No commands, solutions, hints, or step-by-step instructions are provided here — install Docker Desktop using your own knowledge and research.
 
