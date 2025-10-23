@@ -343,9 +343,11 @@ code
 
 - (Optional) From inside VS Code you may open a file or explore the UI — but DO NOT need to create or save files here for Task 5.
 
+- Log out of the Ubuntu server, close the session, and exit the remote desktop program.
+
 9. Fix GUI login screen issues (if lightdm / greeter problems appear)
 
-- Install LightDM and greeter:
+- Install LightDM and greeter using `Host Terminal`:
 
 ```bash
 sudo apt install lightdm lightdm-gtk-greeter -y
