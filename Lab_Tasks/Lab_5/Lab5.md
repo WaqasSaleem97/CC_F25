@@ -55,8 +55,8 @@ By the end of this lab you will be able to:
 - [Task 10: Edit the Kubernetes YAML — add annotation, verify, then discard temporary change](#task-10---edit-the-kubernetes-yaml---add-annotation-verify-then-discard-temporary-change)
 - [Task 11: Vim editing practice — delete, undo, numeric deletes, navigation](#task-11---vim-editing-practice---delete-undo-numeric-deletes-navigation)
 - [Task 12: Vim search, add matches, substitute, undo](#task-12---vim-search-add-matches-substitute-undo)
-- [Task 13: Exam Evaluation Question](#task-13---exam-evaluation-question)
-- [Submission and](#submission)
+- [Exam Evaluation Question](#exam-evaluation-question)
+- [Submission](#submission)
 - [Checklist (for students)](#checklist-for-students)
 
 ---
@@ -281,7 +281,7 @@ Goal: Install a lightweight GUI (XFCE), enable XRDP for remote desktop access, a
 
 > Warning: Installing a GUI on a server consumes additional disk space and memory. Perform on a VM with sufficient resources.
 
-### Steps (inside the VM terminal / via SSH)
+### Steps (inside the host terminal / via SSH)
 
 1. From your host, open your preferred terminal (for example: Windows Command Prompt, PowerShell, macOS Terminal, or Linux Terminal) and connect to the VM using SSH. Example:
 
@@ -357,7 +357,7 @@ code
 
 ## Task 6 - Install lightdm-gtk-greeter and GUI verification - start GUI, open VS Code, take snapshot, then end (GUI)
 
-### Steps (inside the VM terminal / via SSH)
+### Steps (inside the host terminal / via SSH)
 
 1. Fix GUI login screen issues (if lightdm / greeter problems appear)
 
@@ -492,7 +492,7 @@ Goal: Add Google's apt source and signing key so that `sudo apt install google-c
 
 > IMPORTANT: Third-party repositories require trusted signing keys. Only add keys from official vendor URLs. Some systems require /etc/apt/keyrings to exist — create it if missing with sudo mkdir -p /etc/apt/keyrings.
 
-### Steps (inside the VM terminal or GUI terminal)
+### Steps (inside the VM terminal or GUI terminal or host terminal / via SSH)
 
 1. (Learning step — first command must be the install attempt)
 Attempt to install Google Chrome directly to see the failure when the repo/key are missing:
@@ -573,9 +573,9 @@ sudo apt install google-chrome-stable -y
 
 - Save screenshots as: `task7_apt_update.png` and `task7_install_chrome.png`
 
-9. Alternate (preferred, cleaner) method — create a single google-chrome.list entry
+9. Alternate (preferred, cleaner) method — create a single `google-chrome.list` entry
 
-10. (Optional cleanup before alternate method) If you added the chrome stanza earlier and want to switch to the preferred method:
+10. `Cleanup before alternate method` you added the chrome earlier and want to switch to the preferred method:
 
 ```bash
 sudo apt remove google-chrome-stable -y
@@ -704,11 +704,6 @@ obs
 - `task8_install_obs.png`  
 - `task8_obs_launch.png` or `task8_obs_version.png`
 
-Notes:
-- On headless servers the GUI may not open — in that case provide the CLI verification screenshots (which / version output).
-- If add-apt-repository is not available, install software-properties-common first:
-  - `sudo apt install software-properties-common -y` (capture screenshot as `task8_install_software_properties.png`)
-
 ---
 
 ## Task 9 - Create a Kubernetes sample YAML using vim
@@ -717,7 +712,7 @@ Goal: Confirm vim availability, create a working directory for Lab5, and use vim
 
 > NOTE: The first command in Task 9 is to run `vim` to confirm whether vim is installed.
 
-### Steps (inside the VM terminal)
+### Steps (inside the VM terminal or host terminal / via SSH)
 
 1. Check whether vim is installed by running:
 
@@ -766,6 +761,7 @@ spec:
     - containerPort: 80
   restartPolicy: Always
 ```
+- Save a screenshot of the vim editor showing the file contents before saving as `task9_vim_edit.png`
 
 4. Exit insert mode by pressing `Esc`, then save and quit vim with:
 
@@ -773,13 +769,14 @@ spec:
 :wq
 ```
 
-- Save a screenshot of the vim editor showing the file contents before saving or a screenshot of the `ls -la` output showing the file exists as: `task9_vim_edit.png` or `task9_k8s_saved.png`
+- Save a screenshot of the `ls -la` output showing the file exists `task9_k8s_saved.png`
 
 📸 Screenshot Required:
 - `task9_vim_check.png`  
 - `task9_vim_install.png` (only if you installed vim)  
 - `task9_mkdir_cd.png`  
-- `task9_vim_edit.png` or `task9_k8s_saved.png`
+- `task9_vim_edit.png`
+- `task9_k8s_saved.png`
 
 ---
 
@@ -787,7 +784,7 @@ spec:
 
 Goal: Practice vim edits: add a permanent annotation under metadata, verify it, then open the file again, make a temporary edit and discard it (no save). This demonstrates saving and discarding changes in vim.
 
-### Steps (inside the VM terminal / in the ~/Lab5 directory)
+### Steps (inside the VM terminal or host terminal / via SSH)
 
 1. Open the manifest with vim:
 
@@ -832,7 +829,7 @@ vim k8s-sample.yaml
 ```yaml
 # temp: do-not-keep
 ```
-
+- Save a screenshot showing vim editor having temp data as: `task10_verify_entering_temp_data.png`
 - Do NOT save. Press `Esc` to go back to command mode, then force quit without saving:
 
 ```text
@@ -848,7 +845,8 @@ cat k8s-sample.yaml
 - Save a screenshot of the `cat` output proving the temporary comment is not present as: `task10_verify_no_temp_comment.png`
 
 📸 Screenshot Required:
-- `task10_verify_annotation.png`  
+- `task10_verify_annotation.png`
+- `task10_verify_entering_temp_data.png`
 - `task10_verify_no_temp_comment.png`
 
 Notes:
@@ -863,7 +861,7 @@ Goal: Practice common vim commands: delete a single line with `dd`, undo with `u
 
 > NOTE: Perform these steps in the ~/Lab5 directory on the previously created `k8s-sample.yaml`.
 
-### Steps (inside the VM terminal / in the ~/Lab5 directory)
+### Steps (inside the VM terminal or host terminal / via SSH)
 
 1. Open the file with vim:
 
@@ -896,7 +894,7 @@ u
 d3d
 ```
 
-(or `3dd` — either numeric prefix form is acceptable; document which you used)
+(or `3dd` or `d3<enter>` — either numeric prefix form is acceptable; document which you used)
 
 - Immediately undo the deletion with:
 
@@ -914,7 +912,7 @@ u
 1G
 ```
 
-- Note the line contents (capture a screenshot or `sed -n '1p' k8s-sample.yaml` output) saved as: `task11_line1.png`
+- Note the line contents capture a screenshot saved as: `task11_line1.png`
 
 - Jump to the last line:
 
@@ -922,7 +920,7 @@ u
 G
 ```
 
-- On the line containing `containerPort: 80` press `$` to move to end of line, then `0` to move back to the start of the line. Capture a brief terminal screenshot showing you on the line and the commands (or capture `sed -n '$p' k8s-sample.yaml` and the shell prompt commands) as: `task11_navigation.png`
+- On the line containing `containerPort: 80` press `$` to move to end of line, then `0` to move back to the start of the line. Capture a brief terminal screenshot showing you on the line and the commands capture the screenshot as: `task11_navigation.png`
 
 5. Exit vim (no changes should remain if you undid properly):
 
@@ -1020,27 +1018,24 @@ Notes:
 
 ---
 
-## Task 13 - Exam Evaluation Question
+## Exam Evaluation Question
 
-Goal: This is an exam-style evaluation prompt. Students are asked to install Docker Desktop as part of the evaluation exercise. No commands, solutions, hints, or step-by-step instructions are provided here — install Docker Desktop using your own knowledge and research.
+Goal: This is an exam-style evaluation prompt. Students are asked to install Docker Desktop as part of the evaluation exercise on VM. No commands, solutions, hints, or step-by-step instructions are provided here — install Docker Desktop using your own knowledge and research.
 
 Instructions for students:
-- Install Docker Desktop on your workstation or VM. No commands or solutions are provided in this lab — treat this as an evaluation/exam question.
+- Install Docker Desktop on your VMWare Workstation `Ubuntu Server`. No commands or solutions are provided in this lab — treat this as an evaluation/exam question.
 - Verify Docker Desktop is installed by launching the Docker Desktop application and confirming it runs.
-- Capture a screenshot of Docker Desktop running (or other clear evidence that Docker Desktop is installed and started) and save it as: `task13_docker_desktop.png`
+- Capture a screenshot of Docker Desktop running (or other clear evidence that Docker Desktop is installed and started) and save it as: `exam_evaluation_docker_desktop.png`
 
 Notes:
 - This task intentionally provides no commands, package names, or step-by-step instructions. You must research and determine the correct installation steps for your OS/environment.
-- If your VM environment does not support Docker Desktop (e.g., limited virtualization), document the limitation with a screenshot and a one-line caption in your submission explaining why you could not install Docker Desktop.
 
 📸 Screenshot Required:
-- `task13_docker_desktop.png` (or a screenshot showing why installation could not be completed)
+- `exam_evaluation_docker_desktop.png`
 
 ---
 
 ## Troubleshooting & notes
-- If add-apt-repository is missing when adding a PPA, install software-properties-common:
-  - `sudo apt install software-properties-common -y` (capture screenshot as `task8_install_software_properties.png`)
 - If any apt commands fail due to networking, capture the error output as screenshots and include them in your submission.
 - When working with vim, remember `i` to enter insert mode, `Esc` to return to command mode, `:wq` to save and quit, and `:q!` to quit without saving. For undo use `u`, for redo use `Ctrl-R`, and numeric deletes can be `3dd` or `d3d`. For search use `/pattern`, navigate with `n` and `N`, and substitute with `:%s/pattern/replacement`.
 
