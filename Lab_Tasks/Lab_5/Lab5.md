@@ -1043,34 +1043,18 @@ Notes:
 
 ## Submission
 
-- Create a repository named `CC_<YourName>_<YourRollNumber>` and add the following structure:
-
+- Create a repository named `CC_<YourName>_<YourRollNumber>/Lab5` and add the following structure:
+- Upload a **Word file and PDF or .md file** containing:
+    - Step outputs or terminal screenshots for each task  
+    - Your answers to the hands-on practical exam questions
+- Repository look like 
 ```
 Lab5/
-  workspace/              # any sample files you used (optional for this lab)
-  screenshots/            # include all screenshots listed below
-  Lab5-instructions.md    # this lab file (the one you are reading)
+  workspace/                    # any sample files you used (optional for this lab)
+  screenshots/                  # include all screenshots listed above
+  Word file and PDF or .md file # Student generated file
+  Lab5-instructions.md          # this lab file (the one you are reading)
 ```
-
-- Required screenshots (name them exactly as shown above for each task):
-  - Task 1: task1_java_suggestion.png, task1_java_install.png, task1_java_version.png, task1_java_remove.png, task1_java_not_found.png, task1_hash_clear.png
-  - Task 2: task2_aptget_install.png, task2_java_version_after_aptget.png, task2_aptget_remove.png, task2_hash_after_remove.png
-  - Task 3: task3_apt_update.png, task3_apt_upgrade.png, task3_explanation.png
-  - Task 4: task4_snap_install.png, task4_snap_list.png, task4_code_version_or_info.png, task4_snap_bin_location.png
-  - Task 5 (GUI): task5_update.png, task5_xfce_install.png, task5_xrdp_enable.png, task5_xrdp_status.png, task5_xsession.png, task5_rdp_connect.png, task5_vscode_launch.png, task5_lightdm_install.png, task5_lightdm_config.png, task5_lightdm_cleanup.png, task5_lightdm_restart.png, task5_gui_enable_boot.png, task5_after_reboot_gui.png, task5_gui_disable_boot.png, task5_after_reboot_cli.png, task5_gui_start_stop.png
-  - Task 6 (GUI): task6_gui_start_command.png, task6_vscode_launch.png
-  - Task 7 (Chrome): task7_install_chrome_error.png, task7_ls_etc_apt.png, task7_cat_sources_list.png, task7_ls_sources_list_d.png, task7_cat_ubuntu_sources.png, task7_edit_ubuntu_sources.png, task7_add_key.png, task7_apt_update.png, task7_install_chrome.png, task7_alternate_remove.png, task7_alternate_edit.png, task7_remove_key.png, task7_create_google_chrome_list.png, task7_list_sources_after_create.png, task7_add_key_alt.png, task7_apt_update_alt.png, task7_install_chrome_alt.png
-  - Task 8 (PPA installs): task8_add_ppa_audacity.png, task8_apt_update_audacity.png, task8_install_audacity.png, task8_audacity_launch.png (or task8_audacity_version.png), task8_add_ppa_obs.png, task8_apt_update_obs.png, task8_install_obs.png, task8_obs_launch.png (or task8_obs_version.png)
-  - Task 9 (vim & k8s file): task9_vim_check.png, task9_vim_install.png (if used), task9_mkdir_cd.png, task9_vim_edit.png (or task9_k8s_saved.png)
-  - Task 10 (vim edits): task10_verify_annotation.png, task10_verify_no_temp_comment.png
-  - Task 11 (vim edit practice): task11_dd_delete_and_undo.png, task11_delete3_and_undo.png, task11_line1.png, task11_navigation.png
-  - Task 12 (vim search/substitute): task12_search_nginx.png, task12_n_and_N_navigation.png, task12_added_occurrences.png, task12_cycle_matches.png, task12_substitute_result.png, task12_undo_and_quit.png
-  - Task 13 (Exam Evaluation): task13_docker_desktop.png
-
-- Include a Word/PDF or markdown file that:
-  - Presents the screenshots in order with brief captions (one line each).  
-  - Contains your short explanation from Task 3 as a screenshot (not plain text).  
-  - A small README in `workspace/` if you created any files there.
 
 ---
 
