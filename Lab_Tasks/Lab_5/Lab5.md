@@ -48,7 +48,7 @@ By the end of this lab you will be able to:
 - [Task 3: apt update vs apt upgrade — run & explain](#task-3---apt-update-vs-apt-upgrade---run--explain)
 - [Task 4: Install Visual Studio Code via snap on CLI and verify (DO NOT remove Code)](#task-4---install-visual-studio-code-via-snap-on-cli-and-verify-do-not-remove-code)
 - [Task 5: Install XFCE GUI + XRDP — minimal desktop and remote access (GUI) and launch VS Code](#task-5---install-xfce-gui--xrdp---minimal-desktop-and-remote-access-gui-and-launch-vs-code)
-- [Task 6: GUI verification — start GUI, open VS Code, take snapshot, then end (GUI)](#task-6---gui-verification---start-gui-open-vs-code-take-snapshot-then-end-gui)
+- [Task 6 - Install lightdm-gtk-greeter and GUI verification - start GUI, open VS Code, take snapshot, then end (GUI)](#task-6---install-lightdm-gtk-greeter-and-gui-verification---start-gui-open-vs-code-take-snapshot-then-end-gui)
 - [Task 7: Install Google Chrome by adding its apt source & key (Chrome)](#task-7---install-google-chrome-by-adding-its-apt-source--key-chrome)
 - [Task 8: Install applications via PPA (Audacity & OBS) and launch](#task-8---install-applications-via-ppa-audacity--obs-and-launch)
 - [Task 9: Create a Kubernetes sample YAML using vim](#task-9---create-a-kubernetes-sample-yaml-using-vim)
@@ -354,6 +354,7 @@ code
 - `task5_rdp_connect.png`  
 - `task5_vscode_launch.png`  
 
+
 ## Task 6 - Install lightdm-gtk-greeter and GUI verification - start GUI, open VS Code, take snapshot, then end (GUI)
 
 ### Steps (inside the VM terminal / via SSH)
@@ -459,7 +460,7 @@ sudo systemctl start lightdm
 
 - Save a screenshot immediately after running the command as: `task6_gui_start_command.png`
 
-4. In the GUI session (local console or RDP) launch Visual Studio Code (installed earlier in Task 4). From a GUI terminal inside the desktop, run:
+4. In the GUI session launch Visual Studio Code (installed earlier in Task 4). From a GUI terminal inside the desktop, run:
 
 ```bash
 code
