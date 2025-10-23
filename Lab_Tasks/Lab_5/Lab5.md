@@ -281,9 +281,14 @@ Goal: Install a lightweight GUI (XFCE), enable XRDP for remote desktop access, a
 
 > Warning: Installing a GUI on a server consumes additional disk space and memory. Perform on a VM with sufficient resources.
 
-### Steps (inside VM terminal)
+### Steps (From Host terminal)
 
-1. Update the server (download package lists and apply upgrades):
+1. From your host, open your preferred terminal (for example: Windows Command Prompt, PowerShell, macOS Terminal, or Linux Terminal) and connect to the VM using SSH. Example:
+
+```bash
+ssh student@<vm-ip-address>
+```
+2. Update the server (download package lists and apply upgrades):
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -291,7 +296,7 @@ sudo apt update && sudo apt upgrade -y
 
 - Save screenshot as: `task5_update.png`
 
-2. Install XFCE and XFCE goodies (lightweight desktop):
+3. Install XFCE and XFCE goodies (lightweight desktop):
 
 ```bash
 sudo apt install xfce4 xfce4-goodies -y
@@ -299,7 +304,7 @@ sudo apt install xfce4 xfce4-goodies -y
 
 - Save screenshot as: `task5_xfce_install.png`
 
-3. Install and enable XRDP (Remote Desktop Protocol server):
+4. Install and enable XRDP (Remote Desktop Protocol server):
 
 ```bash
 sudo apt install xrdp -y
@@ -308,7 +313,7 @@ sudo systemctl enable --now xrdp
 
 - Save screenshot as: `task5_xrdp_enable.png`
 
-4. Verify XRDP status:
+5. Verify XRDP status:
 
 ```bash
 sudo systemctl status xrdp
@@ -316,22 +321,13 @@ sudo systemctl status xrdp
 
 - Save screenshot as: `task5_xrdp_status.png`
 
-5. Configure XRDP to use XFCE session:
+6. Configure XRDP to use XFCE session:
 
 ```bash
 echo xfce4-session > ~/.xsession
 ```
 
 - Save screenshot as: `task5_xsession.png`
-
-6. Allow RDP through the firewall (if firewall is in use):
-
-```bash
-sudo ufw allow 3389/tcp
-sudo ufw reload
-```
-
-- Save screenshot as: `task5_ufw.png`
 
 7. From a Windows host or RDP client, connect with Remote Desktop (mstsc) to your server IP and login using your Ubuntu username/password. Capture a screenshot of the remote desktop or the RDP session window (if allowed by your environment) and save it as: `task5_rdp_connect.png`
 
@@ -445,8 +441,7 @@ sudo systemctl stop lightdm   # stop GUI now
 - `task5_xfce_install.png`  
 - `task5_xrdp_enable.png`  
 - `task5_xrdp_status.png`  
-- `task5_xsession.png`  
-- `task5_ufw.png`  
+- `task5_xsession.png`   
 - `task5_rdp_connect.png`  
 - `task5_vscode_launch.png`  
 - `task5_lightdm_install.png`  
@@ -1070,7 +1065,7 @@ Lab5/
   - Task 2: task2_aptget_install.png, task2_java_version_after_aptget.png, task2_aptget_remove.png, task2_hash_after_remove.png
   - Task 3: task3_apt_update.png, task3_apt_upgrade.png, task3_explanation.png
   - Task 4: task4_snap_install.png, task4_snap_list.png, task4_code_version_or_info.png, task4_snap_bin_location.png
-  - Task 5 (GUI): task5_update.png, task5_xfce_install.png, task5_xrdp_enable.png, task5_xrdp_status.png, task5_xsession.png, task5_ufw.png, task5_rdp_connect.png, task5_vscode_launch.png, task5_lightdm_install.png, task5_lightdm_config.png, task5_lightdm_cleanup.png, task5_lightdm_restart.png, task5_gui_enable_boot.png, task5_after_reboot_gui.png, task5_gui_disable_boot.png, task5_after_reboot_cli.png, task5_gui_start_stop.png
+  - Task 5 (GUI): task5_update.png, task5_xfce_install.png, task5_xrdp_enable.png, task5_xrdp_status.png, task5_xsession.png, task5_rdp_connect.png, task5_vscode_launch.png, task5_lightdm_install.png, task5_lightdm_config.png, task5_lightdm_cleanup.png, task5_lightdm_restart.png, task5_gui_enable_boot.png, task5_after_reboot_gui.png, task5_gui_disable_boot.png, task5_after_reboot_cli.png, task5_gui_start_stop.png
   - Task 6 (GUI): task6_gui_start_command.png, task6_vscode_launch.png
   - Task 7 (Chrome): task7_install_chrome_error.png, task7_ls_etc_apt.png, task7_cat_sources_list.png, task7_ls_sources_list_d.png, task7_cat_ubuntu_sources.png, task7_edit_ubuntu_sources.png, task7_add_key.png, task7_apt_update.png, task7_install_chrome.png, task7_alternate_remove.png, task7_alternate_edit.png, task7_remove_key.png, task7_create_google_chrome_list.png, task7_list_sources_after_create.png, task7_add_key_alt.png, task7_apt_update_alt.png, task7_install_chrome_alt.png
   - Task 8 (PPA installs): task8_add_ppa_audacity.png, task8_apt_update_audacity.png, task8_install_audacity.png, task8_audacity_launch.png (or task8_audacity_version.png), task8_add_ppa_obs.png, task8_apt_update_obs.png, task8_install_obs.png, task8_obs_launch.png (or task8_obs_version.png)
