@@ -281,7 +281,7 @@ Goal: Install a lightweight GUI (XFCE), enable XRDP for remote desktop access, a
 
 > Warning: Installing a GUI on a server consumes additional disk space and memory. Perform on a VM with sufficient resources.
 
-### Steps (From Host terminal)
+### Steps (inside the VM terminal / via SSH)
 
 1. From your host, open your preferred terminal (for example: Windows Command Prompt, PowerShell, macOS Terminal, or Linux Terminal) and connect to the VM using SSH. Example:
 
@@ -345,7 +345,20 @@ code
 
 - Log out of the Ubuntu server, close the session, and exit the remote desktop program.
 
-9. Fix GUI login screen issues (if lightdm / greeter problems appear)
+📸 Screenshot Required:
+- `task5_update.png`  
+- `task5_xfce_install.png`  
+- `task5_xrdp_enable.png`  
+- `task5_xrdp_status.png`  
+- `task5_xsession.png`   
+- `task5_rdp_connect.png`  
+- `task5_vscode_launch.png`  
+
+## Task 6 - Install lightdm-gtk-greeter and GUI verification - start GUI, open VS Code, take snapshot, then end (GUI)
+
+### Steps (inside the VM terminal / via SSH)
+
+1. Fix GUI login screen issues (if lightdm / greeter problems appear)
 
 - Install LightDM and greeter using `Host Terminal`:
 
@@ -353,7 +366,7 @@ code
 sudo apt install lightdm lightdm-gtk-greeter -y
 ```
 
-- Save screenshot as: `task5_lightdm_install.png`
+- Save screenshot as: `task6_lightdm_install.png`
 
 - Create LightDM config to use XFCE:
 
@@ -362,7 +375,7 @@ sudo mkdir -p /etc/lightdm/lightdm.conf.d
 echo -e "[Seat:*]\ngreeter-session=lightdm-gtk-greeter\nuser-session=xfce\nautologin-user-timeout=0" | sudo tee /etc/lightdm/lightdm.conf.d/99-xfce.conf
 ```
 
-- Save screenshot as: `task5_lightdm_config.png`
+- Save screenshot as: `task6_lightdm_config.png`
 
 - Clean up problematic session files and permissions:
 
@@ -373,7 +386,7 @@ sudo rm -rf ~/.cache/sessions
 sudo chown -R $USER:$USER /home/$USER
 ```
 
-- Save screenshot as: `task5_lightdm_cleanup.png`
+- Save screenshot as: `task6_lightdm_cleanup.png`
 
 - Restart LightDM:
 
@@ -381,9 +394,9 @@ sudo chown -R $USER:$USER /home/$USER
 sudo systemctl restart lightdm
 ```
 
-- Save screenshot as: `task5_lightdm_restart.png`
+- Save screenshot as: `task6_lightdm_restart.png`
 
-10. Control GUI login at boot — ENABLE first, then DISABLE (observe and understand terminal/GUI behavior after each reboot)
+2. Control GUI login at boot — ENABLE first, then DISABLE (observe and understand terminal/GUI behavior after each reboot)
 
 Important: students MUST perform the reboot after each target change to observe the boot-time behavior. The sequence below has been adjusted so you ENABLE the GUI boot target first, reboot and observe GUI, then DISABLE the GUI boot target, reboot and observe the CLI.
 
@@ -395,7 +408,7 @@ sudo systemctl enable lightdm
 sudo systemctl set-default graphical.target
 ```
 
-- Save a screenshot immediately after running the commands as: `task5_gui_enable_boot.png`
+- Save a screenshot immediately after running the commands as: `task6_gui_enable_boot.png`
 
 - Reboot the VM to observe that it boots to the GUI login screen:
 
@@ -403,7 +416,7 @@ sudo systemctl set-default graphical.target
 sudo reboot
 ```
 
-- After the VM boots, capture a screenshot of the GUI login screen (or remote desktop showing the greeter) and save it as: `task5_after_reboot_gui.png`
+- After the VM boots, capture a screenshot of the GUI login screen (or remote desktop showing the greeter) and save it as: `task6_after_reboot_gui.png`
 
 - Disable GUI Login Screen (Boot to CLI)
   - Set the default boot target to multi-user (text mode) and disable LightDM so the system boots to the terminal:
@@ -413,7 +426,7 @@ sudo systemctl set-default multi-user.target
 sudo systemctl disable lightdm
 ```
 
-- Save a screenshot immediately after running the commands as: `task5_gui_disable_boot.png`
+- Save a screenshot immediately after running the commands as: `task6_gui_disable_boot.png`
 
 - Reboot the VM to observe that it boots to the terminal (CLI):
 
@@ -421,11 +434,11 @@ sudo systemctl disable lightdm
 sudo reboot
 ```
 
-- After the VM boots, capture a screenshot of the login prompt or terminal session showing CLI-only behavior and save it as: `task5_after_reboot_cli.png`
+- After the VM boots, capture a screenshot of the login prompt or terminal session showing CLI-only behavior and save it as: `task6_after_reboot_cli.png`
 
 - Start/Stop GUI manually (no reboot)
   - You can start the GUI session without changing the boot target. This is useful if you want to keep the boot target as CLI but run GUI temporarily:
-  - Save screenshot(s) showing the start commands and any immediate status output as: `task5_gui_start.png`
+  - Save screenshot(s) showing the start commands and any immediate status output as: `task6_gui_start.png`
 
 ```bash
 sudo systemctl start lightdm   # start GUI now
@@ -436,38 +449,9 @@ sudo systemctl stop lightdm   # stop GUI now
 
 ```
 
-- Save screenshot(s) showing the start/stop commands and any immediate status output as: `task5_gui_stop.png`
+- Save screenshot(s) showing the start/stop commands and any immediate status output as: `task6_gui_stop.png`
 
-📸 Screenshot Required:
-- `task5_update.png`  
-- `task5_xfce_install.png`  
-- `task5_xrdp_enable.png`  
-- `task5_xrdp_status.png`  
-- `task5_xsession.png`   
-- `task5_rdp_connect.png`  
-- `task5_vscode_launch.png`  
-- `task5_lightdm_install.png`  
-- `task5_lightdm_config.png`  
-- `task5_lightdm_cleanup.png`  
-- `task5_lightdm_restart.png`  
-- `task5_gui_enable_boot.png`  
-- `task5_after_reboot_gui.png`  
-- `task5_gui_disable_boot.png`  
-- `task5_after_reboot_cli.png`  
-- `task5_gui_start.png`
-- `task5_gui_stop.png`
-
----
-
-## Task 6 - GUI verification - start GUI, open VS Code, take snapshot, then end (GUI)
-
-Goal: Verify the GUI environment by starting the GUI, launching VS Code (installed in Task 4), taking a screenshot of the running VS Code window, closing VS Code, and ending the task. This task is for this lab and the first command is to start the Ubuntu GUI.
-
-> NOTE: Per your instruction, Task 6 does NOT require creating/saving any files in VS Code — only launch, capture, and close.
-
-### Steps (inside the VM terminal / via SSH)
-
-1. Start the GUI (if the system is currently set to CLI or the GUI is not running):
+3. Start the GUI (if the system is currently set to CLI or the GUI is not running):
 
 ```bash
 sudo systemctl start lightdm
@@ -475,7 +459,7 @@ sudo systemctl start lightdm
 
 - Save a screenshot immediately after running the command as: `task6_gui_start_command.png`
 
-2. In the GUI session (local console or RDP) launch Visual Studio Code (installed earlier in Task 4). From a GUI terminal inside the desktop, run:
+4. In the GUI session (local console or RDP) launch Visual Studio Code (installed earlier in Task 4). From a GUI terminal inside the desktop, run:
 
 ```bash
 code
@@ -483,9 +467,19 @@ code
 
 - Save a screenshot of VS Code running in the GUI as: `task6_vscode_launch.png`
 
-3. Close VS Code using the GUI window controls. Task 6 ends here.
+5. Close VS Code using the GUI window controls. Task 6 ends here.
 
 📸 Screenshot Required:
+- `task6_lightdm_install.png`  
+- `task6_lightdm_config.png`  
+- `task6_lightdm_cleanup.png`  
+- `task6_lightdm_restart.png`  
+- `task6_gui_enable_boot.png`  
+- `task6_after_reboot_gui.png`  
+- `task6_gui_disable_boot.png`  
+- `task6_after_reboot_cli.png`  
+- `task6_gui_start.png`
+- `task6_gui_stop.png`
 - `task6_gui_start_command.png`  
 - `task6_vscode_launch.png`
 
