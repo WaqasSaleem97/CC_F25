@@ -1,6 +1,6 @@
 # 🧪 Lab 6 – Linux Users, Groups, Permissions, Pipes, and Bash Scripting
 
-Estimated Duration: 3–4 hours  
+Estimated Duration: 3 hours  
 Instructions: Complete all tasks on the SAME Ubuntu Server VM used in Lab 5. Create a repository named `Lab6`. When finished, push your work to a repository named `CC_<student_Name>_<student_roll_number>`.
 
 ---
@@ -16,6 +16,7 @@ In this lab you will practice:
 - File ownership and permission management (symbolic and numeric modes)
 - Using pipes, pagers, grep, and redirections (`>`, `>>`)
 - Writing shell scripts with variables, conditionals, loops, and functions
+- Running a remote GUI using Codespaces and VNC (Task 14)
 
 ---
 
@@ -45,7 +46,8 @@ Notes:
 - [Task 10: Script setup.sh – variables, command substitution, file/dir checks, permissions (use vim)](#task-10--script-setupsh--variables-command-substitution-filedir-checks-permissions-use-vim)
 - [Task 11: Script setup.sh – argument comparisons (eq, ne, gt, lt, ge, le) and string checks](#task-11--script-setupsh--argument-comparisons-eq-ne-gt-lt-ge-le-and-string-checks)
 - [Task 12: Script setup.sh – print all arguments with a for loop](#task-12--script-setupsh--print-all-arguments-with-a-for-loop)
-- [Task 13: Script setup.sh – while loop summation and a sum function](#task-13--script-setupsh--while-loop-summation-and-a-sum-function)
+- [Task 13: Script setup.sh – while loop summation and functions](#task-13--script-setupsh--while-loop-summation-and-a-sum-function)
+- [Task 14: Codespaces GUI — fork repo, run start-desktop.sh, open VNC, stop GUI](#task-14--codespaces-gui--fork-repo-run-start-desktopsh-open-vnc-stop-gui)
 - [Submission](#submission)
 - [Checklist (for students)](#checklist-for-students)
 - [Troubleshooting & Notes](#troubleshooting--notes)
@@ -846,10 +848,6 @@ Screenshots summary for Task 11 (all required):
 
 ## Task 12 – Script setup.sh – print all arguments with a for loop
 
-Clear the previous code of setup.sh and write a new script that prints all user-entered arguments using a for loop over $*.
-
-Instructions (numbered):
-
 1. Create the script with shebang and basic structure
 - Open vim and overwrite setup.sh:
 ```bash
@@ -884,29 +882,17 @@ chmod +x setup.sh
   - vim editor showing the for-loop appended: `task12_b2_vim.png`
   - script run output showing the printed arguments: `task12_b2_run.png`
 
-Important notes for Task 12:
-- The loop uses $* (unquoted) so it will split arguments on whitespace — this is intentional for the exercise so students can observe the difference between `$*` and `"$@"` in later tasks.
-- Students must clear the previous contents of setup.sh before starting this task (overwrite in vim).
-- Capture the vim editor screen (showing the buffer) before saving for each numbered step and the terminal output after running the script.
-
-Screenshots summary for Task 12:
-- `task12_b1_vim.png`
-- `task12_b1_run.png`
-- `task12_b2_vim.png`
-- `task12_b2_run.png`
-
 ---
 
-## Task 13 – Script setup.sh – while loop summation and a sum function
+## Task 13 – Script setup.sh – while loop summation and functions
 
 Clear the previous code of setup.sh and write a new script, step-by-step, that:
 
 - Starts with a shebang line
-- Implements a while loop that prompts the user to enter numbers and keeps a running sum until the user types q to quit
-- Implements a function that prompts for two numbers, returns their sum via echo, and the script displays that returned sum
-- Students must add the script code incrementally and capture vim buffer and run output screenshots for each numbered step
-
-Instructions (numbered):
+- Implements an interactive while loop that prompts the user to enter numbers and keeps a running total until the user types `q` to quit; after each input the script echoes "Total Score: <current_total>"
+- Implements a function `sum_two()` that runs its own interactive while loop doing the same accumulation and echoes the running totals
+- Adds a second function that takes two numeric arguments, sums them, and returns the result via echo (demonstrated in the script)
+- Important: if you move the while-loop logic into the `sum_two()` function, delete the standalone while-loop code to avoid running the same loop twice
 
 1. Add the shebang line
 - Open vim and overwrite setup.sh with the shebang line:
@@ -923,14 +909,8 @@ chmod +x setup.sh
   - vim editor showing shebang: `task13_b1_vim.png`
   - run output: `task13_b1_run.png`
 
-2. Add the while-loop summation code
-- Re-open setup.sh in vim and append the while-loop that:
-  - initializes sum=0
-  - prompts the user with "Enter a number (or 'q' to quit): "
-  - if the user enters q, the loop breaks and final sum is shown
-  - if the user enters a valid integer it is added to sum and the running sum is displayed
-  - otherwise show "Invalid number, try again."
-- Append the following code:
+2. Add the while-loop summation (interactive)
+- Re-open setup.sh in vim and append the while-loop:
 ```bash
 # While-loop summation (interactive)
 sum=0
@@ -939,14 +919,11 @@ while true; do
   if [ "$input" = "q" ]; then
     break
   fi
-  if [[ "$input" =~ ^-?[0-9]+$ ]]; then
-    sum=$((sum + input))
-    echo "Running sum: $sum"
-  else
-    echo "Invalid number, try again."
-  fi
+
+  sum=$((sum + input))
+  echo "Total Score: $sum"
 done
-echo "Final sum: $sum"
+echo "Final total: $sum"
 ```
 - Save and quit (:wq)
 - Run the script and demonstrate a short session (example): enter `5`, then `7`, then `q`
@@ -959,45 +936,75 @@ echo "Final sum: $sum"
 ```
 - Screenshots:
   - vim editor showing while-loop appended: `task13_b2_vim.png`
-  - run output showing the interactive session and final sum: `task13_b2_run.png`
+  - run output showing the interactive session and totals: `task13_b2_run.png`
 
-3. Add the sum function that reads two numbers and returns their sum via echo
-- Re-open setup.sh in vim and append the function and a demonstration call:
+3. Add the interactive summation function and demonstrate it
+- Re-open setup.sh in vim and append the function `sum_two()` which contains its own interactive while-loop:
 ```bash
-# Function to sum two numbers and return via echo
+# Function to accumulate scores interactively
 sum_two() {
-  read -p "Enter first number: " a
-  read -p "Enter second number: " b
-  if ! [[ "$a" =~ ^-?[0-9]+$ ]] || ! [[ "$b" =~ ^-?[0-9]+$ ]]; then
-    echo "Invalid input. Returning 0"
-    echo 0
-    return
-  fi
-  echo $((a + b))
+  sum=0
+  while true; do
+    read -p "Enter a number (or 'q' to quit): " input
+    if [ "$input" = "q" ]; then
+      break
+    fi
+
+    sum=$((sum + input))
+    echo "Total Score: $sum"
+  done
+  echo "Function final total: $sum"
 }
 
 # Demonstrate the function
 echo "Now calling sum_two function:"
-result=$(sum_two)
-echo "Sum from function: $result"
+sum_two
 ```
 - Save and quit (:wq)
-- Run the script and demonstrate the function (example interactive inputs: `3` and `4`):
+- Important: If you have the standalone while-loop from step 2 and you place this function into the script, delete the standalone loop to avoid executing the same interactive logic twice when running the script.
+- Run the script and demonstrate a short session (example): enter `3`, `4`, `q` when prompted by the function:
 ```bash
 ./setup.sh
-# after the while-loop demonstration, when prompted by sum_two enter:
+# when prompted by the function enter:
 # 3
 # 4
+# q
 ```
 - Screenshots:
   - vim editor showing function appended: `task13_b3_vim.png`
-  - run output showing the function prompts and returned sum: `task13_b3_run.png`
+  - run output showing the function prompts and final total: `task13_b3_run.png`
 
-Important notes for Task 13:
-- Students must overwrite previous contents of setup.sh at the start of Task 13 (step 1).
-- Each step is incremental — add the code for that step only, save, run, and capture both the vim buffer screenshot and the run output screenshot.
-- The while-loop and function are interactive; students should record a short demonstration session for the run screenshots (show both inputs and outputs).
-- If students want non-interactive verification, they can temporarily modify the script to accept test inputs from heredoc or environment variables — but the required submission is interactive screenshots as described.
+4. Add a function that takes two numeric arguments, sums them, and returns the result (echo)
+- Re-open setup.sh in vim and append the following function and demonstration. This function accepts two numeric arguments, adds them, and echoes the sum. The script then captures that output and displays it.
+```bash
+# Function that sums two arguments and echoes the result
+sum_args() {
+  a=$1
+  b=$2
+  echo $((a + b))
+}
+
+# Demonstrate sum_args function
+echo "Now demonstrating sum_args function:"
+result=$(sum_args 3 4)
+echo "sum_args(3,4) returned: $result"
+```
+- Save and quit (:wq)
+- Run the script and capture the demonstration output:
+```bash
+chmod +x setup.sh
+./setup.sh
+# Observe the output that shows "sum_args(3,4) returned: 7"
+```
+- Screenshots:
+  - vim editor showing function appended: `task13_b4_vim.png`
+  - run output showing function demonstration and returned sum: `task13_b4_run.png`
+
+Notes for Task 13:
+- Overwrite previous contents of setup.sh at the start of Task 13 (step 1).
+- Add code incrementally, save, run, and capture both the vim buffer and the run output screenshots for each numbered step.
+- The while-loop and the functions are interactive; include the user inputs in the run screenshots to demonstrate the behavior.
+- If you decide to use the function-based approach for interactive summation, remove the earlier standalone while-loop to avoid duplicate interaction.
 
 Screenshots summary for Task 13:
 - `task13_b1_vim.png`
@@ -1006,6 +1013,75 @@ Screenshots summary for Task 13:
 - `task13_b2_run.png`
 - `task13_b3_vim.png`
 - `task13_b3_run.png`
+- `task13_b4_vim.png`
+- `task13_b4_run.png`
+
+---
+
+## Task 14 – Codespaces GUI — fork repo, run start-desktop.sh, open VNC, stop GUI
+
+Goal: Fork the specified repository to your GitHub account, open it in GitHub Codespaces, run the provided script to start a desktop GUI, connect to the GUI via the Codespaces forwarded port (6080) -> vnc.html, and then stop the GUI using the provided stop script.
+
+Important notes before starting:
+- GitHub Codespaces must be enabled for your account/org. Codespaces availability and billing may apply.
+- The instructions below assume you have permission and capacity to create a Codespace for your fork.
+- If Codespaces is not available, you may perform this step on another cloud environment that exposes the same port and scripts, but the screenshot filenames below assume Codespaces.
+
+Steps:
+
+1. Fork the repository to your GitHub account
+- Open the repo URL in your browser:
+  - [Ubuntu Machine](https://github.com/WaqasSaleem97/UbuntuMachine)
+- Click "Fork" (top-right) and fork it to your account.
+- Save screenshot as: `task14_fork.png`
+
+2. Open a Codespace on your fork
+- In your forked repository on GitHub, click the green "Code" button → "Open with Codespaces" → "Create codespace on main" (or appropriate branch).
+- Wait for the Codespace to initialize.
+- Save screenshot as: `task14_codespace_launch.png`
+
+3. Run the start script inside the Codespace terminal
+- In the Codespace terminal run:
+```bash
+# Ensure the start script is executable
+chmod +x start-desktop.sh
+
+# Start the desktop GUI
+./start-desktop.sh
+```
+- Capture the terminal output showing successful start messages.
+- Save screenshot as: `task14_start_run.png`
+
+4. Open forwarded port 6080 and connect to VNC HTML page
+- In the Codespaces UI, ensure port 6080 is forwarded (Codespaces usually detects forwarded ports automatically).
+- Open the forwarded port in your browser (Codespaces will provide a preview URL). Visit the port 6080 address and click the `vnc.html` link.
+- When prompted for a password enter:
+```
+codespace
+```
+- After successful connection you should see the remote GUI running (desktop session).
+- Save screenshot(s) showing the browser URL and the GUI after connection:
+  - `task14_vnc_connect.png`
+
+5. Stop the GUI
+- When finished, return to the Codespace terminal and run:
+```bash
+./stop-desktop.sh
+```
+- Capture the terminal output that shows the GUI stopping and any cleanup messages.
+- Save screenshot as: `task14_stop_run.png`
+
+Notes & evidence to collect:
+- Capture the fork confirmation page: `task14_fork.png`
+- Capture codespace creation/overview: `task14_codespace_launch.png`
+- Capture the terminal output when running `./start-desktop.sh`: `task14_start_run.png`
+- Capture the browser showing the vnc.html connection and the GUI: `task14_vnc_connect.png`
+- Capture the terminal output when running `./stop-desktop.sh`: `task14_stop_run.png`
+
+Troubleshooting tips:
+- If port 6080 is not visible, check Codespaces "Ports" view and forward it manually.
+- If the VNC page fails to connect, verify the `start-desktop.sh` completed without errors and that the VNC server is listening on the expected port inside the Codespace.
+- If Codespaces is unavailable for your account, consider forking and running the same scripts on another cloud VM that forwards port 6080 and adapt screenshots/file names accordingly.
 
 ---
 
@@ -1042,7 +1118,8 @@ Upload:
 - [ ] Task 10: Wrote `setup.sh` in vim and ran it — captured screenshots for the script content and the outputs for each numbered step (var1, allFiles, dir check, file check, permissions)  
 - [ ] Task 11: Wrote `setup.sh` to compare numeric argument and check second-argument string incrementally; captured all required screenshots (`task11_b0_*` … `task11_b9_*`)  
 - [ ] Task 12: Cleared previous code, wrote a script printing arguments using $* in a for loop; captured screenshots (`task12_b1_vim.png`, `task12_b1_run.png`, `task12_b2_vim.png`, `task12_b2_run.png`)  
-- [ ] Task 13: Cleared previous code, wrote interactive while-loop summation and a sum function; captured screenshots (`task13_b1_*`, `task13_b2_*`, `task13_b3_*`)  
+- [ ] Task 13: Cleared previous code, wrote interactive while-loop summation and functions; captured screenshots (`task13_b1_*`, `task13_b2_*`, `task13_b3_*`, `task13_b4_*`)  
+- [ ] Task 14: Forked UbuntuMachine, launched Codespace, ran `./start-desktop.sh`, connected to `vnc.html` on port 6080 with password `codespace`, and ran `./stop-desktop.sh`; captured screenshots (`task14_fork.png`, `task14_codespace_launch.png`, `task14_start_run.png`, `task14_vnc_connect.png`, `task14_stop_run.png`)  
 - [ ] Pushed repository `CC_<YourName>_<YourRollNumber>` with `Lab6` contents
 
 ---
