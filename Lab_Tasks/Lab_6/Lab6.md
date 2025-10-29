@@ -80,7 +80,7 @@ whoami
 ```
 - Save screenshot as: `task1_exit_to_user.png`
 
-📸 Screenshots (summary list):
+📸 Screenshots:
 - `task1_set_root_password.png`
 - `task1_su_root.png`
 - `task1_exit_to_user.png`
@@ -116,7 +116,7 @@ sudo cat /etc/shadow
 Notes:
 - `/etc/shadow` stores password hashes (not plaintext). You must use `sudo` to read it.
 
-📸 Screenshots (summary list):
+📸 Screenshots:
 - `task2_adduser_tom.png`
 - `task2_verify_passwd.png`
 - `task2_verify_group.png`
@@ -160,7 +160,7 @@ groups tom
 ```
 - Save screenshot as: `task3_reset_secondary_groups.png`
 
-📸 Screenshots (summary list):
+📸 Screenshots:
 - `task3_groupadd.png`
 - `task3_change_primary_group.png`
 - `task3_add_secondary_groups.png`
@@ -257,6 +257,20 @@ cat /etc/passwd
 ```
 - Save screenshots as: `task4_delete_groups.png`, `task4_delete_users.png`
 
+📸 Screenshots:
+- `task4_add_users.png`
+- `task4_scooby_su_auth_failure.png`
+- `task4_set_password_scooby.png`
+- `task4_scooby_su_no_home.png`
+- `task4_scooby_no_home.png`
+- `task4_scooby_create_home.png`
+- `task4_scooby_login_success.png`
+- `task4_verify_users.png`
+- `task4_add_groups.png`
+- `task4_verify_groups.png`
+- `task4_delete_groups.png`
+- `task4_delete_users.png`
+
 ---
 
 ## Task 5 – Create user Student; create files; set owner/group; identify file types
@@ -301,6 +315,14 @@ file file1 dir1 /dev/null
 exit
 ```
 - Save screenshot as: `task5_exit_student.png`
+
+📸 Screenshots:
+- `task5_create_student.png`
+- `task5_create_files.png`
+- `task5_chown_file1.png`
+- `task5_chgrp_file1.png`
+- `task5_file_types.png`
+- `task5_exit_student.png`
 
 ---
 
@@ -351,6 +373,14 @@ ls -l file1
 ```
 - Save screenshot as: `task6_chmod_ugo_minus_rwx.png`
 
+📸 Screenshots:
+- `task6_su_student.png`
+- `task6_chmod_remove_rwx.png`
+- `task6_chmod_add_r.png`
+- `task6_chmod_u_plus_x.png`
+- `task6_chmod_ug_plus_w.png`
+- `task6_chmod_ugo_minus_rwx.png`
+
 ---
 
 ## Task 7 – Change permissions using “set” symbolic form (u= g= o=)
@@ -383,6 +413,12 @@ chmod u=,g=,o= file1
 ls -l file1
 ```
 - Save screenshot as: `task7_remove_all_perms.png`
+
+📸 Screenshots:
+- `task7_student_context.png`
+- `task7_chmod_set_all_rwx.png`
+- `task7_remove_exec_go.png`
+- `task7_remove_all_perms.png`
 
 ---
 
@@ -447,6 +483,15 @@ ls -l file1
 ```
 - `task8_chmod_750.png`
 
+📸 Screenshots:
+- `task8_chmod_777.png`
+- `task8_chmod_700.png`
+- `task8_chmod_744.png`
+- `task8_chmod_640.png`
+- `task8_chmod_664.png`
+- `task8_chmod_775.png`
+- `task8_chmod_750.png`
+
 ---
 
 ## Task 9 – Practice pipes, pagers, grep, and redirects with /var/log/syslog
@@ -488,6 +533,14 @@ Alternative (journalctl) if needed:
 sudo journalctl | less
 sudo journalctl -u systemd | grep -i error > ~/journal_errors.txt
 ```
+- `task9_journalctl_alternative.png`
+
+📸 Screenshots:
+- `task9_grep_less.png`
+- `task9_grep_more.png`
+- `task9_grep_head.png`
+- `task9_redirect_overwrite.png`
+- `task9_redirect_append.png`
 - `task9_journalctl_alternative.png`
 
 ---
@@ -617,6 +670,20 @@ ls -l "$f"
 - Screenshots:
   - vim editor showing permission-check code: `task10_b6_vim.png`
   - script run output showing the permission grants and final `ls -l dir1/file2`: `task10_b6_run.png`
+
+📸 Screenshots:
+- `task10_b1_vim.png`
+- `task10_b1_run.png`
+- `task10_b2_vim.png`
+- `task10_b2_run.png`
+- `task10_b3_vim.png`
+- `task10_b3_run.png`
+- `task10_b4_vim.png`
+- `task10_b4_run.png`
+- `task10_b5_vim.png`
+- `task10_b5_run.png`
+- `task10_b6_vim.png`
+- `task10_b6_run.png`
 
 Important notes for Task 10:
 - Students MUST add the code incrementally exactly as described above (do not replace the file each time — append).
@@ -817,12 +884,7 @@ fi
   - vim content: `task11_b9_vim.png`
   - run output: `task11_b9_run.png`
 
-Notes for Task 11
-- Students MUST follow the incremental approach: add one test at a time and capture the vim buffer and run output screenshots for each step.
-- Using the two example runs per step in a single terminal screenshot helps demonstrate both true and false results for the operator being taught.
-- If a non-numeric value is used for $1 during integer comparisons the shell may print an error; that is expected here because we are demonstrating the operator behavior step-by-step. (If you want to avoid runtime errors, you can add integer validation before the comparisons — but for this exercise we are isolating each if-test into its own step.)
-
-Screenshots summary for Task 11 (all required):
+📸 Screenshots:
 - `task11_b0_vim.png`
 - `task11_b0_run.png`
 - `task11_b1_vim.png`
@@ -843,6 +905,11 @@ Screenshots summary for Task 11 (all required):
 - `task11_b8_run.png`
 - `task11_b9_vim.png`
 - `task11_b9_run.png`
+
+Notes for Task 11
+- Students MUST follow the incremental approach: add one test at a time and capture the vim buffer and run output screenshots for each step.
+- Using the two example runs per step in a single terminal screenshot helps demonstrate both true and false results for the operator being taught.
+- If a non-numeric value is used for $1 during integer comparisons the shell may print an error; that is expected here because we are demonstrating the operator behavior step-by-step. (If you want to avoid runtime errors, you can add integer validation before the comparisons — but for this exercise we are isolating each if-test into its own step.)
 
 ---
 
@@ -881,6 +948,12 @@ chmod +x setup.sh
 - Screenshots:
   - vim editor showing the for-loop appended: `task12_b2_vim.png`
   - script run output showing the printed arguments: `task12_b2_run.png`
+
+📸 Screenshots:
+- `task12_b1_vim.png`
+- `task12_b1_run.png`
+- `task12_b2_vim.png`
+- `task12_b2_run.png`
 
 ---
 
@@ -1000,13 +1073,7 @@ chmod +x setup.sh
   - vim editor showing function appended: `task13_b4_vim.png`
   - run output showing function demonstration and returned sum: `task13_b4_run.png`
 
-Notes for Task 13:
-- Overwrite previous contents of setup.sh at the start of Task 13 (step 1).
-- Add code incrementally, save, run, and capture both the vim buffer and the run output screenshots for each numbered step.
-- The while-loop and the functions are interactive; include the user inputs in the run screenshots to demonstrate the behavior.
-- If you decide to use the function-based approach for interactive summation, remove the earlier standalone while-loop to avoid duplicate interaction.
-
-Screenshots summary for Task 13:
+📸 Screenshots:
 - `task13_b1_vim.png`
 - `task13_b1_run.png`
 - `task13_b2_vim.png`
@@ -1015,6 +1082,12 @@ Screenshots summary for Task 13:
 - `task13_b3_run.png`
 - `task13_b4_vim.png`
 - `task13_b4_run.png`
+
+Notes for Task 13:
+- Overwrite previous contents of setup.sh at the start of Task 13 (step 1).
+- Add code incrementally, save, run, and capture both the vim buffer and the run output screenshots for each numbered step.
+- The while-loop and the functions are interactive; include the user inputs in the run screenshots to demonstrate the behavior.
+- If you decide to use the function-based approach for interactive summation, remove the earlier standalone while-loop to avoid duplicate interaction.
 
 ---
 
@@ -1040,7 +1113,19 @@ Steps:
 - Wait for the Codespace to initialize.
 - Save screenshot as: `task14_codespace_launch.png`
 
-3. Run the start script inside the Codespace terminal
+3. Verify the start script is present and executable (capture evidence)
+- In the Codespace terminal list files in the repo root and show the start script and stop script exist:
+```bash
+ls -l start-desktop.sh stop-desktop.sh
+```
+- If not executable, make it executable:
+```bash
+chmod +x start-desktop.sh stop-desktop.sh
+```
+- Save a screenshot showing the `ls -l` output (file listing) and the chmod command if applied:
+  - `task14_start_script_ls.png`
+
+4. Run the start script inside the Codespace terminal
 - In the Codespace terminal run:
 ```bash
 # Ensure the start script is executable
@@ -1052,18 +1137,25 @@ chmod +x start-desktop.sh
 - Capture the terminal output showing successful start messages.
 - Save screenshot as: `task14_start_run.png`
 
-4. Open forwarded port 6080 and connect to VNC HTML page
-- In the Codespaces UI, ensure port 6080 is forwarded (Codespaces usually detects forwarded ports automatically).
-- Open the forwarded port in your browser (Codespaces will provide a preview URL). Visit the port 6080 address and click the `vnc.html` link.
+5. Verify forwarded ports in Codespaces (Ports view)
+- Open the Codespaces "Ports" panel / view and confirm port 6080 is forwarded and visible.
+- Save a screenshot of the Ports view showing port 6080 and its status:
+  - `task14_ports_view.png`
+
+6. Open forwarded port 6080 and connect to VNC HTML page
+- In the Codespaces UI, open the forwarded port's preview URL or copy the forwarded URL and open it in your browser.
+- Visit the port 6080 address and click the `vnc.html` link.
 - When prompted for a password enter:
 ```
 codespace
 ```
-- After successful connection you should see the remote GUI running (desktop session).
-- Save screenshot(s) showing the browser URL and the GUI after connection:
-  - `task14_vnc_connect.png`
+- Capture screenshots of:
+  - The browser showing the forwarded port URL in the address bar / Codespaces preview: `task14_vnc_url.png`
+  - The VNC password prompt (showing password field; do NOT include typed password in a screenshot): `task14_vnc_password_prompt.png`
+  - The VNC session after successful connection showing the GUI/desktop: `task14_vnc_desktop.png`
+  - (Optional) A focused screenshot of vnc.html UI showing the "Connect" button before/after connecting: `task14_vnc_connect.png`
 
-5. Stop the GUI
+7. Stop the GUI
 - When finished, return to the Codespace terminal and run:
 ```bash
 ./stop-desktop.sh
@@ -1071,12 +1163,17 @@ codespace
 - Capture the terminal output that shows the GUI stopping and any cleanup messages.
 - Save screenshot as: `task14_stop_run.png`
 
-Notes & evidence to collect:
-- Capture the fork confirmation page: `task14_fork.png`
-- Capture codespace creation/overview: `task14_codespace_launch.png`
-- Capture the terminal output when running `./start-desktop.sh`: `task14_start_run.png`
-- Capture the browser showing the vnc.html connection and the GUI: `task14_vnc_connect.png`
-- Capture the terminal output when running `./stop-desktop.sh`: `task14_stop_run.png`
+📸 Screenshots:
+- `task14_fork.png`
+- `task14_codespace_launch.png`
+- `task14_start_script_ls.png`
+- `task14_start_run.png`
+- `task14_ports_view.png`
+- `task14_vnc_url.png`
+- `task14_vnc_password_prompt.png`
+- `task14_vnc_desktop.png`
+- `task14_vnc_connect.png`
+- `task14_stop_run.png`
 
 Troubleshooting tips:
 - If port 6080 is not visible, check Codespaces "Ports" view and forward it manually.
@@ -1119,7 +1216,7 @@ Upload:
 - [ ] Task 11: Wrote `setup.sh` to compare numeric argument and check second-argument string incrementally; captured all required screenshots (`task11_b0_*` … `task11_b9_*`)  
 - [ ] Task 12: Cleared previous code, wrote a script printing arguments using $* in a for loop; captured screenshots (`task12_b1_vim.png`, `task12_b1_run.png`, `task12_b2_vim.png`, `task12_b2_run.png`)  
 - [ ] Task 13: Cleared previous code, wrote interactive while-loop summation and functions; captured screenshots (`task13_b1_*`, `task13_b2_*`, `task13_b3_*`, `task13_b4_*`)  
-- [ ] Task 14: Forked UbuntuMachine, launched Codespace, ran `./start-desktop.sh`, connected to `vnc.html` on port 6080 with password `codespace`, and ran `./stop-desktop.sh`; captured screenshots (`task14_fork.png`, `task14_codespace_launch.png`, `task14_start_run.png`, `task14_vnc_connect.png`, `task14_stop_run.png`)  
+- [ ] Task 14: Forked UbuntuMachine, launched Codespace, verified start script, ran `./start-desktop.sh`, confirmed port 6080 forwarded, connected to `vnc.html` on port 6080 with password `codespace`, and ran `./stop-desktop.sh`; captured screenshots (`task14_fork.png`, `task14_codespace_launch.png`, `task14_start_script_ls.png`, `task14_start_run.png`, `task14_ports_view.png`, `task14_vnc_url.png`, `task14_vnc_password_prompt.png`, `task14_vnc_desktop.png`, `task14_vnc_connect.png`, `task14_stop_run.png`)  
 - [ ] Pushed repository `CC_<YourName>_<YourRollNumber>` with `Lab6` contents
 
 ---
