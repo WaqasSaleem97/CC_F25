@@ -1191,7 +1191,6 @@ Lab6/
   workspace/                    # any files you created (optional)
   screenshots/                  # include all screenshots listed in this lab
   Word file and PDF or .md file # your compiled answers/evidence
-  Lab6-instructions.md          # this lab file
 ```
 
 Upload:
