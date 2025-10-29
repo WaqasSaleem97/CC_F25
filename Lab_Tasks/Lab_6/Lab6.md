@@ -16,7 +16,7 @@ In this lab you will practice:
 - File ownership and permission management (symbolic and numeric modes)
 - Using pipes, pagers, grep, and redirections (`>`, `>>`)
 - Writing shell scripts with variables, conditionals, loops, and functions
-- Running a remote GUI using Codespaces and VNC (Task 14)
+- Running a remote GUI using Codespaces and VNC
 
 ---
 
