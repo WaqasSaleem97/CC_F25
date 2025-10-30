@@ -1054,18 +1054,19 @@ sum_two
   - run output showing the function prompts and final total: `task13_b3_run.png`
 
 4. Add a function that takes two numeric arguments, sums them, and returns the result (echo)
-- Re-open setup.sh in vim and append the following function and demonstration. This function accepts two numeric arguments, adds them, and echoes the sum. The script then captures that output and displays it.
+- Re-open setup.sh in vim and append the following function and demonstration. This function accepts two numeric arguments, adds them, and return the sum. The script then captures that output and displays it.
 ```bash
-# Function that sums two arguments and echoes the result
+# Function that sums two arguments and returns the result
 sum_args() {
   a=$1
   b=$2
-  echo $((a + b))
+  return $((a + b))
 }
 
 # Demonstrate sum_args function
 echo "Now demonstrating sum_args function:"
-result=$(sum_args 3 4)
+sum_args 3 4
+result=$?
 echo "sum_args(3,4) returned: $result"
 ```
 - Save and quit (:wq)
