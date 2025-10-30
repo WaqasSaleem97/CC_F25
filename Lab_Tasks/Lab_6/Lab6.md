@@ -48,6 +48,7 @@ Notes:
 - [Task 12: Script setup.sh – print all arguments with a for loop](#task-12--script-setupsh--print-all-arguments-with-a-for-loop)
 - [Task 13: Script setup.sh – while loop summation and functions](#task-13--script-setupsh--while-loop-summation-and-functions)
 - [Task 14: Codespaces GUI — fork repo, run start-desktop.sh, open VNC, stop GUI](#task-14--codespaces-gui--fork-repo-run-start-desktopsh-open-vnc-stop-gui)
+- [Exam Evaluation Questions](#exam-evaluation-questions)
 - [Submission](#submission)
 - [Checklist (for students)](#checklist-for-students)
 - [Troubleshooting & Notes](#troubleshooting--notes)
@@ -1186,6 +1187,113 @@ Troubleshooting tips:
 - If port 6080 is not visible, check Codespaces "Ports" view and forward it manually.
 - If the VNC page fails to connect, verify the `start-desktop.sh` completed without errors and that the VNC server is listening on the expected port inside the Codespace.
 - If Codespaces is unavailable for your account, consider forking and running the same scripts on another cloud VM that forwards port 6080 and adapt screenshots/file names accordingly.
+
+---
+
+## Exam Evaluation Questions
+
+Use the format below for each exam evaluation question. Each question includes a short scenario and clear numbered steps students must perform; capture the requested screenshots as evidence. These questions cover the concepts taught throughout this lab (users/groups, account files, ownership/permissions, pipes/grep/redirects, scripting basics, conditionals/comparisons, loops/functions, Codespaces/VNC). Do NOT include answers or solutions in this file.
+
+---
+
+### Q1 — Group Management and Membership
+
+**Scenario:**  
+Create groups and manage a user’s primary and supplementary group memberships.
+
+**Steps:**
+1. Create groups `g1`, `g2`, and `g3`.  
+   - Screenshot: `Q1_groups_created.png`  
+2. Change `examuser`’s primary group to `g3` and add `g1` and `g2` as supplementary groups.  
+   - Screenshot: `Q1_group_changes.png`  
+3. Show the final `id` and `/etc/group` lines that prove the changes.  
+   - Screenshot: `Q1_group_verification.png`
+
+---
+
+### Q2 — Ownership and Permission Tasks
+
+**Scenario:**  
+Demonstrate ownership changes and apply both symbolic and numeric permission changes.
+
+**Steps:**
+1. Create `workspace/secret.txt`, change its owner to `examuser` and group to `g1`.  
+   - Screenshot: `Q2_chown_chgrp.png`  
+2. Remove all permissions for group and others using a symbolic command, then using a numeric command to achieve the same result.  
+   - Screenshot: `Q2_symbolic_numeric.png`  
+3. Show `ls -l` for the file after each change to document the permission bits.  
+   - Screenshot: `Q2_permissions_ls.png`
+
+---
+
+### Q3 — Pipes, Grep, and Redirection Practice
+
+**Scenario:**  
+Filter system logs and save results using redirection and piping.
+
+**Steps:**
+1. Use `grep` (or `journalctl` where applicable) with a pipe to find lines containing "error" or "fail" and show the first 20 results.  
+   - Screenshot: `Q3_grep_pipe.png`  
+2. Save the filtered results to a file `~/logs/errors.txt` using overwrite, then append additional matching lines using append redirection.  
+   - Screenshot: `Q3_redirect_overwrite_append.png`  
+3. Use a pager to view the saved file.  
+   - Screenshot: `Q3_pager_view.png`
+
+---
+
+### Q4 — Script: Variables, Command Substitution, File & Dir Checks
+
+**Scenario:**  
+Build and run a script incrementally that demonstrates variables, command substitution, and filesystem checks.
+
+**Steps:**
+1. Create `setup.sh` with a shebang and a variable `var1` that you echo.  
+   - Screenshot: `Q4_step1_var1.png`  
+2. Append command substitution that stores `ls -l` output into a variable and echo it.  
+   - Screenshot: `Q4_step2_allfiles.png`  
+3. Append directory and file checks that create `dir1` and `dir1/file2` if missing, and display their final permissions.  
+   - Screenshot: `Q4_step3_dirfile_checks.png`
+
+---
+
+### Q5 — Script: Comparisons and String Tests
+
+**Scenario:**  
+Incrementally add numeric and string comparison tests to a script and show both true/false cases.
+
+**Steps:**
+1. Overwrite `setup.sh` to set `num=$1` and `str=$2`, and add an `-eq` test showing true and false examples.  
+   - Screenshot: `Q5_eq_examples.png`  
+2. Append `-ne`, `-gt`, `-lt`, `-ge`, and `-le` tests and demonstrate at least one true and one false invocation for each.  
+   - Screenshot: `Q5_numeric_tests.png`  
+3. Append string equality (`=`) and inequality (`!=`) checks and a `-z` (zero-length) test for the second argument, demonstrating true/false cases.  
+   - Screenshot: `Q5_string_tests.png`
+
+---
+
+### Q6 — Script: For Loop and Argument Handling
+
+**Scenario:**  
+Write a script that prints all provided arguments and demonstrate correct handling of quoted multi-word arguments.
+
+**Steps:**
+1. Create/overwrite `setup.sh` to print every argument using `"$@"` in a for loop and save the file.  
+   - Screenshot: `Q6_script_forloop_vim.png`  
+2. Run the script with mixed single and quoted multi-word arguments and capture the output showing each argument on its own line.  
+   - Screenshot: `Q6_forloop_run.png`
+
+---
+
+### Q7 — Script: While Loop Summation and Functions
+
+**Scenario:**  
+Implement an interactive or non-interactive summation function and a demonstrated function that returns a numeric result.
+
+**Steps:**
+1. Write an interactive while-loop that accumulates numbers until `q` is entered and shows running totals (capture an example session).  
+   - Screenshot: `Q7_while_session.png`  
+2. Add a function that accepts two numeric arguments, echoes or returns their sum, and demonstrate capturing its result in a variable.  
+   - Screenshot: `Q7_function_sum.png`
 
 ---
 
