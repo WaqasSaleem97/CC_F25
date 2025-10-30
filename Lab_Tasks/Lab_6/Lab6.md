@@ -1196,7 +1196,7 @@ Use the format below for each exam evaluation question. Each question includes a
 
 ---
 
-### Q1 — Group Management and Membership
+### 1. Group Management and Membership
 
 **Scenario:**  
 Create groups and manage a user’s primary and supplementary group memberships.
@@ -1211,7 +1211,7 @@ Create groups and manage a user’s primary and supplementary group memberships.
 
 ---
 
-### Q2 — Ownership and Permission Tasks
+### 2. Ownership and Permission Tasks
 
 **Scenario:**  
 Demonstrate ownership changes and apply both symbolic and numeric permission changes.
@@ -1226,7 +1226,7 @@ Demonstrate ownership changes and apply both symbolic and numeric permission cha
 
 ---
 
-### Q3 — Pipes, Grep, and Redirection Practice
+### 3. Pipes, Grep, and Redirection Practice
 
 **Scenario:**  
 Filter system logs and save results using redirection and piping.
@@ -1241,7 +1241,7 @@ Filter system logs and save results using redirection and piping.
 
 ---
 
-### Q4 — Script: Variables, Command Substitution, File & Dir Checks
+### 4. Script: Variables, Command Substitution, File & Dir Checks
 
 **Scenario:**  
 Build and run a script incrementally that demonstrates variables, command substitution, and filesystem checks.
@@ -1256,7 +1256,7 @@ Build and run a script incrementally that demonstrates variables, command substi
 
 ---
 
-### Q5 — Script: Comparisons and String Tests
+### 5. Script: Comparisons and String Tests
 
 **Scenario:**  
 Incrementally add numeric and string comparison tests to a script and show both true/false cases.
@@ -1271,7 +1271,7 @@ Incrementally add numeric and string comparison tests to a script and show both 
 
 ---
 
-### Q6 — Script: For Loop and Argument Handling
+### 6. Script: For Loop and Argument Handling
 
 **Scenario:**  
 Write a script that prints all provided arguments and demonstrate correct handling of quoted multi-word arguments.
@@ -1284,7 +1284,7 @@ Write a script that prints all provided arguments and demonstrate correct handli
 
 ---
 
-### Q7 — Script: While Loop Summation and Functions
+### 7. Script: While Loop Summation and Functions
 
 **Scenario:**  
 Implement an interactive or non-interactive summation function and a demonstrated function that returns a numeric result.
