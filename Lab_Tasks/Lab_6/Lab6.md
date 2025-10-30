@@ -1290,9 +1290,9 @@ Write a script that prints all provided arguments and demonstrate correct handli
 Implement an interactive or non-interactive summation function and a demonstrated function that returns a numeric result.
 
 **Steps:**
-1. Write an interactive while-loop that accumulates numbers until `q` is entered and shows running totals (capture an example session).  
+1. Write an interactive while-loop that accumulates numbers until `q` is entered and shows running totals.  
    - Screenshot: `Q7_while_session.png`  
-2. Add a function that accepts two numeric arguments, echoes or returns their sum, and demonstrate capturing its result in a variable.  
+2. Add a function that accepts two numeric arguments, returns their sum, and demonstrate capturing its result in a variable.  
    - Screenshot: `Q7_function_sum.png`
 
 ---
@@ -1330,7 +1330,8 @@ Upload:
 - [ ] Task 11: Wrote `setup.sh` to compare numeric argument and check second-argument string incrementally; captured all required screenshots (`task11_b0_*` … `task11_b9_*`)  
 - [ ] Task 12: Cleared previous code, wrote a script printing arguments using $* in a for loop; captured screenshots (`task12_b1_vim.png`, `task12_b1_run.png`, `task12_b2_vim.png`, `task12_b2_run.png`)  
 - [ ] Task 13: Cleared previous code, wrote interactive while-loop summation and functions; captured screenshots (`task13_b1_*`, `task13_b2_*`, `task13_b3_*`, `task13_b4_*`)  
-- [ ] Task 14: Forked UbuntuMachine, launched Codespace, verified start script, ran `./start-desktop.sh`, confirmed port 6080 forwarded, connected to `vnc.html` on port 6080 with password `codespace`, and ran `./stop-desktop.sh`; captured screenshots (`task14_fork.png`, `task14_codespace_launch.png`, `task14_start_script_ls.png`, `task14_start_run.png`, `task14_ports_view.png`, `task14_vnc_url.png`, `task14_vnc_password_prompt.png`, `task14_vnc_desktop.png`, `task14_vnc_connect.png`, `task14_stop_run.png`)  
+- [ ] Task 14: Forked UbuntuMachine, launched Codespace, verified start script, ran `./start-desktop.sh`, confirmed port 6080 forwarded, connected to `vnc.html` on port 6080 with password `codespace`, and ran `./stop-desktop.sh`; captured screenshots (`task14_fork.png`, `task14_codespace_launch.png`, `task14_start_script_ls.png`, `task14_start_run.png`, `task14_ports_view.png`, `task14_vnc_url.png`, `task14_vnc_password_prompt.png`, `task14_vnc_desktop.png`, `task14_vnc_connect.png`, `task14_stop_run.png`)
+- [ ] Exam Evaluation: Students have completed the Exam Evaluation Questions and captured required screenshots  
 - [ ] Pushed repository `CC_<YourName>_<YourRollNumber>` with `Lab6` contents
 
 ---
