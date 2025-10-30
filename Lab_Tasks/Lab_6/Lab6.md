@@ -46,7 +46,7 @@ Notes:
 - [Task 10: Script setup.sh – variables, command substitution, file/dir checks, permissions (use vim)](#task-10--script-setupsh--variables-command-substitution-filedir-checks-permissions-use-vim)
 - [Task 11: Script setup.sh – argument comparisons (eq, ne, gt, lt, ge, le) and string checks](#task-11--script-setupsh--argument-comparisons-eq-ne-gt-lt-ge-le-and-string-checks)
 - [Task 12: Script setup.sh – print all arguments with a for loop](#task-12--script-setupsh--print-all-arguments-with-a-for-loop)
-- [Task 13: Script setup.sh – while loop summation and functions](#task-13--script-setupsh--while-loop-summation-and-a-sum-function)
+- [Task 13: Script setup.sh – while loop summation and functions](#task-13--script-setupsh--while-loop-summation-and-functions)
 - [Task 14: Codespaces GUI — fork repo, run start-desktop.sh, open VNC, stop GUI](#task-14--codespaces-gui--fork-repo-run-start-desktopsh-open-vnc-stop-gui)
 - [Submission](#submission)
 - [Checklist (for students)](#checklist-for-students)
@@ -210,9 +210,6 @@ ls -ld /home/Scooby
 sudo mkdir -p /home/Scooby
 sudo chown Scooby:Scooby /home/Scooby
 sudo chmod 750 /home/Scooby
-# Optional: populate default skeleton files
-# sudo cp -a /etc/skel/. /home/Scooby
-# sudo chown -R Scooby:Scooby /home/Scooby
 ls -ld /home/Scooby
 ```
 - Save screenshot as: `task4_scooby_create_home.png`
@@ -225,14 +222,21 @@ ls -la
 ```
 - Save screenshot as: `task4_scooby_login_success.png`
 
-8) Verify users in system files:
+8) Verify users in system files and observe shell of `Scooby`:
 ```bash
 exit
 cat /etc/passwd
 ```
 - Save screenshot as: `task4_verify_users.png`
 
-9) Create groups:
+9) Change the shell from `/bin/sh` to `/bin/bash`
+```bash
+sudo usermod -s /bin/bash Scooby
+su - Scooby
+```
+- Save screenshot as: `task4_shell_switching.png`
+
+10)  Create groups:
 ```bash
 sudo addgroup jolly
 sudo groupadd anime
@@ -266,6 +270,7 @@ cat /etc/passwd
 - `task4_scooby_create_home.png`
 - `task4_scooby_login_success.png`
 - `task4_verify_users.png`
+- `task4_shell_switching.png`
 - `task4_add_groups.png`
 - `task4_verify_groups.png`
 - `task4_delete_groups.png`
