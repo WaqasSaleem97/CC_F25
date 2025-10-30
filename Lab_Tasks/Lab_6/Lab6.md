@@ -636,6 +636,7 @@ if [ -f "dir1/file2" ]; then
 else
   echo "file2 does not exist. Creating..."
   touch "dir1/file2"
+  chmod a-rwx "dir1/file2"
   echo "file2 created."
 fi
 ```
