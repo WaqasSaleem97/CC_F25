@@ -403,11 +403,8 @@ Important notes:
 
 ## Exam Evaluation Questions
 
-Below are exam-style evaluation questions that test the same core concepts from Tasks 1–6 but present different scenarios and prompts so students must apply their understanding rather than repeat exact task steps. Do NOT provide solutions in your submission — students must perform the actions and upload the requested screenshots as evidence. Each sub-question lists the evidence filenames to be submitted.
 
-Note: The prompts avoid repeating the exact lab task wording while keeping the concepts intact (environment inspection and filtering, temporary vs persistent variables, PATH/script execution, firewall rules for SSH/ping, and SSH key authentication).
-
-### Q1 — Quick Environment Audit
+### Q1: Quick Environment Audit
 - Objective: Demonstrate you can inspect the current environment and extract a few key variables.
 - Actions & evidence:
   1. Run a single command to display environment variables and capture its output.
@@ -415,7 +412,7 @@ Note: The prompts avoid repeating the exact lab task wording while keeping the c
   2. In the same terminal session, run three filters (one per line) to show values for PATH, LANG, and PWD, then capture a single screenshot showing the three outputs together.
      - Save screenshot: `EE_q1_env_filters.png`
 
-### Q2 — Short-lived Student Info
+### Q2: Short-lived Student Info
 - Objective: Show how temporary environment variables behave (session-scoped).
 - Actions & evidence:
   1. In one terminal, set three variables (STUDENT_NAME, STUDENT_ROLL_NUMBER, STUDENT_SEMESTER) using export — execute all three consecutively and capture them in one screenshot (show the commands executed).
@@ -427,7 +424,7 @@ Note: The prompts avoid repeating the exact lab task wording while keeping the c
   4. Exit that shell, open a fresh terminal, and show that the STUDENT_ variables are not set (use echo and printenv|grep together) — capture in one screenshot.
      - Save screenshot: `EE_q2_after_restart.png`
 
-### Q3 — Make It Sticky (Persistence Check for Student Info)
+### Q3: Make It Sticky (Persistence Check for Student Info)
 - Objective: Demonstrate persistence of environment variables across sessions via shell configuration.
 - Actions & evidence:
   1. Edit `~/.bashrc` (or your chosen interactive shell rc file) and append the three STUDENT_* exports. Capture a screenshot of the editor showing the new lines.
@@ -437,7 +434,7 @@ Note: The prompts avoid repeating the exact lab task wording while keeping the c
   3. Close and re-open a terminal and demonstrate the STUDENT_NAME variable is available (echo and printenv grep together) — capture in one screenshot.
      - Save screenshot: `EE_q3_after_restart.png`
 
-### Q4 — Firewall Rules: Block and Restore Ping (ICMP)
+### Q4: Firewall Rules: Block and Restore Ping (ICMP)
 - Objective: Demonstrate you can block ping (ICMP echo) traffic using ufw and then re-allow it; show effect from a client.
 - Actions & evidence:
   1. Enable ufw and capture the enable command and status together in one screenshot.
@@ -473,8 +470,7 @@ Create a repository `CC_<YourName>_<YourRollNumber>/Lab7` with:
 Lab7/
   workspace/                    # any files you created (optional)
   screenshots/                  # include all screenshots listed in this lab (optional)
-  Exam_Evaluation/              # add evidence and README as above
-  Lab7.md                       # this lab manual (the file you are preparing)
+  Lab7.md                       # this lab manual
   Lab7_solution.docx            # this lab solution in MS word format
   Lab7_solution.pdf             # This lab solution in PDF format
 ```
