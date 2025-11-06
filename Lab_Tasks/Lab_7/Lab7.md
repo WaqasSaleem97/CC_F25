@@ -33,13 +33,15 @@ Notes:
 
 ## 📋 Task List (Lab 7)
 
-- [Task 1: Print & filter environment variables](#task-1---print--filter-environment-variables)
-- [Task 2: Export DB_* variables temporarily and observe scope](#task-2---export-db_variables-temporarily-and-observe-scope)
-- [Task 3: Make DB_* variables persistent in ~/.bashrc](#task-3---make-db_variables-persistent-in-bashrc)
-- [Task 4: System-wide environment variable, welcome script, and PATH](#task-4---system-wide-environment-variable-welcome-script-and-path)
-- [Task 5: Block and allow SSH using ufw (firewall)](#task-5---block-and-allow-ssh-using-ufw)
-- [Task 6: Configure SSH key-based login from Windows host](#task-6---configure-ssh-key-based-login-from-windows-host)
-- [Submission and Checklist](#submission-and-checklist)
+- [Task 1: Print & filter environment variables](#task-1--print--filter-environment-variables)
+- [Task 2: Export DB_* variables temporarily and observe scope](#task-2--export-db_-variables-temporarily-and-observe-scope)
+- [Task 3: Make DB_* variables persistent in ~/.bashrc](#task-3--make-db_-variables-persistent-in-bashrc)
+- [Task 4: System-wide environment variable, welcome script, and PATH](#task-4--system-wide-environment-variable-welcome-script-and-path)
+- [Task 5: Block and allow SSH using ufw (firewall)](#task-5--block-and-allow-ssh-using-ufw-firewall)
+- [Task 6: Configure SSH key-based login from Windows host](#task-6--configure-ssh-key-based-login-from-windows-host)
+- [Exam Evaluation Questions](#exam-evaluation-questions)
+- [Submission](#submission)
+- [Checklist](#checklist)
 - [Troubleshooting & Notes](#troubleshooting--notes)
 
 ---
@@ -175,7 +177,7 @@ Notes:
 
 ## Task 4 — System-wide environment variable, welcome script, and PATH
 
-Goal: Add Class variable to `/etc/environment`, view PATH, create `welcome` script on Desktop, make executable, and add PATH entry in ~/.bashrc. Capture grouped screenshots as applicable.
+Goal: Add Class variable to `/etc/environment`, view PATH, create a `welcome` script at `~/welcome`, make it executable, and add PATH entry in ~/.bashrc so `welcome` can be executed without `./`. Capture grouped screenshots as applicable.
 
 Steps and required screenshots (grouping applies to "print with grep" type commands and grouped variable definitions — in this task there is a single system variable definition so a standard per-action capture is used):
 
@@ -185,7 +187,7 @@ sudo cat /etc/environment
 ```
 - Save screenshot as: `task4_etc_environment_before.png`
 
-2) Show current PATH (single print) — this is not a grep, but keep it as a dedicated screenshot:
+2) Show current PATH:
 ```bash
 echo "$PATH"
 ```
@@ -206,36 +208,39 @@ echo "$PATH"
 ```
 - Save screenshot as: `task4_echo_class_and_path.png`  (single screenshot showing both outputs)
 
-5) Create `welcome` script on Desktop and make it executable (capture the heredoc creation and chmod together in one screenshot if possible):
+5) Create `welcome` script at your home directory (`~/welcome`) and make it executable (capture the heredoc creation and chmod together in one screenshot if possible):
 ```bash
-cat > ~/Desktop/welcome <<'EOF'
+cat > ~/welcome <<'EOF'
 #!/bin/bash
 echo "Welcome to Cloud Computing $USER"
 EOF
 
-chmod +x ~/Desktop/welcome
+chmod +x ~/welcome
 ```
 - Save screenshot as: `task4_welcome_create_and_chmod.png` (single screenshot showing heredoc creation command and chmod output/listing)
 
-6) Run the script from Desktop using `./welcome` (dedicated screenshot):
+6) Run the script from your home directory using `./welcome`:
 ```bash
-cd ~/Desktop
+cd ~
 ./welcome
 ```
 - Save screenshot as: `task4_welcome_run_dot.png`
 
-7) Add Desktop to PATH in `~/.bashrc` (show the editor containing the PATH addition in one screenshot) and then source; capture the source and a single invocation of `welcome` (from home) together:
+7) Add your home directory to PATH in `~/.bashrc`. NOTE: per your instruction we do not include an `export PATH` line here — only add the PATH modification line in the file. Capture the editor showing that PATH line in one screenshot:
 ```bash
 vim ~/.bashrc
 # add at end:
-PATH=$PATH:~/Desktop
-export PATH
+PATH=$PATH:~
+```
+- Save screenshot as: `task4_bashrc_path_line.png` (editor screenshot showing the PATH line only)
 
+8) Apply the change and run `welcome` — capture these runtime commands in a separate screenshot (must be taken separately from the editor screenshot):
+```bash
 source ~/.bashrc
 cd ~
 welcome
 ```
-- Save screenshot as: `task4_bashrc_path_added_and_run.png` (single screenshot showing ~/.bashrc with PATH line and the subsequent `source` + `welcome` output)
+- Save screenshot as: `task4_bashrc_source_and_welcome.png` (single screenshot showing the `source` command and the `welcome` output)
 
 📸 Screenshots (required):
 - `task4_etc_environment_before.png`
@@ -245,14 +250,15 @@ welcome
 - `task4_echo_class_and_path.png`
 - `task4_welcome_create_and_chmod.png`
 - `task4_welcome_run_dot.png`
-- `task4_bashrc_path_added_and_run.png`
+- `task4_bashrc_path_line.png`
+- `task4_bashrc_source_and_welcome.png`
 
 Notes:
-- If you prefer `~/bin`, substitute `~/Desktop` accordingly and capture the same grouped screenshots.
+- If you prefer `~/bin`, substitute `~/welcome` accordingly and capture the same grouped screenshots.
 
 ---
 
-## Task 5 — Block and allow SSH using ufw
+## Task 5 — Block and allow SSH using ufw (firewall)
 
 Goal: Use ufw to deny and allow SSH then verify SSH connectivity changes from host. Save screenshots after each logical command/step; group related print checks when appropriate.
 
@@ -265,9 +271,9 @@ sudo ufw status verbose
 ```
 - Save screenshot as: `task5_ufw_enable_and_status.png`
 
-2) Deny TCP port 22 and show status (run deny and `status numbered` together and capture in one screenshot):
+2) Deny TCP port 22 and show status (run deny and `status numbered` together and capture in one screenshot). Use short form as requested:
 ```bash
-sudo ufw deny proto tcp to any port 22
+sudo ufw deny 22/tcp
 sudo ufw status numbered
 ```
 - Save screenshot as: `task5_ufw_deny_22_and_status.png`
@@ -278,9 +284,9 @@ ssh username@<server_ip>
 ```
 - Save screenshot as: `task5_ssh_attempt_blocked.png`
 
-4) Allow SSH back and reload, then show status (group allow, reload, status in one screenshot if run together):
+4) Allow SSH back and reload, then show status (group allow, reload, status in one screenshot if run together). Use short form as requested:
 ```bash
-sudo ufw allow proto tcp to any port 22
+sudo ufw allow 22/tcp
 sudo ufw reload
 sudo ufw status
 ```
@@ -312,38 +318,54 @@ A. On Windows host (client) — group related client actions:
 
 1) Generate ed25519 key pair (if needed) and show the generated files in one screenshot (run `ssh-keygen` and then list `~/.ssh`):
 ```powershell
-ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -C "lab_key"
+ssh-keygen -t ed25519 -f ~/.ssh/id_lab7 -C "lab_key"
 ls -la ~/.ssh
 ```
 - Save screenshot as: `task6_windows_sshkey_and_list.png` (single screenshot showing keygen result and `ls` of .ssh folder)
 
 2) Show the public key content (single screenshot):
 ```powershell
-type $env:USERPROFILE\.ssh\id_ed25519.pub
-# or on Git Bash: cat ~/.ssh/id_ed25519.pub
+type $env:USERPROFILE\.ssh\id_lab7.pub
+# or on Git Bash: cat ~/.ssh/id_lab7.pub
 ```
 - Save screenshot as: `task6_windows_public_key.png`
 
-3) (Optional) Show known_hosts after first connection (single screenshot):
+3) Clear the known_hosts file content and verify it is empty (single screenshot):
+```powershell
+# Clear contents (PowerShell)
+Clear-Content $env:USERPROFILE\.ssh\known_hosts
+
+# View the file (should be empty)
+type $env:USERPROFILE\.ssh\known_hosts
+```
+- Save screenshot as: `task6_windows_known_hosts_cleared_and_empty.png`
+
+4) Connect to the Ubuntu server using the standard SSH command (this will prompt to accept the server host key because known_hosts is empty). Capture the connection prompt/accept step in one screenshot:
+```powershell
+ssh username@<server_ip>
+# Accept the host key prompt (yes) and complete the login (enter password or key passphrase)
+```
+- Save screenshot as: `task6_windows_ssh_accept_hostkey_and_login.png`
+
+5) After the successful connection, view the known_hosts file to show the server host key was added (single screenshot):
 ```powershell
 type $env:USERPROFILE\.ssh\known_hosts
 ```
-- Save screenshot as: `task6_windows_known_hosts.png`
+- Save screenshot as: `task6_windows_known_hosts_after_connect.png`
 
 B. On Ubuntu server — group related server-side commands:
 
-1) Inspect `.ssh` and `authorized_keys` before adding key (capture both outputs in one screenshot):
-```bash
-ls -la ~/.ssh
-cat ~/.ssh/authorized_keys || true
-```
-- Save screenshot as: `task6_server_ssh_folder_and_authorized_before.png`
-
-2) Create `~/.ssh`, set permissions, append the public key (manual method), and show the resulting `authorized_keys` — capture the mkdir/chmod/echo and the final `cat` in one screenshot:
+1) Prepare the `~/.ssh` directory and clear `authorized_keys` (this will create the directory if missing, set the correct directory permissions, and truncate the authorized_keys file). Capture this command sequence and its output in one screenshot:
 ```bash
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
-# paste public key line from Windows client into the echo below (or use ssh-copy-id)
+> ~/.ssh/authorized_keys
+```
+- Save screenshot as: `task6_server_clear_authorized_keys.png`
+
+2) Append the public key, set file permissions, and show the resulting `authorized_keys` (capture commands and resulting file content in one screenshot):
+```bash
+# paste public key name id_lab7.pub from Windows client into the echo below
 echo "ssh-ed25519 AAAA... yourpublickey ... comment" >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 cat ~/.ssh/authorized_keys
@@ -358,7 +380,7 @@ ssh username@<server_ip>
 
 4) Also demonstrate explicit identity usage (single screenshot):
 ```powershell
-ssh -i ~/.ssh/id_ed25519 username@<server_ip>
+ssh -i ~/.ssh/id_lab7 username@<server_ip>
 ```
 - Save screenshot as: `task6_ssh_with_identity_file.png`
 
@@ -369,13 +391,79 @@ Important notes:
 📸 Screenshots (required):
 - `task6_windows_sshkey_and_list.png`
 - `task6_windows_public_key.png`
-- `task6_windows_known_hosts.png`
-- `task6_server_ssh_folder_and_authorized_before.png`
+- `task6_windows_known_hosts_cleared_and_empty.png`
+- `task6_windows_ssh_accept_hostkey_and_login.png`
+- `task6_windows_known_hosts_after_connect.png`
+- `task6_server_clear_authorized_keys.png`
 - `task6_server_add_key_and_show.png`
 - `task6_ssh_passwordless_login.png`
 - `task6_ssh_with_identity_file.png`
 
 ---
+
+## Exam Evaluation Questions
+
+Below are exam-style evaluation questions that test the same core concepts from Tasks 1–6 but present different scenarios and prompts so students must apply their understanding rather than repeat exact task steps. Do NOT provide solutions in your submission — students must perform the actions and upload the requested screenshots as evidence. Each sub-question lists the evidence filenames to be submitted.
+
+Note: The prompts avoid repeating the exact lab task wording while keeping the concepts intact (environment inspection and filtering, temporary vs persistent variables, PATH/script execution, firewall rules for SSH/ping, and SSH key authentication).
+
+### Q1 — Quick Environment Audit
+- Objective: Demonstrate you can inspect the current environment and extract a few key variables.
+- Actions & evidence:
+  1. Run a single command to display environment variables and capture its output.
+     - Save screenshot: `EE_q1_env_all.png`
+  2. In the same terminal session, run three filters (one per line) to show values for PATH, LANG, and PWD, then capture a single screenshot showing the three outputs together.
+     - Save screenshot: `EE_q1_env_filters.png`
+
+### Q2 — Short-lived Student Info
+- Objective: Show how temporary environment variables behave (session-scoped).
+- Actions & evidence:
+  1. In one terminal, set three variables (STUDENT_NAME, STUDENT_ROLL_NUMBER, STUDENT_SEMESTER) using export — execute all three consecutively and capture them in one screenshot (show the commands executed).
+     - Save screenshot: `EE_q2_exports.png`
+  2. Still in the same session, print the three values with echo (grouped) and capture the outputs in one screenshot.
+     - Save screenshot: `EE_q2_echoes.png`
+  3. Use a single printenv|grep command to list any STUDENT_ variables and capture the result.
+     - Save screenshot: `EE_q2_printenv_grep.png`
+  4. Exit that shell, open a fresh terminal, and show that the STUDENT_ variables are not set (use echo and printenv|grep together) — capture in one screenshot.
+     - Save screenshot: `EE_q2_after_restart.png`
+
+### Q3 — Make It Sticky (Persistence Check for Student Info)
+- Objective: Demonstrate persistence of environment variables across sessions via shell configuration.
+- Actions & evidence:
+  1. Edit `~/.bashrc` (or your chosen interactive shell rc file) and append the three STUDENT_* exports. Capture a screenshot of the editor showing the new lines.
+     - Save screenshot: `EE_q3_bashrc_editor.png`
+  2. Reload your shell config with a single command and then verify the three variables and show `printenv | grep '^STUDENT_'` — capture these verification outputs together in one screenshot.
+     - Save screenshot: `EE_q3_after_source.png`
+  3. Close and re-open a terminal and demonstrate the STUDENT_NAME variable is available (echo and printenv grep together) — capture in one screenshot.
+     - Save screenshot: `EE_q3_after_restart.png`
+
+### Q4 — Firewall Rules: Block and Restore Ping (ICMP)
+- Objective: Demonstrate you can block ping (ICMP echo) traffic using ufw and then re-allow it; show effect from a client.
+- Actions & evidence:
+  1. Enable ufw and capture the enable command and status together in one screenshot.
+     - Save screenshot: `EE_q5_ufw_enable_status.png`
+  2. Add a rule to block ping (ICMP echo) and show `ufw status numbered` in the same screenshot.
+     - Suggested command example:
+       ```bash
+       sudo ufw deny proto icmp from any to any
+       sudo ufw status numbered
+       ```
+     - Save screenshot: `EE_q5_ufw_deny_ping_status.png`
+  3. From your Windows host (or another client), attempt to ping the server while the rule is active and capture the blocked/failing ping in one screenshot.
+     - Save screenshot: `EE_q5_ping_blocked.png`
+  4. Re-allow ping (ICMP) (or remove the deny rule) and capture the allow/reload/status sequence in one screenshot.
+     - Suggested command example:
+       ```bash
+       sudo ufw allow proto icmp from any to any
+       sudo ufw reload
+       sudo ufw status
+       ```
+     - Save screenshot: `EE_q5_ufw_allow_ping_status.png`
+  5. From the client, ping the server again and capture successful replies in one screenshot.
+     - Save screenshot: `EE_q5_ping_success.png`
+
+---
+
 
 ## Submission
 
@@ -384,23 +472,28 @@ Create a repository `CC_<YourName>_<YourRollNumber>/Lab7` with:
 ```
 Lab7/
   workspace/                    # any files you created (optional)
-  screenshots/                  # include all screenshots listed in this lab
+  screenshots/                  # include all screenshots listed in this lab (optional)
+  Exam_Evaluation/              # add evidence and README as above
   Lab7.md                       # this lab manual (the file you are preparing)
+  Lab7_solution.docx            # this lab solution in MS word format
+  Lab7_solution.pdf             # This lab solution in PDF format
 ```
 
-Upload the screenshots with the exact filenames listed above. Make sure each grouped screenshot corresponds to the grouped commands described (e.g., all export commands in one screenshot; all related greps/prints together in one screenshot).
+Upload the screenshots with the exact filenames listed in the Exam Evaluation Question and the lab tasks.
 
 ---
 
-## Checklist (for students)
+## Checklist
 
 - [ ] Task 1: printed environment variables and saved combined grep screenshot  
 - [ ] Task 2: exported DB_* variables (single screenshot for exports), ran grouped echoes and grep (single screenshots), and verified after restart (single screenshot)  
 - [ ] Task 3: appended exports to ~/.bashrc (editor screenshot), sourced and verified (grouped screenshot), verified after restart (grouped screenshot)  
-- [ ] Task 4: edited /etc/environment, added Class, created welcome script, updated PATH in ~/.bashrc, and saved grouped screenshots for related commands  
-- [ ] Task 5: enabled ufw, denied and allowed SSH, attempted SSH from host (blocked and allowed) and saved grouped screenshots for related command sequences  
-- [ ] Task 6: generated/located Windows SSH public key, pasted to server authorized_keys, and saved grouped screenshots for client/server steps and tests  
-- [ ] Created and pushed `CC_<YourName>_<YourRollNumber>/Lab7` with Lab7.md and all screenshots
+- [ ] Task 4: edited /etc/environment, added Class, created ~/welcome script, updated PATH in ~/.bashrc (PATH line only, no export), and saved separate screenshots for the editor and for the source+run steps  
+- [ ] Task 5: enabled ufw, denied and allowed SSH (using `sudo ufw deny 22/tcp` and `sudo ufw allow 22/tcp`), attempted SSH from host (blocked and allowed) and saved grouped screenshots for related command sequences  
+- [ ] Task 6: generated/located Windows SSH public key using filename `id_lab7`, cleared known_hosts and demonstrated host-key acceptance, prepared server `~/.ssh` and cleared `authorized_keys`, pasted public key to server authorized_keys, and saved grouped screenshots for client/server steps and tests  
+- [ ] Created and pushed `CC_<YourName>_<YourRollNumber>/Lab7` with Lab7.md and all screenshots  
+- [ ] Complete Exam Evaluation Questions and save screenshots in `Exam_Evaluation/evidence/`  
+- [ ] Push repository `CC_<YourName>_<YourRollNumber>/Lab7` with all files
 
 ---
 
