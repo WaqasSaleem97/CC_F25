@@ -427,7 +427,7 @@ Important notes:
 ### Q3: Make It Sticky (Persistence Check for Student Info)
 - Objective: Demonstrate persistence of environment variables across sessions via shell configuration.
 - Actions & evidence:
-  1. Edit `~/.bashrc` (or your chosen interactive shell rc file) and append the three STUDENT_* exports. Capture a screenshot of the editor showing the new lines.
+  1. Edit `~/.bashrc` and append the three STUDENT_* exports. Capture a screenshot of the editor showing the new lines.
      - Save screenshot: `EE_q3_bashrc_editor.png`
   2. Reload your shell config with a single command and then verify the three variables and show `printenv | grep '^STUDENT_'` — capture these verification outputs together in one screenshot.
      - Save screenshot: `EE_q3_after_source.png`
