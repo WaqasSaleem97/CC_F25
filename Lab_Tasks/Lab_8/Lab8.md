@@ -29,11 +29,8 @@ Important safety note: You will enter real payment information to create a paid 
 - A GitHub account (optional—only if you want to push code from instance to GitHub).
 
 Notes on screenshots and evidence:
-- Capture screenshots immediately after completing each numbered STEP or logical SUBSTEP. Save them into the repository under Lab8/screenshots/ using the exact filenames listed for that action.
 - Group related commands and outputs into single screenshots where appropriate (for example: multiple export commands shown together; multiple grep outputs shown together).
 - Do NOT include private credentials in screenshots (do not show passwords or secret keys). You may show the signin URL and console screens, but redact or avoid displaying passwords.
-- Filenames must match exactly; graders will check by filename.
-
 ---
 
 ## 📋 Task List
@@ -41,7 +38,7 @@ Notes on screenshots and evidence:
 - [Task 1: Create AWS root account and enable UAE (me-central-1)](#task-1--create-an-aws-account-and-enable-uae-me-central-1)
 - [Task 2: Create IAM Admin user → create Lab8User and verify logins](#task-2--create-iam-admin-and-lab8user-with-console-access)
 - [Task 3: Inspect VPC resources in UAE region](#task-3--inspect-vpc-resources-in-uae-me-central-1)
-- [Task 4: Launch EC2, configure key pair and security group, SSH, install Docker & Docker Compose, deploy Gitea, open web UI](#task-4--launch-ec2-configure-key-pair-and-security-group-ssh-install-docker--docker-compose-deploy-gitea-open-web-ui)
+- [Task 4: Launch EC2, SSH, install Docker & Docker Compose, deploy Gitea](#task-4--launch-ec2-ssh-install-docker--docker-compose-deploy-gitea)
 - [Cleanup: Remove resources to avoid charges](#cleanup--remove-resources-to-avoid-charges)
 - [Submission](#submission)
 - [Checklist](#checklist)
@@ -55,7 +52,7 @@ Goal: Register a new AWS root account and enable the UAE me-central-1 region.
 
 Do these steps in order and capture a screenshot immediately after each numbered step. Place screenshots in Lab8/screenshots/.
 
-Steps and required screenshots:
+### Steps and required screenshots:
 
 1. Open your browser and go to: [AWS Signup](https://signin.aws.amazon.com/signup?request_type=register)  
    - Save screenshot as: `task1_open_signup_page.png` — browser showing the signup page.
@@ -89,7 +86,7 @@ Goal: Create an IAM user named Admin (console access + AdministratorAccess polic
 
 Do these steps in order and capture a screenshot immediately after each numbered step/substep. Place screenshots in Lab8/screenshots/.
 
-Steps and required screenshots:
+### Steps and required screenshots:
 
 1. Open IAM via Console search (Alt+S → "IAM").  
    - Save screenshot as: `task2_open_iam_console.png` — IAM console landing page (region me-central-1 visible).
@@ -146,7 +143,7 @@ Goal: In the VPC console list the counts of specific resources.
 
 Do these steps in order and capture a screenshot immediately after viewing each page. Place screenshots in Lab8/screenshots/.
 
-Steps and required screenshots:
+### Steps and required screenshots:
 
 1. Open VPC console (Alt+S → "VPC") while region is me-central-1.  
    - Save screenshot as: `task3_open_vpc_console.png` — VPC console landing page (region visible).
@@ -182,9 +179,7 @@ In each screenshot show the console top bar with region set to me-central-1.
 
 Goal: Launch an EC2 instance named Lab8Machine, configure security group Lab8SecurityGroup allowing SSH from your IP, create an ED25519 key pair Lab8Key (.pem), SSH from Windows host, install Docker & Docker Compose, create compose.yaml from the repository, run docker compose up -d, allow inbound TCP port 3000, and open Gitea UI.
 
-For Task 4 capture screenshots immediately after each numbered step. Place screenshots in Lab8/screenshots/.
-
-Steps
+### Steps and required screenshots:
 
 1. Open EC2 Console (Alt+S → "EC2") (me-central-1).  
    - Save screenshot as: `task4_open_ec2_console.png` — EC2 console landing page with region visible.
