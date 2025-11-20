@@ -55,6 +55,7 @@ Do these steps in order and capture a screenshot immediately after each numbered
 ### Steps and required screenshots:
 
 1. Open your browser and go to: [AWS Signup](https://signin.aws.amazon.com/signup?request_type=register)  
+![aws-signup](images/2..png)
    - Save screenshot as: `task1_open_signup_page.png` — browser showing the signup page.
 
 2. Complete registration (Account type: Personal, Plan: AWS Paid Plan), fill contact, billing (credit card) and phone details, complete verification. After successful registration capture:  
@@ -63,10 +64,12 @@ Do these steps in order and capture a screenshot immediately after each numbered
 3. Sign in as the root user (root email). Immediately capture:  
    - Save screenshot as: `task1_root_signed_in.png` — AWS Console Home after root login (top bar with root email/account alias visible).
 
-4. From the Console, open the region selector and enable UAE (me-central-1) if needed, then switch to me-central-1. Capture the change:  
+4. From the Console, open the region selector and enable UAE (me-central-1), then switch to me-central-1. Capture the change:
+![me-central-1](images/1.png)
    - Save screenshot as: `task1_enable_region_me-central-1.png` — region selector showing me-central-1 selected.
 
 5. Task 1 summary screenshot (combine evidence):  
+![me-central-1_active](images/3.png)
    - Save screenshot as: `task1_summary.png` — single screenshot showing root console header (root email/account alias) and region set to me-central-1.
 
 Screenshots Required:
@@ -89,13 +92,20 @@ Do these steps in order and capture a screenshot immediately after each numbered
 ### Steps and required screenshots:
 
 1. Open IAM via Console search (Alt+S → "IAM").  
+![IAM](images/4.png)
+
    - Save screenshot as: `task2_open_iam_console.png` — IAM console landing page (region me-central-1 visible).
 
 2. Create the Admin user: IAM → Users → Create user. Fill:
+![create_user](images/5.png)
    - Username: Admin
    - Provide user access to the AWS Management Console
    - Set console password (autogenerate or set)
+   ![user-details](images/6.png)
    - Attach policies directly → AdministratorAccess  
+   ![set-user-permission](images/7.png)
+   ![review-user-details](images/8.png)
+   ![view-created-user](images/9.png)
    Capture the completion screen when user is created:  
    - Save screenshot as: `task2_admin_create_confirmation.png` — IAM "Create user" success screen showing Admin (do NOT include password).
 
@@ -146,6 +156,8 @@ Do these steps in order and capture a screenshot immediately after viewing each 
 ### Steps and required screenshots:
 
 1. Open VPC console (Alt+S → "VPC") while region is me-central-1.  
+![VPC](images/10.png)
+![vpc-me-central-1](images/11.png)
    - Save screenshot as: `task3_open_vpc_console.png` — VPC console landing page (region visible).
 
 2. View VPCs list. Capture:  
@@ -182,20 +194,28 @@ Goal: Launch an EC2 instance named Lab8Machine, configure security group Lab8Sec
 ### Steps and required screenshots:
 
 1. Open EC2 Console (Alt+S → "EC2") (me-central-1).  
+![EC2](images/12.png)
    - Save screenshot as: `task4_open_ec2_console.png` — EC2 console landing page with region visible.
-
+![launch-instance](images/13.png)
 2. Instance Launch configuration (during review before launching). Configure:
    - Name: Lab8Machine
+   ![name-ec2](images/14.png)
    - AMI: Amazon Linux 2
+   ![image-ec2](images/15.png)
    - Instance type: t2.micro
-   - Storage: default
+   ![t2-micro-ec2](images/16.png)
    - Security group: Create Lab8SecurityGroup with SSH from My IP
+   ![security-group-ec2](images/17.png)
+   - Storage: default
+   ![storage-ec2](images/18.png)
    - Key pair: Create Lab8Key (ED25519, .pem) and download the .pem file to your Windows host  
+   ![key-pair-ec2](images/19.png)
    Capture the final review page and the key download prompt:  
    - Save screenshot as: `task4_launch_instance_config.png` — final review page showing instance name, AMI, type, security group, key pair.
    - Save screenshot as: `task4_keypair_download.png` — Windows File Explorer showing Lab8Key.pem downloaded (do NOT open .pem contents).
 
-3. After launch, EC2 Instances list showing Lab8Machine in "running" state and public IPv4 visible.  
+3. After launch, EC2 Instances list showing Lab8Machine in "running" state and public IPv4 visible. 
+![public-ip-ec2](images/20.png)
    - Save screenshot as: `task4_instance_running_console.png` — Instances table with Lab8Machine running and Public IPv4.
 
 4. On Windows host, run SSH using the downloaded .pem (PowerShell/Git Bash/Windows Terminal):  
@@ -207,56 +227,54 @@ Goal: Launch an EC2 instance named Lab8Machine, configure security group Lab8Sec
 
 5. Run the install commands on the EC2 shell:
 
-```bash
-sudo yum update -y
-sudo yum install -y docker
-sudo mkdir -p /usr/local/lib/docker/cli-plugins
-sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose
-sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
-sudo systemctl start docker
-```
-
-Capture the terminal showing these commands run and successful outputs:  
-- Save screenshot as: `task4_ec2_install_docker_compose_started.png` — outputs of update/install and systemctl start.
+   ```bash
+   sudo yum update -y
+   sudo yum install -y docker
+   sudo mkdir -p /usr/local/lib/docker/cli-plugins
+   sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose
+   sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+   sudo systemctl start docker
+   ```
+   Capture the terminal showing these commands run and successful outputs:  
+   - Save screenshot as: `task4_ec2_install_docker_compose_started.png` — outputs of update/install and systemctl start.
 
 6. Create/edit compose.yaml on the EC2 instance (sudo vim compose.yaml) and paste content from the repo: [Gitea](https://github.com/WaqasSaleem97/Gitea) . While pasting, capture the editor content:  
-- Save screenshot as: `task4_vim_compose_yaml_paste.png` — vim editor showing compose.yaml contents while pasted.
+      - Save screenshot as: `task4_vim_compose_yaml_paste.png` — vim editor showing compose.yaml contents while pasted.
 
 7. Save and verify file exists:  
-- Save screenshot as: `task4_compose_yaml_saved_ls.png` — ls -l showing compose.yaml present.
+      - Save screenshot as: `task4_compose_yaml_saved_ls.png` — ls -l showing compose.yaml present.
 
 8. Add ec2-user to docker group, show groups before re-login, exit and reconnect, show groups after reconnect:
 
-```bash
-sudo usermod -aG docker $USER
-groups    # before re-login
-exit
-# Reconnect
-ssh -i <path>/Lab8Key.pem ec2-user@<public-IP>
-groups    # after re-login (should include docker)
-```
-
-- Save screenshot as: `task4_usermod_and_groups_before_after.png` — show usermod command, groups output before exit, reconnect sequence, and groups output after (docker included).
+   ```bash
+   groups    # user does not docker permission
+   sudo usermod -aG docker $USER
+   groups    # before re-login
+   exit
+   # Reconnect
+   ssh -i <path>/Lab8Key.pem ec2-user@<public-IP>
+   groups    # after re-login (should include docker)
+   ```
+   - Save screenshot as: `task4_usermod_and_groups_before_after.png` — show usermod command, groups output before exit, reconnect sequence, and groups output after (docker included).
 
 9. Run docker compose up -d from the directory with compose.yaml:
 
-```bash
-docker compose up -d
-```
-
-- Save screenshot as: `task4_docker_compose_up.png` — output of docker compose up -d showing containers starting.
+   ```bash
+   docker compose up -d
+   ```
+   - Save screenshot as: `task4_docker_compose_up.png` — output of docker compose up -d showing containers starting.
 
 10. Edit the security group Lab8SecurityGroup inbound rules in the EC2 console: add Custom TCP rule port 3000 source 0.0.0.0/0 and save. Capture the inbound rules after saving:  
-- Save screenshot as: `task4_security_group_allow_3000.png` — security group inbound rules list showing SSH from My IP and Custom TCP 3000 anywhere.
+      - Save screenshot as: `task4_security_group_allow_3000.png` — security group inbound rules list showing SSH from My IP and Custom TCP 3000 anywhere.
 
-11. From your Windows browser navigate to: http://<public-IP>:3000 — capture the Gitea setup/install page:  
-- Save screenshot as: `task4_gitea_install_page.png` — Gitea installation page in browser.
+11. From your Windows browser navigate to: http://Public-IP:3000 — capture the Gitea setup/install page:  
+      - Save screenshot as: `task4_gitea_install_page.png` — Gitea installation page in browser.
 
 12. Complete initial Gitea setup (create admin user, create a repo) and capture Gitea showing the created repository:  
-- Save screenshot as: `task4_gitea_create_repo.png` — Gitea UI showing the created repository.
+      - Save screenshot as: `task4_gitea_create_repo.png` — Gitea UI showing the created repository.
 
 13. Task 4 summary (combine evidence)  
-- Save screenshot as: `task4_summary.png` — single screenshot (or tiled screenshot) showing: EC2 Instances list with Lab8Machine running and public IP, security group inbound rules showing SSH and port 3000, and browser tab open to Gitea UI or repo list.
+      - Save screenshot as: `task4_summary.png` — single screenshot (or tiled screenshot) showing: EC2 Instances list with Lab8Machine running and public IP, security group inbound rules showing SSH and port 3000, and browser tab open to Gitea UI or repo list.
 
 Screenshots Required:
 - `task4_open_ec2_console.png`
@@ -275,7 +293,7 @@ Screenshots Required:
 - `task4_summary.png`
 
 Notes:
-- If http://<public-IP>:3000 does not load, check instance status, docker compose logs, and security group inbound rules.
+- If http://Public-IP:3000 does not load, check instance status, docker compose logs, and security group inbound rules.
 - If you used different ports or file paths, document them in your Lab8 writeup.
 
 ---
@@ -295,7 +313,7 @@ Cleanup steps and required screenshots:
 3. Delete security group Lab8SecurityGroup and key pair Lab8Key from the EC2 console (after instances terminated).  
    - Save screenshot as: `cleanup_delete_security_group_and_keypair.png` — deletion confirmation(s) (show key pair list and security group list after deletion).
 
-4. Delete IAM users Admin and Lab8User and any access keys.  
+4. Delete IAM users Lab8User and any access keys.  
    - Save screenshot as: `cleanup_iam_users_deleted.png` — IAM Users list showing Admin and Lab8User no longer present (or a deletion confirmation).
 
 5. Final cleanup summary (show billing or resource groups with no active resources if possible).  
