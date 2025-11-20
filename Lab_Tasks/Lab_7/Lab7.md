@@ -31,7 +31,7 @@ Notes:
 
 ---
 
-## 📋 Task List (Lab 7)
+## 📋 Task List
 
 - [Task 1: Print & filter environment variables](#task-1--print--filter-environment-variables)
 - [Task 2: Export DB_* variables temporarily and observe scope](#task-2--export-db_-variables-temporarily-and-observe-scope)
