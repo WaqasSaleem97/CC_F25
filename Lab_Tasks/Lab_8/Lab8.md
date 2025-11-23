@@ -314,7 +314,7 @@ Cleanup steps and required screenshots:
    - Save screenshot as: `cleanup_delete_security_group_and_keypair.png` — deletion confirmation(s) (show key pair list and security group list after deletion).
 
 4. Delete IAM users Lab8User and any access keys.  
-   - Save screenshot as: `cleanup_iam_users_deleted.png` — IAM Users list showing Admin and Lab8User no longer present (or a deletion confirmation).
+   - Save screenshot as: `cleanup_iam_users_deleted.png` — IAM Users list showing Lab8User no longer present (or a deletion confirmation).
 
 5. Final cleanup summary (show billing or resource groups with no active resources if possible).  
    - Save screenshot as: `cleanup_summary.png` — AWS console Billing/Resource Groups showing no active resources or no recent charges (if available).
