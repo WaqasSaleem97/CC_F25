@@ -70,7 +70,7 @@ Steps (do these from your local machine shell first, then run codespace commands
 
 4. (Local) Create or connect to a Codespace. To create a new codespace from the current repo:
    ```bash
-   gh codespace create --repo <owner>/<repo> --branch main --machine linux
+   gh codespace create --repo <owner>/<repo> --branch main --machine basicLinux32gb
    ```
    Or to open an existing codespace:
    ```bash
