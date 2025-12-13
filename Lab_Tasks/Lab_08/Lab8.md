@@ -202,7 +202,7 @@ Goal: Launch an EC2 instance named Lab8Machine, configure security group Lab8Sec
    ![name-ec2](images/14.png)
    - AMI: Amazon Linux 2
    ![image-ec2](images/15.png)
-   - Instance type: t2.micro
+   - Instance type: t3.micro
    ![t2-micro-ec2](images/16.png)
    - Security group: Create Lab8SecurityGroup with SSH from My IP
    ![security-group-ec2](images/17.png)
