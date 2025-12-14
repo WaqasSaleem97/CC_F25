@@ -630,78 +630,134 @@ Note: This prevents secrets and state files from being accidentally committed.
 - `task7_gitignore_created.png`
 
 ---
-
 ## Task 8 — Clean-up then build real infra (VPC, Subnet, IGW, routing, default route table)
 
-1. Clean previous files:
-- Remove values from `terraform.tfvars` (empty the file or remove sensitive lines).
-- Remove locals content (clear `locals.tf`).
-- Clean `main.tf` to start fresh with the provider block.
+In this task you will clean previous example values and build a simple VPC + Subnet, attach an Internet Gateway, and configure routing (first with a custom route table and association, then switch to the default route table).
+
+Perform all commands inside your Codespace shell.
+
+1. Clean previous files
+- Remove all variable assignments from `terraform.tfvars` (empty the file or delete it).
+- Remove all content from `locals.tf` (delete or empty the file).
+- Replace `main.tf` contents with only the provider block below (start fresh).
+
+Provider block to put in `main.tf`:
+```hcl
+provider "aws" {
+  shared_config_files      = ["~/.aws/config"]
+  shared_credentials_files = ["~/.aws/credentials"]
+}
+```
 - **Save screenshot as:** `task8_clean_files.png` — showing cleaned terraform.tfvars, locals.tf, and main.tf.
 
-2. Re-create variables in `main.tf`:
+2. Define variables in main.tf
+Add these variable declarations to `main.tf` (below the provider block):
 ```hcl
 variable "vpc_cidr_block" {}
 variable "subnet_cidr_block" {}
 variable "availability_zone" {}
 variable "env_prefix" {}
 ```
-- **Save screenshot as:** `task8_variables_recreated.png` — main.tf showing new variables.
+- **Save screenshot as:** `task8_variables_recreated.png` — main.tf showing the four variables added.
 
-3. Add VPC and Subnet resources:
+3. Create VPC in main.tf
+Add the VPC resource to `main.tf`:
 ```hcl
 resource "aws_vpc" "myapp_vpc" {
   cidr_block = var.vpc_cidr_block
-  tags = { Name = "${var.env_prefix}-vpc" }
+  tags = {
+     Name = "${var.env_prefix}-vpc"
+  }
 }
+```
+- **Save screenshot as:** `task8_vpc_resources_added.png` — main.tf showing aws_vpc resource (after adding VPC).
 
+4. Create Subnet in the VPC
+Add the subnet resource to `main.tf`:
+```hcl
 resource "aws_subnet" "myapp_subnet_1" {
   vpc_id            = aws_vpc.myapp_vpc.id
   cidr_block        = var.subnet_cidr_block
   availability_zone = var.availability_zone
-  tags = { Name = "${var.env_prefix}-subnet-1" }
+  tags = {
+     Name = "${var.env_prefix}-subnet-1"
+  }
 }
 ```
-- **Save screenshot as:** `task8_vpc_subnet_resources_added.png` — main.tf showing VPC and subnet resources.
+- **Save screenshot as:** `task8_subnet_resources_added.png` — main.tf showing aws_subnet resource (after adding subnet).
 
-4. In `terraform.tfvars`:
+5. Populate terraform.tfvars
+In `terraform.tfvars` add:
 ```hcl
-vpc_cidr_block = "10.0.0.0/16"
-subnet_cidr_block = "10.0.10.0/24"
-availability_zone = "me-central-1a"
-env_prefix = "dev"
+vpc_cidr_block     = "10.0.0.0/16"
+subnet_cidr_block  = "10.0.10.0/24"
+availability_zone  = "me-central-1a"
+env_prefix         = "dev"
 ```
-- **Save screenshot as:** `task8_terraform_tfvars_vpc_values.png` — terraform.tfvars content.
+- **Save screenshot as:** `task8_terraform_tfvars_vpc_values.png` — terraform.tfvars content showing the values added.
 
-5. Apply and verify via AWS console.
-- **Save screenshot as:** `task8_vpc_subnet_apply.png` — terraform apply output and optional AWS console screenshot showing resources.
+6. Apply to create VPC and Subnet
+Initialize (if needed) and apply:
+```bash
+terraform init
+terraform apply -auto-approve
+```
+Verify in AWS Console that the VPC and Subnet were created.
+- **Save screenshot as:** `task8_vpc_subnet_apply.png` — terraform apply output showing VPC and subnet creation (and optional AWS console screenshot).
 
-6. Create Internet Gateway and route table resources:
+7. Create Internet Gateway and Route Table (custom)
+Add the Internet Gateway and a custom Route Table to `main.tf`:
 ```hcl
 resource "aws_internet_gateway" "myapp_igw" {
   vpc_id = aws_vpc.myapp_vpc.id
-  tags = { Name = "${var.env_prefix}-igw" }
+  tags = {
+     Name = "${var.env_prefix}-igw"
+  }
 }
 
 resource "aws_route_table" "myapp_route_table" {
   vpc_id = aws_vpc.myapp_vpc.id
+
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.myapp_igw.id
   }
-  tags = { Name = "${var.env_prefix}-rt" }
-}
 
+  tags = {
+     Name = "${var.env_prefix}-rt"
+  }
+}
+```
+- **Save screenshot as:** `task8_igw_route_table_before_apply.png` — main.tf showing IGW and route table resources (before apply).
+
+Apply:
+```bash
+terraform apply -auto-approve
+```
+Verify IGW and route table in AWS Console.
+- **Save screenshot as:** `task8_igw_route_table_after_apply.png` — terraform apply output showing IGW and route table creation.
+
+8. Associate the Route Table with the Subnet
+Add the association resource to `main.tf`:
+```hcl
 resource "aws_route_table_association" "a_rtb_subnet" {
   subnet_id      = aws_subnet.myapp_subnet_1.id
   route_table_id = aws_route_table.myapp_route_table.id
 }
 ```
-Apply and verify.
-- **Save screenshot as:** `task8_igw_route_table_apply.png` — apply output showing IGW and route table creation.
-- **Save screenshot as:** `task8_association_apply.png` — apply output showing association.
+Apply:
+```bash
+terraform apply -auto-approve
+```
+Verify association in AWS Console (Subnet → Route Table).
+- **Save screenshot as:** `task8_association_apply.png` — terraform apply output showing association creation.
 
-7. Switch to default route table approach (delete aws_route_table + association and add):
+9. Switch to default route table (use VPC default route table)
+Now remove (or comment out) the custom route table and association resources from `main.tf`:
+- Remove the `aws_route_table` "myapp_route_table" block.
+- Remove the `aws_route_table_association` "a_rtb_subnet" block.
+
+Then add this resource to update the default route table with a route to the IGW:
 ```hcl
 resource "aws_default_route_table" "main_rt" {
   default_route_table_id = aws_vpc.myapp_vpc.default_route_table_id
@@ -710,23 +766,38 @@ resource "aws_default_route_table" "main_rt" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.myapp_igw.id
   }
-  tags = { Name = "${var.env_prefix}-rt" }
+
+  tags = {
+     Name = "${var.env_prefix}-rt"
+  }  
 }
 ```
-- Remove the custom route table & association resources from configuration and re-apply.
-- **Save screenshot as:** `task8_default_route_table_apply.png` — apply output showing default route table update.
+- **Save screenshot as:** `task8_default_route_table.png` — main.tf showing aws_default_route_table resource (after change).
+
+Apply:
+```bash
+terraform apply -auto-approve
+```
+Verify in AWS Console that the VPC's default route table has the 0.0.0.0/0 → IGW route and that the custom route table (if previously created) is no longer in use.
+- **Save screenshot as:** `task8_default_route_table_apply.png` — terraform apply output showing default route table update.
+
+
 
 **Screenshots Required:**
 - `task8_clean_files.png`
 - `task8_variables_recreated.png`
-- `task8_vpc_subnet_resources_added.png`
+- `task8_vpc_resources_added.png`
+- `task8_subnet_resources_added.png`
 - `task8_terraform_tfvars_vpc_values.png`
 - `task8_vpc_subnet_apply.png`
-- `task8_igw_route_table_apply.png`
+- `task8_igw_route_table_before_apply.png`
+- `task8_igw_route_table_after_apply.png`
 - `task8_association_apply.png`
+- `task8_default_route_table.png`
 - `task8_default_route_table_apply.png`
 
 ---
+
 
 ## Task 9 — Security Group, Key Pair, EC2 Instance, user_data & nginx
 
