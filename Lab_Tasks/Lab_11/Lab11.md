@@ -728,30 +728,36 @@ resource "aws_default_route_table" "main_rt" {
 
 ---
 
-## Task 9 — Security Group, key pair, EC2 instance, user_data & nginx
+# Task 9 — Security Group, Key Pair, EC2 Instance, user_data & nginx
 
-1. Create variable for your IP:
+This task walks you through creating a security group, creating an EC2 key pair, launching an EC2 instance, verifying SSH access, and installing nginx via user_data (inline and from a script). Perform all commands from your Codespace shell.
+
+1. Add variables to main.tf
+Add these variables to your `main.tf`:
 ```hcl
 variable "my_ip" {}
-```
-- **Save screenshot as:** `task9_my_ip_variable_added.png` — main.tf showing my_ip variable.
 
-2. Get your public IP inside Codespace:
+```
+- **Save screenshot as:** `task9_my_ip_variable_added.png` — main.tf showing my_ip and other variables added.
+
+2. Get your public IP and set terraform.tfvars 
+From the Codespace shell:
 ```bash
 curl icanhazip.com
-# copy the ip
 ```
-In `terraform.tfvars`:
+Copy the IP and add to `terraform.tfvars`:
 ```hcl
 my_ip = "<your_ip>/32"
+instance_type = "t3.micro"
+availability_zone = "me-central-1a"   # or your chosen AZ
+env_prefix = "dev"
 ```
-- **Save screenshot as:** `task9_public_ip_curl.png` — output of curl icanhazip.com and terraform.tfvars with my_ip set.
+- **Save screenshot as:** `task9_public_ip_curl.png` — terminal showing curl icanhazip.com and terraform.tfvars edited with my_ip.
 
-3. Create Security Group:
+3. Create the Security Group (main.tf)
+Add this resource to `main.tf`:
 ```hcl
-resource "aws_security_group" "myapp_sg" {
-  name        = "myapp-sg"
-  description = "Security group for my application"
+resource "aws_default_security_group" "myapp_sg" {
   vpc_id      = aws_vpc.myapp_vpc.id
 
   ingress {
@@ -760,34 +766,37 @@ resource "aws_security_group" "myapp_sg" {
     protocol    = "tcp"
     cidr_blocks = [var.my_ip]
   }
+
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
   egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+    prefix_list_ids = []
   }
 
-  tags = { Name = "${var.env_prefix}-sg" }
+  tags = {
+    Name = "${var.env_prefix}-sg"
+  }
 }
 ```
-- **Save screenshot as:** `task9_security_group_apply.png` — main.tf plus terraform apply output showing security group created.
+- **Save screenshot as:** `task9_security_group_apply.png` — main.tf showing security group resource (before apply).
 
-4. Define instance type variable and set in terraform.tfvars:
-```hcl
-# main.tf
-variable "instance_type" {}
-# terraform.tfvars
-instance_type = "t3.micro"
+Run apply:
+```bash
+terraform apply -auto-approve
 ```
-- **Save screenshot as:** `task9_instance_type_set.png` — main.tf and terraform.tfvars showing instance_type.
+- **Save screenshot as:** `task9_security_group_apply.png` — terminal showing terraform apply output for security group (after apply) and verify in AWS Console.
 
-5. Create a key pair and save it in Codespace:
+4. Create an AWS key pair and save locally
+Create a key pair and store the private key in your Codespace. Do NOT commit the `.pem` file.
 ```bash
 aws ec2 create-key-pair \
   --key-name MyED25519Key \
@@ -795,102 +804,166 @@ aws ec2 create-key-pair \
   --key-format pem \
   --query 'KeyMaterial' \
   --output text > MyED25519Key.pem
+
 chmod 600 MyED25519Key.pem
 ```
-(Do not commit `MyED25519Key.pem` — ensure .gitignore contains `*.pem`.)
-- **Save screenshot as:** `task9_keypair_created_and_saved.png` — terminal showing key creation and file saved (do not open the pem contents in screenshot).
+- **Save screenshot as:** `task9_keypair_created_and_saved.png` — terminal showing key creation and MyED25519Key.pem saved.
 
-6. Create EC2 instance referencing default security group initially:
+Ensure `.gitignore` contains:
+```
+*.pem
+```
+- **Save screenshot as:** `task9_keypair_created_and_saved.png` — .gitignore showing `*.pem` entry.
+
+5. Add EC2 instance resource (initial)
+Add the instance resource to `main.tf` (initially using the created key name):
 ```hcl
 resource "aws_instance" "myapp-server" {
-  ami                        = "ami-05524d6658fcf35b6" # Amazon Linux 2023
-  instance_type              = var.instance_type
-  subnet_id                  = aws_subnet.myapp_subnet_1.id
-  security_groups            = [aws_default_security_group.default_sg.id]
-  availability_zone          = var.availability_zone
+  ami                         = "ami-05524d6658fcf35b6" # Amazon Linux 2023
+  instance_type               = var.instance_type
+  subnet_id                   = aws_subnet.myapp_subnet_1.id
+  security_groups             = [aws_default_security_group.default_sg.id]
+  availability_zone           = var.availability_zone
   associate_public_ip_address = true
-  key_name                   = "MyED25519Key"
-  tags = { Name = "${var.env_prefix}-ec2-instance" }
+  key_name                    = "MyED25519Key"
+
+  tags = {
+    Name = "${var.env_prefix}-ec2-instance"
+  }
 }
 
 output "aws_instance_public_ip" {
   value = aws_instance.myapp-server.public_ip
 }
 ```
-Apply and note the Public IP.
-- **Save screenshot as:** `task9_ec2_apply_and_public_ip.png` — apply output showing EC2 instance and public IP.
+- **Save screenshot as:** `task9_instance_type_set.png` — main.tf showing instance_type variable and aws_instance resource (before apply).
 
-7. SSH into instance:
+Run:
+```bash
+terraform apply -auto-approve
+```
+- **Save screenshot as:** `task9_ec2_apply_and_public_ip.png` — terraform apply output showing EC2 created and public IP (or `terraform output`).
+
+6. SSH into the instance (using MyED25519Key)
+From the Codespace:
 ```bash
 ssh -i MyED25519Key.pem ec2-user@<public-ip>
-# verify, then exit
+# verify commands, then exit
 exit
 ```
-- **Save screenshot as:** `task9_ssh_into_ec2.png` — terminal showing successful SSH session.
+- **Save screenshot as:** `task9_ssh_into_ec2.png` — terminal showing successful SSH session using MyED25519Key.pem.
 
-8. Generate SSH key pair in Codespace and add as aws_key_pair resource:
+7. Generate a local SSH keypair and register it in AWS via Terraform
+On your Codespace, generate an SSH key pair (accept defaults or specify path):
 ```bash
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
 ```
-In Terraform:
+- **Save screenshot as:** `task9_ssh_keypair_and_ssh.png` — terminal showing ssh-keygen output and files in ~/.ssh.
+
+Add a Terraform resource in `main.tf` to register the public key:
 ```hcl
 resource "aws_key_pair" "ssh_key" {
   key_name   = "serverkey"
   public_key = file("~/.ssh/id_ed25519.pub")
 }
-# update instance to use:
-key_name = aws_key_pair.ssh_key.key_name
 ```
-Apply and SSH again:
+Update the EC2 resource to use the Terraform-managed key:
+```hcl
+resource "aws_instance" "myapp-server" {
+   ...
+# replace key_name = "MyED25519Key" with:
+key_name = aws_key_pair.ssh_key.key_name
+   ...
+}
+```
+- **Save screenshot as:** `task9_ssh_keypair_and_ssh.png` — main.tf showing aws_key_pair resource and updated aws_instance key_name.
+
+Run:
+```bash
+terraform apply -auto-approve
+```
+- **Save screenshot as:** `task9_ec2_apply_and_public_ip.png` — terraform apply output showing EC2 updated to use new key (and any changes).
+
+8. SSH using the newly registered key
+Now SSH with your generated private key (the default ssh client will pick up `~/.ssh/id_ed25519`):
 ```bash
 ssh ec2-user@<public-ip>
 ```
-- **Save screenshot as:** `task9_ssh_keypair_and_ssh.png` — showing ssh-keygen and subsequent ssh using the new key.
+Verify login works.
+- **Save screenshot as:** `task9_ssh_keypair_and_ssh.png` — terminal showing SSH session using the generated key.
 
-9. Install nginx via user_data (inline):
+9. Install nginx via inline user_data
+Modify the `aws_instance` resource to include inline `user_data`:
 ```hcl
 resource "aws_instance" "myapp-server" {
-  ...
-  user_data = <<EOF
+   ...
+user_data = <<EOF
 #!/bin/bash
 yum update -y
 yum install -y nginx
 systemctl start nginx
 systemctl enable nginx
 EOF
-  ...
+  tags = {
+    Name = "${var.env_prefix}-ec2-instance"
+  }  
 }
 ```
-Alternatively, create a script file and use file() function:
+Apply:
 ```bash
-touch entry-script.sh
-# add:
+terraform apply -auto-approve
+```
+SSH in and run:
+```bash
+curl localhost
+```
+Open `http://<public-ip>` in a browser — you should see the nginx default page.
+- **Save screenshot as:** `task9_nginx_local_curl.png` — curl localhost inside the EC2 instance showing nginx response.
+- **Save screenshot as:** `task9_nginx_browser_page.png` — browser showing nginx default page at http://<public-ip>.
+
+10. Use an external script for user_data
+Create a script file in the Codespace:
+```bash
+cat > entry-script.sh <<'EOF'
 #!/bin/bash
 yum update -y
 yum install -y nginx
 systemctl start nginx
 systemctl enable nginx
+EOF
 ```
-Reference in Terraform:
+- **Save screenshot as:** `task9_nginx_local_curl.png` — entry-script.sh created and permissions set.
+
+Update `aws_instance` to use the file:
 ```hcl
+resource "aws_instance" "myapp-server" {
+   ...
 user_data = file("entry-script.sh")
+  tags = {
+    Name = "${var.env_prefix}-ec2-instance"
+  }  
+}
 ```
+Apply:
+```bash
+terraform apply -auto-approve
+```
+Reload the browser at `http://<public-ip>` to confirm nginx is served.
+- **Save screenshot as:** `task9_nginx_browser_page.png` — browser showing nginx page after using entry-script.sh.
 
-After apply, curl localhost on the EC2 instance and open http://<public-ip> in a browser.
-- **Save screenshot as:** `task9_nginx_local_curl.png` — curl localhost inside the EC2 instance showing nginx response.
-- **Save screenshot as:** `task9_nginx_browser_page.png` — browser showing nginx default page at http://<public-ip>.
-
-**Screenshots Required:**
+## Required screenshots for Task 9
+Place these in your repository (screenshots/):
 - `task9_my_ip_variable_added.png`
 - `task9_public_ip_curl.png`
 - `task9_security_group_apply.png`
-- `task9_instance_type_set.png`
 - `task9_keypair_created_and_saved.png`
+- `task9_instance_type_set.png`
 - `task9_ec2_apply_and_public_ip.png`
 - `task9_ssh_into_ec2.png`
 - `task9_ssh_keypair_and_ssh.png`
 - `task9_nginx_local_curl.png`
 - `task9_nginx_browser_page.png`
+
 
 ---
 
@@ -917,25 +990,24 @@ cat terraform.tfstate.backup
 - cleanup_state_files.png
 - cleanup_verify_no_secrets.png
 ---
-
 ## Submission
 
-Your repository should contain:
-- Lab11.md (this lab manual)
-- terraform files (main.tf, locals.tf, terraform.tfvars — DO NOT commit secrets/keys)
-- entry-script.sh 
-- screenshots  (Optional)
-- Lab11_solution.docx 
-- Lab11_solution.pdf 
+Create and push a repository named:
+
+`CC_<YourName>_<YourRollNumber>/Lab11`
+
+Repository structure:
+
+```
+Lab10/
+  workspace/                    # any files you created in the Codespace (optional)
+  screenshots/                  # include ALL screenshots listed in this lab (optional)
+  Lab11.md                      # this lab manual (this file)
+  Lab11_solution.docx           # lab solution in MS Word
+  Lab11_solution.pdf            # lab solution in PDF
+```
 
 Important: Do NOT commit .pem files, AWS credentials, or terraform.tfstate/terraform.tfstate.backup. Make sure .gitignore has been created and includes these files.
-
----
-
-Cleanup:
-- cleanup_destroy.png
-- cleanup_state_files.png
-- cleanup_verify_no_secrets.png
 
 ---
 
