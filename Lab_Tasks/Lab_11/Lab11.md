@@ -718,7 +718,7 @@ terraform init
 terraform apply -auto-approve
 ```
 Verify in AWS Console that the VPC and Subnet were created.
-- **Save screenshot as:** `task8_vpc_subnet_apply.png` — terraform apply output showing VPC and subnet creation (and optional AWS console screenshot).
+- **Save screenshot as:** `task8_vpc_subnet_apply.png` — terraform apply output showing VPC and subnet creation on AWS console screenshot.
 
 7. Create Internet Gateway and Route Table (custom)
 Add the Internet Gateway and a custom Route Table to `main.tf`:
@@ -743,14 +743,14 @@ resource "aws_route_table" "myapp_route_table" {
   }
 }
 ```
-- **Save screenshot as:** `task8_igw_route_table_before_apply.png` — main.tf showing IGW and route table resources (before apply).
+- **Save screenshot as:** `task8_igw_route_table_before_apply.png` — AWS console showing IGW and route table resources (before apply).
 
 Apply:
 ```bash
 terraform apply -auto-approve
 ```
 Verify IGW and route table in AWS Console.
-- **Save screenshot as:** `task8_igw_route_table_after_apply.png` — terraform apply output showing IGW and route table creation.
+- **Save screenshot as:** `task8_igw_route_table_after_apply.png` — terraform apply output showing IGW and route table creation on AWS console.
 
 8. Associate the Route Table with the Subnet
 Add the association resource to `main.tf`:
