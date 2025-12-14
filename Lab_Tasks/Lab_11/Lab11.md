@@ -407,6 +407,17 @@ server_config = {
 ---
 
 ## Task 5 — Collections: list, tuple, set & mutation via locals
+In this task you will define collection variables (list, tuple, set), observe their behavior, then perform mutations via locals and compare results.
+
+| Feature         | List | Tuple | Set |
+|-----------------|:----:|:-----:|:---:|
+| Order preserved | ✅   | ✅    | ❌  |
+| Allows duplicates | ✅ | ✅    | ❌  |
+| Mixed types     | ❌   | ✅    | ❌  |
+| Fixed size      | ❌   | ✅    | ❌  |
+| Mutable         | ✅   | ❌    | ✅  |
+| Best for        | **Flexible sequences** | **Structured records** | **Unique collections** |
+
 
 1. In `main.tf` define:
 ```hcl
@@ -439,9 +450,11 @@ output "compare_collections" {
 ```bash
 terraform apply -auto-approve
 ```
+Observe the output — note ordering, duplicates, and that sets are displayed without duplicates and order is not guaranteed.
 - **Save screenshot as:** `task5_compare_collections.png` — apply output comparing of collections.
 
 3. In `locals.tf` add mutations:
+Create or edit locals.tf and add the following locals to demonstrate mutation behavior. Note: tuples are immutable in Terraform's type system, but many operations convert them to lists for evaluation.
 ```hcl
 locals {
   mutated_list  = setunion(var.server_names, ["web-3"])
@@ -464,6 +477,8 @@ Run:
 ```bash
 terraform apply -auto-approve
 ```
+Observe the difference between the original tuple and the mutated result. Note that Terraform may represent the mutated tuple as a list and the ordering/duplicates behavior will reflect setunion semantics.
+
 - **Save screenshot as:** `task5_mutation_comparison.png` — apply output comparing original and mutated tuple.
 
 Notes: Tuples are converted to lists for many operations; observe ordering and duplicate behavior.
