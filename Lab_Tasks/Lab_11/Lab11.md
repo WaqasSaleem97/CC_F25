@@ -138,7 +138,7 @@ terraform apply -auto-approve
 
 9. Override with -var:
 ```bash
-terraform apply -auto-approve -var "subnet_cidr_block=10.0.3.0/24"
+terraform apply -auto-approve -var "subnet_cidr_block=10.0.40.0/24"
 # -var is highest precedence
 ```
 - **Save screenshot as:** `task1_var_override_with_dash_var.png` — command and apply showing -var value used.
