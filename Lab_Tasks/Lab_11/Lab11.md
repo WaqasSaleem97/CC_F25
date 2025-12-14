@@ -24,20 +24,20 @@ In this lab you will:
 ---
 
 ## Task List
+In this lab you will:
 
-The lab is divided into the following tasks. Complete them in order.
-
-- Task 1 — Provider & Basic variable (variable precedence)
-- Task 2 — Variable validation & sensitive / ephemeral variables
-- Task 3 — Project-level variables, locals, and outputs
-- Task 4 — Maps and Objects
-- Task 5 — Collections: list, tuple, set & mutation via locals
-- Task 6 — Null, any type & dynamic values
-- Task 7 — Git ignore
-- Task 8 — Clean-up then build real infra (VPC, Subnet, IGW, routing, default route table)
-- Task 9 — Security Group, key pair, EC2 instance, user_data & nginx
-- Cleanup — Destroy resources & verify state
-- Submission — Push repository and deliverables
+- [Task 0 - Lab Setup (Codespace & GH CLI)](#lab-setup-codespace--gh-cli)
+- [Task 1 — Provider & Basic variable (variable precedence)](#task-1--provider--basic-variable-variable-precedence)
+- [Task 2 — Variable validation & sensitive / ephemeral variables](#task-2--variable-validation--sensitive--ephemeral-variables)
+- [Task 3 — Project-level variables, locals, and outputs](#task-3--project-level-variables-locals-and-outputs)
+- [Task 4 — Maps and Objects](#task-4--maps-and-objects)
+- [Task 5 — Collections: list, tuple, set & mutation via locals](#task-5--collections-list-tuple-set--mutation-via-locals)
+- [Task 6 — Null, any type & dynamic values](#task-6--null-any-type--dynamic-values)
+- [Task 7 — Git ignore](#task-7--git-ignore)
+- [Task 8 — Clean-up then build real infra (VPC, Subnet, IGW, routing, default route table)](#task-8--clean-up-then-build-real-infra-vpc-subnet-igw-routing-default-route-table)
+- [Task 9 — Security Group, key pair, EC2 instance, user_data & nginx](#task-9--security-group-key-pair-ec2-instance-user_data--nginx)
+- [Cleanup — Destroy resources & verify state](#cleanup)
+- [Submission](#submission)
 
 ---
 
@@ -728,7 +728,7 @@ resource "aws_default_route_table" "main_rt" {
 
 ---
 
-# Task 9 — Security Group, Key Pair, EC2 Instance, user_data & nginx
+## Task 9 — Security Group, Key Pair, EC2 Instance, user_data & nginx
 
 This task walks you through creating a security group, creating an EC2 key pair, launching an EC2 instance, verifying SSH access, and installing nginx via user_data (inline and from a script). Perform all commands from your Codespace shell.
 
