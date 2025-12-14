@@ -1037,8 +1037,7 @@ terraform apply -auto-approve
 Reload the browser at `http://<public-ip>` to confirm nginx is served.
 - **Save screenshot as:** `task9_nginx_browser_page.png` — browser showing nginx page after using entry-script.sh.
 
-## Required screenshots for Task 9
-Place these in your repository (screenshots/):
+**Screenshots Required:**
 - `task9_my_ip_variable_added.png`
 - `task9_public_ip_curl.png`
 - `task9_security_group_apply.png`
