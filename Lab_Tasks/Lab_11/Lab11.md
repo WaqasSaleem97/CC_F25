@@ -26,7 +26,7 @@ In this lab you will:
 ## Task List
 In this lab you will:
 
-- [Task 0 - Lab Setup (Codespace & GH CLI)](#lab-setup-codespace--gh-cli)
+- [Task 0 - Lab Setup (Codespace & GH CLI)](#task-0-lab-setup-codespace--gh-cli)
 - [Task 1 — Provider & Basic variable (variable precedence)](#task-1--provider--basic-variable-variable-precedence)
 - [Task 2 — Variable validation & sensitive / ephemeral variables](#task-2--variable-validation--sensitive--ephemeral-variables)
 - [Task 3 — Project-level variables, locals, and outputs](#task-3--project-level-variables-locals-and-outputs)
@@ -41,11 +41,11 @@ In this lab you will:
 
 ---
 
-## Lab Setup (Codespace & GH CLI)
+## Task 0 Lab Setup (Codespace & GH CLI)
 
 All actions below should be executed inside the Codespace shell.
 
-Task A — Create Codespace & connect:
+Create Codespace & connect:
 ```bash
 # create or open codespace via GH CLI (example)
 gh repo create CC_<YourName>_<YourRollNumber>/Lab11 --public
