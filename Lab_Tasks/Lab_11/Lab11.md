@@ -983,13 +983,13 @@ Modify the `aws_instance` resource to include inline `user_data`:
 ```hcl
 resource "aws_instance" "myapp-server" {
    ...
-user_data = <<EOF
-#!/bin/bash
-yum update -y
-yum install -y nginx
-systemctl start nginx
-systemctl enable nginx
-EOF
+  user_data = <<-EOF
+                #!/bin/bash
+                yum update -y
+                yum install -y nginx
+                systemctl start nginx
+                systemctl enable nginx
+              EOF
   tags = {
     Name = "${var.env_prefix}-ec2-instance"
   }  
