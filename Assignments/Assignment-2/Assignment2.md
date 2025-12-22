@@ -934,7 +934,7 @@ Analyze the security headers and performance of your Nginx setup.
 openssl s_client -connect <nginx-ip>:443 -showcerts
 
 # On Nginx server - view certificate
-sudo openssl x509 -in /etc/ssl/certs/selfsigned. crt -text -noout
+sudo openssl x509 -in /etc/ssl/certs/selfsigned.crt -text -noout
 
 # Check security headers (from local machine)
 curl -I -k https://<nginx-public-ip>
@@ -1062,7 +1062,7 @@ Create a comprehensive `README.md` with:
 
 **Example Structure:**
 ```markdown
-# Lab 12 Assignment - Multi-Tier Web Infrastructure
+# Assignment 2 - Multi-Tier Web Infrastructure
 
 ## Architecture Overview
 
