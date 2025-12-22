@@ -800,7 +800,7 @@ sudo vim /etc/nginx/nginx.conf
 
 # Update upstream block: 
 upstream backend_servers {
-    server <web-1-private-ip>: 80;
+    server <web-1-private-ip>:80;
     server <web-2-private-ip>:80;
     server <web-3-private-ip>:80 backup;
 }
