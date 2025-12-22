@@ -1488,7 +1488,7 @@ A:  Stick to the requirements for consistency in grading.
 
 ## Academic Integrity
 
-- This is an individual assignment (unless instructor specifies otherwise)
+- This is an individual assignment
 - You may discuss concepts but not share code
 - Cite any external resources used
 - Plagiarism will result in zero marks and disciplinary action
