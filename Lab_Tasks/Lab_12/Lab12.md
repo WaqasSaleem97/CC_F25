@@ -1,6 +1,6 @@
 # 🧪 Lab 12 – Terraform Provisioners, Modules & Nginx Reverse Proxy/Load Balancer
 
-Estimated Duration: 4 hours  
+Estimated Duration: 3 hours  
 Instructions: Complete all tasks using a GitHub Codespace (Linux environment) created and authenticated with the GitHub CLI.  Create a repository named `Lab12`. When finished, push your work to a repository named `CC_<student_Name>_<student_roll_number>/Lab12`.
 
 IMPORTANT: All steps that require GH CLI / Codespace MUST be performed inside the Codespace environment.  Do not authenticate GH CLI outside the Codespace shell.
