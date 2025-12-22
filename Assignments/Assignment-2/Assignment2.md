@@ -1061,14 +1061,14 @@ Create a comprehensive `README.md` with:
    - Debug commands
 
 **Example Structure:**
+
+## Assignment 2 - Multi-Tier Web Infrastructure
+
+### Architecture Overview
+
 ```markdown
-# Assignment 2 - Multi-Tier Web Infrastructure
-
-## Architecture Overview
-
-```
 ┌─────────────────────────────────────────────────┐
-│                  Internet                        │
+│                  Internet                       │
 └─────────────────┬───────────────────────────────┘
                   │
                   │ HTTPS (443)
@@ -1085,21 +1085,19 @@ Create a comprehensive `README.md` with:
       ┌───────────┼───────────┐
       │           │           │
       ▼           ▼           ▼
-  ┌─────┐     ┌─────┐     ┌─────┐
-  │Web-1│     │Web-2│     │Web-3│
-  │     │     │     │     │(BKP)│
-  └─────┘     └─────┘     └─────┘
-  Primary     Primary     Backup
+   ┌─────┐     ┌─────┐     ┌─────┐
+   │Web-1│     │Web-2│     │Web-3│
+   │     │     │     │     │(BKP)│
+   └─────┘     └─────┘     └─────┘
+   Primary     Primary     Backup
 ```
 
 ## Components
-... 
-```
 
 **Deliverables:**
-- Screenshot: `assignment_part6_readme.png` (README. md content)
+- Screenshot: `assignment_part6_readme.png` (README.md content)
 
----
+
 
 ### 6.2 Infrastructure Cleanup (5 marks)
 
@@ -1122,7 +1120,7 @@ terraform destroy
 cat terraform.tfstate
 
 # List any remaining resources (should be empty)
-aws ec2 describe-instances --filters "Name=tag:Project,Values=Lab12-Assignment" --query "Reservations[]. Instances[].InstanceId"
+aws ec2 describe-instances --filters "Name=tag:Project,Values=Assignment2" --query "Reservations[]. Instances[].InstanceId"
 ```
 
 **Deliverables:**
