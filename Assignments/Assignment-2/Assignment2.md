@@ -416,7 +416,7 @@ cat > /var/www/html/index.html <<EOF
 </head>
 <body>
     <div class="container">
-        <h1>🚀 Backend Web Server - Lab 12 Assignment</h1>
+        <h1>🚀 Backend Web Server - Assignment 2</h1>
         <div class="info"><span class="label">Hostname:</span> $(hostname)</div>
         <div class="info"><span class="label">Instance ID:</span> $INSTANCE_ID</div>
         <div class="info"><span class="label">Private IP:</span> $PRIVATE_IP</div>
@@ -1142,7 +1142,7 @@ CC_<YourName>_<YourRollNumber>/Assignment-2
 
 **Repository Structure:**
 ```
-Assignment-2/
+Assignment2/
 ├── README. md
 ├── main.tf
 ├── variables.tf
