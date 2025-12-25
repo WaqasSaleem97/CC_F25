@@ -40,7 +40,7 @@ By completing this assignment, you will demonstrate:
 Create a well-organized Terraform project with the following structure: 
 
 ```
-Lab12_Assignment/
+Assignment_2/
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
