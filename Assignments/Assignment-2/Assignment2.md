@@ -1120,7 +1120,7 @@ terraform destroy
 cat terraform.tfstate
 
 # List any remaining resources (should be empty)
-aws ec2 describe-instances --filters "Name=tag:Project,Values=Assignment2" --query "Reservations[]. Instances[].InstanceId"
+aws ec2 describe-instances --filters "Name=tag:Project,Values=Assignment-2" --query "Reservations[]. Instances[].InstanceId"
 ```
 
 **Deliverables:**
