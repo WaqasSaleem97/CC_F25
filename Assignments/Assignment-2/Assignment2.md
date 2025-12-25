@@ -199,7 +199,7 @@ locals {
   
   common_tags = {
     Environment = var.env_prefix
-    Project     = "Lab12-Assignment"
+    Project     = "Assignment-2"
     ManagedBy   = "Terraform"
   }
   
@@ -1137,12 +1137,12 @@ aws ec2 describe-instances --filters "Name=tag:Project,Values=Assignment2" --que
 
 Create a public GitHub repository named: 
 ```
-CC_<YourName>_<YourRollNumber>/Lab12_Assignment
+CC_<YourName>_<YourRollNumber>/Assignment-2
 ```
 
 **Repository Structure:**
 ```
-Lab12_Assignment/
+Assignment-2/
 ├── README. md
 ├── main.tf
 ├── variables.tf
@@ -1189,7 +1189,7 @@ Lab12_Assignment/
 
 Create a comprehensive PDF report named:
 ```
-Lab12_Assignment_<YourName>_<YourRollNumber>.pdf
+Assignment2_<YourName>_<YourRollNumber>.pdf
 ```
 
 **Report Structure:**
