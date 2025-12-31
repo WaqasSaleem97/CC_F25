@@ -142,7 +142,7 @@ In this task, you will create an IAM user named "loadbalancer" and add it to the
 
 ```hcl name=main.tf
 provider "aws" {
-  shared_config_files      = ["~/. aws/config"]
+  shared_config_files      = ["~/.aws/config"]
   shared_credentials_files = ["~/.aws/credentials"]
 }
 
@@ -177,7 +177,7 @@ resource "aws_iam_user_group_membership" "lb_membership" {
 
 output "user_details" {
   value = {
-    user_name = aws_iam_user. lb.name
+    user_name = aws_iam_user.lb.name
     user_arn  = aws_iam_user.lb.arn
     unique_id = aws_iam_user.lb.unique_id
   }
@@ -232,7 +232,7 @@ resource "aws_iam_group" "developers" {
 
 output "group_details" {
   value = {
-    group_name = aws_iam_group. developers.name
+    group_name = aws_iam_group.developers.name
     group_arn  = aws_iam_group.developers.arn
     unique_id  = aws_iam_group.developers.unique_id
   }
@@ -248,7 +248,7 @@ resource "aws_iam_user" "lb" {
 }
 
 resource "aws_iam_user_group_membership" "lb_membership" {
-  user = aws_iam_user. lb.name
+  user = aws_iam_user.lb.name
   groups = [
     aws_iam_group.developers.name
   ]
@@ -256,7 +256,7 @@ resource "aws_iam_user_group_membership" "lb_membership" {
 
 output "user_details" {
   value = {
-    user_name = aws_iam_user. lb.name
+    user_name = aws_iam_user.lb.name
     user_arn  = aws_iam_user.lb.arn
     unique_id = aws_iam_user.lb.unique_id
   }
@@ -344,7 +344,7 @@ Add this resource after the user creation:
 resource "null_resource" "create_login_profile" {
   triggers = {
     password_hash = sha256(var.iam_password)
-    user          = aws_iam_user.lb. name
+    user          = aws_iam_user.lb.name
   }
 
   depends_on = [aws_iam_user. lb]
@@ -592,7 +592,7 @@ resource "aws_iam_user_group_membership" "users_membership" {
   
   user = each.value.name
   groups = [
-    aws_iam_group.developers. name
+    aws_iam_group.developers.name
   ]
 }
 
@@ -751,11 +751,11 @@ Lab13/
   locals.tf
   users.csv
   create-login-profile.sh
-  . gitignore
+  .gitignore
   screenshots/                  # include ALL screenshots listed in this lab (Optional)
   Lab13.md                      # this lab manual
-  Lab13_solution. docx           # lab solution in MS Word
-  Lab13_solution. pdf            # lab solution in PDF
+  Lab13_solution.docx           # lab solution in MS Word
+  Lab13_solution.pdf            # lab solution in PDF
 ```
 
 Important:  Do NOT commit AWS credentials, terraform.tfstate, or terraform.tfstate.backup.  Make sure . gitignore includes these files.
@@ -763,10 +763,10 @@ Important:  Do NOT commit AWS credentials, terraform.tfstate, or terraform.tfsta
 Create `.gitignore`:
 ```gitignore name=.gitignore
 .terraform/*
-*. tfstate
+*.tfstate
 *.tfstate.*
 *.tfvars
-. terraform.lock.hcl
+.terraform.lock.hcl
 . aws/
 ~/.aws/
 ```
