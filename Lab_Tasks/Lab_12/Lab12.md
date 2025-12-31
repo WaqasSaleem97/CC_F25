@@ -77,7 +77,7 @@ cd ~/Lab12
 
 2. Create all required files:
 ```bash
-touch main.tf variables.tf outputs. tf locals.tf terraform.tfvars entry-script.sh
+touch main.tf variables.tf outputs.tf locals.tf terraform.tfvars entry-script.sh
 ```
 - **Save screenshot as:** `task1_files_created.png` — terminal showing all files created (use `ls -la`).
 
@@ -108,6 +108,10 @@ output "aws_instance_public_ip" {
 ```hcl name=locals.tf
 locals {
   my_ip = "${chomp(data.http.my_ip.response_body)}/32"
+}
+
+data "http" "my_ip" {
+  url = "https://icanhazip.com"
 }
 ```
 - **Save screenshot as:** `task1_locals_tf.png` — content of locals.tf file.
@@ -215,10 +219,6 @@ resource "aws_instance" "myapp-server" {
      Name = "${var.env_prefix}-ec2-instance"
   }
 }
-
-data "http" "my_ip" {
-  url = "https://icanhazip.com"
-}
 ```
 - **Save screenshot as:** `task1_main_tf.png` — content of main.tf file.
 
@@ -260,7 +260,7 @@ terraform output
 
 13. Test nginx in browser:
 - Open browser and navigate to `http://<public-ip>`
-- **Save screenshot as:** `task1_nginx_browser. png` — browser showing nginx default page.
+- **Save screenshot as:** `task1_nginx_browser.png` — browser showing nginx default page.
 
 14. Destroy resources:
 ```bash
@@ -450,7 +450,7 @@ In this task, you will create a reusable subnet module to organize your infrastr
 mkdir -p modules/subnet
 touch modules/subnet/main.tf
 touch modules/subnet/variables.tf
-touch modules/subnet/outputs. tf
+touch modules/subnet/outputs.tf
 ```
 - **Save screenshot as:** `task4_module_structure.png` — terminal showing module directory structure (use `tree` or `ls -R`).
 
@@ -483,7 +483,7 @@ resource "aws_default_route_table" "main_rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway. myapp_igw.id
+    gateway_id = aws_internet_gateway.myapp_igw.id
   }
     tags = {
      Name = "${var.env_prefix}-rt"
@@ -527,7 +527,7 @@ And update the instance resource to reference the module output:
 ```hcl
 resource "aws_instance" "myapp-server" {
   # ... other settings ...
-  subnet_id     = module.myapp-subnet. subnet.id
+  subnet_id     = module.myapp-subnet.subnet.id
   # ... rest of configuration ...
 }
 ```
@@ -643,8 +643,8 @@ resource "aws_instance" "myapp-server" {
   ami           = "ami-05524d6658fcf35b6" # Amazon Linux 2023 Kernel 6.1 AMI
   instance_type = var. instance_type
   subnet_id     = var.subnet_id
-  security_groups = [aws_security_group.web_sg.id]
-  availability_zone = var. availability_zone
+  vpc_security_group_ids = [aws_security_group.web_sg.id]
+  availability_zone = var.availability_zone
   associate_public_ip_address = true
   key_name = aws_key_pair.ssh-key.key_name
 
@@ -795,8 +795,8 @@ events {
 }
 
 http {
-    log_format  main  '\$remote_addr - \$remote_user [\$time_local] "\$request" '
-                      '\$status \$body_bytes_sent "\$http_referer" '
+    log_format  main  '\$remote_addr - \$remote_user [\$time_local] "\$request"'
+                      '\$status \$body_bytes_sent "\$http_referer"'
                       '"\$http_user_agent" "\$http_x_forwarded_for"';
 
     access_log  /var/log/nginx/access.log  main;
@@ -817,7 +817,7 @@ http {
     server {
         listen 443 ssl;
         server_name $PUBLIC_IP;
-        ssl_certificate /etc/ssl/certs/selfsigned. crt;
+        ssl_certificate /etc/ssl/certs/selfsigned.crt;
         ssl_certificate_key /etc/ssl/private/selfsigned.key;
 
         location / {
@@ -1342,9 +1342,9 @@ Create `.gitignore`:
 .terraform/*
 *.tfstate
 *.tfstate.*
-*. tfvars
-*. pem
-. terraform.lock.hcl
+*.tfvars
+*.pem
+.terraform.lock.hcl
 ```
 
 ---
