@@ -1032,8 +1032,8 @@ module "myapp-web-2" {
   availability_zone = var. availability_zone
   public_key = var.public_key
   my_ip = local.my_ip
-  vpc_id = aws_vpc.myapp_vpc. id
-  subnet_id = module.myapp-subnet.subnet. id
+  vpc_id = aws_vpc.myapp_vpc.id
+  subnet_id = module.myapp-subnet.subnet.id
   script_path = "./apache.sh"
   instance_suffix = "2"
 }
@@ -1199,9 +1199,9 @@ Add proxy cache configuration in the http block and location block:
 http {
     proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=my_cache:10m inactive=60m max_size=1g;
     
-    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                      '$status $body_bytes_sent "$http_referer" '
-                      '"$http_user_agent" "$http_x_forwarded_for"';
+    log_format  main  '\$remote_addr - \$remote_user [\$time_local] "\$request" '
+                      '\$status \$body_bytes_sent "\$http_referer" '
+                      '"\$http_user_agent" "\$http_x_forwarded_for"';
 
     # ... other settings ...
 
