@@ -909,10 +909,10 @@ module "myapp-web-1" {
   env_prefix = var.env_prefix
   instance_type = var.instance_type
   availability_zone = var.availability_zone
-  public_key = var. public_key
+  public_key = var.public_key
   my_ip = local.my_ip
   vpc_id = aws_vpc. myapp_vpc.id
-  subnet_id = module.myapp-subnet.subnet. id
+  subnet_id = module.myapp-subnet.subnet.id
   script_path = "./apache.sh"
   instance_suffix = "1"
 }
@@ -986,12 +986,12 @@ cat /etc/nginx/mime.types
 - **Save screenshot as:** `task7_mime_types.png` — content of mime.types.
 
 ```bash
-cat /etc/ssl/certs/selfsigned. crt
+cat /etc/ssl/certs/selfsigned.crt
 ```
 - **Save screenshot as:** `task7_ssl_cert.png` — content of selfsigned.crt. 
 
 ```bash
-cat /etc/ssl/private/selfsigned.key
+sudo cat /etc/ssl/private/selfsigned.key
 ```
 - **Save screenshot as:** `task7_ssl_key.png` — content of selfsigned.key.
 
@@ -1075,7 +1075,7 @@ Update the upstream block and location:
 ```nginx
     upstream backend_servers {
         server <web-1-public-ip>:80;
-        server <web-2-public-ip>: 80;
+        server <web-2-public-ip>:80;
     }
 
     # ...  in server block: 
@@ -1099,7 +1099,7 @@ sudo systemctl restart nginx
 - Open browser and navigate to `https://<webserver-public-ip>`
 - Reload the page multiple times
 - You should see the content alternating between web-1 and web-2 (check the hostname/IP in the page)
-- **Save screenshot as:** `task8_load_balancer_web1. png` — browser showing web-1 content.
+- **Save screenshot as:** `task8_load_balancer_web1.png` — browser showing web-1 content.
 - **Save screenshot as:** `task8_load_balancer_web2.png` — browser showing web-2 content after reload.
 
 **Screenshots Required:**
@@ -1156,7 +1156,7 @@ sudo vim /etc/nginx/nginx.conf
 Update to make web-1 backup:
 ```nginx
     upstream backend_servers {
-        server <web-1-public-ip>: 80 backup;
+        server <web-1-public-ip>:80 backup;
         server <web-2-public-ip>:80;
     }
 ```
@@ -1176,7 +1176,7 @@ sudo systemctl restart nginx
 - `task9_nginx_conf_ha_web1_primary.png`
 - `task9_ha_web1_only.png`
 - `task9_nginx_conf_ha_web2_primary.png`
-- `task9_ha_web2_only. png`
+- `task9_ha_web2_only.png`
 
 ---
 
@@ -1207,7 +1207,7 @@ http {
 
     upstream backend_servers {
         server <web-1-public-ip>:80;
-        server <web-2-public-ip>: 80;
+        server <web-2-public-ip>:80;
     }
 
     server {
@@ -1219,7 +1219,7 @@ http {
         location / {
     #        root /usr/share/nginx/html;
     #        index index.html;
-    #        proxy_pass http://<web-1-public-ip>: 80;
+    #        proxy_pass http://<web-1-public-ip>:80;
             proxy_pass http://backend_servers;
             proxy_cache my_cache;
             proxy_cache_valid 200 60m;
