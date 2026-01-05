@@ -93,8 +93,8 @@ You will start from an existing repository and prepare Terraform variables and S
 
 ```bash
 cd /workspaces
-git clone --branch main git@github.com:240438/Ansible.git
-cd Ansible
+git clone --branch main git@github.com:WaqasSaleem97/terraform_machine.git
+cd terraform_machine
 ```
 
 - **Save screenshot as:** `task1_repo_cloned.png` — terminal showing `git clone` and `ls` with `Ansible` directory.
@@ -114,7 +114,7 @@ ls -la ~/.ssh
 3. **Create `terraform.tfvars`** in the repo root:
 
 ```bash
-cd /workspaces/Ansible
+cd /workspaces/terraform_machine
 touch terraform.tfvars
 ls -la terraform.tfvars
 ```
@@ -1095,7 +1095,7 @@ Add:
 
 ```yaml
 normal_user: ec2-user
-docker_compose_file_location: /workspaces/Ansible
+docker_compose_file_location: <location-of-file>
 ```
 
 - **Save screenshot as:** `task9_project_vars.png` — content of `project-vars.yaml`.
@@ -1433,8 +1433,11 @@ terraform output
 6. **Install `boto3` and `botocore`**:
 
 ```bash
-/usr/local/py-utils/venvs/ansible/bin/python -m pip install boto3 botocore
-/usr/local/py-utils/venvs/ansible/bin/python -c "import boto3, botocore; print(boto3.__version__)"
+$(which python) -m pip install boto3 botocore
+```
+- Verify the version
+```bash
+$(which python) -c "import boto3, botocore; print(boto3.__version__)"
 ```
 
 - **Save screenshot as:** `task11_boto_install.png` — pip install output.
@@ -1858,7 +1861,7 @@ ls -R
 Run:
 
 ```bash
-chmod 755 /workspaces/Ansible/ansible
+chmod 755 ./ansible
 ansible-playbook -i inventory/hosts my-playbook.yaml
 ```
 
