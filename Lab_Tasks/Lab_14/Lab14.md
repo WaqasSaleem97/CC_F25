@@ -36,13 +36,13 @@ In this lab you will:
 In this lab you will:
 
 - [Task 0 – Lab Setup (Codespace & GH CLI)](#task-0--lab-setup-codespace--gh-cli)
-- [Task 1 – Clone Terraform+Ansible repo & initial Terraform apply](#task-1--clone-terraformansible-repo--initial-terraform-apply)
+- [Task 1 – Generate ssh key and Initial Terraform apply](#task-1--generate-ssh-key-and-initial-terraform-apply)
 - [Task 2 – Static Ansible inventory with two EC2 instances](#task-2--static-ansible-inventory-with-two-ec2-instances)
-- [Task 3 – Scale to three instances & group‑based inventory](#task-3--scale-to-three-instances--group-based-inventory)
+- [Task 3 – Scale to three instances & group-based inventory](#task-3---scale-to-three-instances--group-based-inventory)
 - [Task 4 – Global ansible.cfg & first nginx playbook](#task-4--global-ansiblecfg--first-nginx-playbook)
 - [Task 5 – Single nginx target group & HTTPS prerequisites](#task-5--single-nginx-target-group--https-prerequisites)
-- [Task 6 – Ansible‑managed SSL certificates](#task-6--ansible-managed-ssl-certificates)
-- [Task 7 – PHP front‑end deployment with templates](#task-7--php-front-end-deployment-with-templates)
+- [Task 6 – Ansible-managed SSL certificates](#task-6---ansible-managed-ssl-certificates)
+- [Task 7 – PHP front-end deployment with templates](#task-7---php-front-end-deployment-with-templates)
 - [Task 8 – Docker & Docker Compose provisioning via Ansible](#task-8--docker--docker-compose-provisioning-via-ansible)
 - [Task 9 – Gitea Docker stack via Ansible + Terraform security group update](#task-9--gitea-docker-stack-via-ansible--terraform-security-group-update)
 - [Task 10 – Automating Ansible with Terraform (null_resource)](#task-10--automating-ansible-with-terraform-null_resource)
@@ -52,20 +52,22 @@ In this lab you will:
 - [Cleanup](#cleanup)
 - [Submission](#submission)
 
+
+
+
 ---
 
 ## Task 0 – Lab Setup (Codespace & GH CLI)
 
-1. **Create/open Codespace** on your GitHub account (from any repo or a temporary starter repo).  
+1. Fork the repo [terraform_machine](https://github.com/WaqasSaleem97/terraform_machine.git)
+2. **Create/open Codespace** on your GitHub account (from `terraform_machine` repo).  
    - **Save screenshot as:** `task0_codespace_open.png` — browser showing the Codespace opened.
 
-2. Inside the Codespace terminal, configure GH CLI (if needed) and verify:
+3. Inside the Codespace terminal, configure GH CLI (if needed) and verify:
 
 ```bash
 aws --version
 terraform --version
-pipx install ansible-core
-ansible --version || echo "ansible not yet installed"
 ```
 
 - **Save screenshot as:** `task0_env_check.png` — Codespace terminal showing `gh auth status`, `aws --version`, `terraform -version`, and `ansible --version` or the “not installed yet” message.
@@ -85,21 +87,11 @@ aws sts get-caller-identity
 
 ---
 
-## Task 1 – Clone Terraform+Ansible repo & initial Terraform apply
+## Task 1 – Generate ssh key and Initial Terraform apply
 
 You will start from an existing repository and prepare Terraform variables and SSH keys.
 
-1. **Clone the repository (branch `main`)** inside the Codespace:
-
-```bash
-cd /workspaces
-git clone --branch main git@github.com:WaqasSaleem97/terraform_machine.git
-cd terraform_machine
-```
-
-- **Save screenshot as:** `task1_repo_cloned.png` — terminal showing `git clone` and `ls` with `Ansible` directory.
-
-2. **Check SSH directory & generate SSH key pair** if not already present:
+1. **Check SSH directory & generate SSH key pair** if not already present:
 
 ```bash
 ls ~/.ssh
@@ -111,7 +103,7 @@ ls -la ~/.ssh
 - **Save screenshot as:** `task1_ssh_keygen.png` — output of `ssh-keygen` command.
 - **Save screenshot as:** `task1_ssh_keygen_after.png` — `ls -la ~/.ssh` showing `id_ed25519` and `id_ed25519.pub`.
 
-3. **Create `terraform.tfvars`** in the repo root:
+2. **Create `terraform.tfvars`** in the repo root:
 
 ```bash
 cd /workspaces/terraform_machine
@@ -135,7 +127,7 @@ private_key = "~/.ssh/id_ed25519"
 
 - **Save screenshot as:** `task1_terraform_tfvars.png` — content of `terraform.tfvars`.
 
-4. **Initialize Terraform**:
+3. **Initialize Terraform**:
 
 ```bash
 terraform init
@@ -143,7 +135,7 @@ terraform init
 
 - **Save screenshot as:** `task1_terraform_init.png` — `terraform init` output.
 
-5. **Apply Terraform** to create **2 EC2 instances** (as defined in the existing Terraform code):
+4. **Apply Terraform** to create **2 EC2 instances** (as defined in the existing Terraform code):
 
 ```bash
 terraform apply -auto-approve
@@ -151,7 +143,7 @@ terraform apply -auto-approve
 
 - **Save screenshot as:** `task1_terraform_apply_2_instances.png` — `terraform apply` output showing 2 instances created.
 
-6. **Check outputs**:
+5. **Check outputs**:
 
 ```bash
 terraform output
@@ -160,7 +152,6 @@ terraform output
 - **Save screenshot as:** `task1_terraform_output_ips.png` — `terraform output` showing instance IPs.
 
 **Screenshots Required:**
-- `task1_repo_cloned.png`
 - `task1_ssh_keygen_before.png`
 - `task1_ssh_keygen.png`
 - `task1_ssh_keygen_after.png`
@@ -246,7 +237,7 @@ ansible all -i hosts -m ping
 
 ---
 
-## Task 3 – Scale to three instances & group‑based inventory
+## Task 3 - Scale to three instances & group-based inventory
 
 You will expand to 3 web servers via Terraform’s `count` and restructure your inventory into groups.
 
@@ -577,7 +568,7 @@ ansible-playbook -i hosts my-playbook.yaml
 
 ---
 
-## Task 6 – Ansible‑managed SSL certificates
+## Task 6 - Ansible-managed SSL certificates
 
 Extend your playbook to generate **self‑signed SSL certificates** using dynamic public IP.
 
@@ -666,7 +657,7 @@ exit
 
 ---
 
-## Task 7 – PHP front‑end deployment with templates
+## Task 7 - PHP front-end deployment with templates
 
 Deploy a PHP application and Nginx configuration using Ansible `copy` and `template`.
 
