@@ -1852,7 +1852,7 @@ ls -R
 Run:
 
 ```bash
-chmod 755 ./ansible
+chmod 755 $(pwd)
 ansible-playbook -i inventory/hosts my-playbook.yaml
 ```
 
