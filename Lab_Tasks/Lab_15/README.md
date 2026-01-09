@@ -254,7 +254,7 @@ ansible_user=ec2-user
 ansible_ssh_private_key_file=~/.ssh/id_ed25519
 ```
 
-*(You may generate or update this file manually for the project; automation bonus if done via Terraform template, but not required.)*
+*(You may generate or update this file manually for the project; automation bonus if done via Terraform template.)*
 
 ---
 
