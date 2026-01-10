@@ -1,4 +1,4 @@
-# 🧪 Project 7 – Automated Development and Testing Environment (Within Course Scope)
+# 🧪 Project 7 – Automated Development and Testing Environment
 
 **Duration:** 8–10 hours  
 **Total Marks:** 100  
@@ -46,7 +46,6 @@ You will:
 
 **Key Concepts (Course Scope):** Environment automation, Terraform modules/workspaces/state, Ansible roles, Nginx reverse proxy, Apache/HTTPD, PHP/PHP-FPM, Git workflows, cost optimization via teardown, health checks
 
-<img width="1591" height="3343" alt="diagram-export-12-29-2025-2_47_45-AM" src="https://github.com/user-attachments/assets/8eee27f2-a611-442f-9bb2-8637bdae6df3" />
 
 ---
 
