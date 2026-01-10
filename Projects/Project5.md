@@ -1,4 +1,4 @@
-# 🧩 Project 5 – Infrastructure as Code with Git-Based Workflow (Within Course Scope)
+# 🧩 Project 5 – Infrastructure as Code with Git-Based Workflow
 
 **Duration:** 8–10 hours  
 **Total Marks:** 100  
