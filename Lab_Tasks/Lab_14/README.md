@@ -63,14 +63,15 @@ In this lab you will:
 2. **Create/open Codespace** on your GitHub account (from `terraform_machine` repo).  
    - **Save screenshot as:** `task0_codespace_open.png` — browser showing the Codespace opened.
 
-3. Inside the Codespace terminal, configure GH CLI (if needed) and verify:
+3. Inside the Codespace terminal, verify:
 
 ```bash
 aws --version
 terraform --version
+ansible --version || echo "ansible not yet installed"
 ```
 
-- **Save screenshot as:** `task0_env_check.png` — Codespace terminal showing `gh auth status`, `aws --version`, `terraform -version`, and `ansible --version` or the “not installed yet” message.
+- **Save screenshot as:** `task0_env_check.png` — Codespace terminal showing `aws --version`, `terraform -version`, and `ansible --version` or the “not installed yet” message.
 
 3. Ensure AWS CLI is configured with credentials that have permissions to create EC2, VPC, subnets, and security groups in region **`me-central-1`**:
 
