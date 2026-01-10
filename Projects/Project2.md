@@ -30,7 +30,6 @@ You will:
 - Test the **end-to-end provisioning process** by creating and configuring infrastructure from scratch.
 
 **Key Concepts:** Terraform workspaces, EC2 provisioning, Ansible roles, dynamic inventory, server hardening, drift detection and remediation, Git-based workflows  
-<img width="1476" height="2368" alt="diagram-export-12-29-2025-1_45_11-AM" src="https://github.com/user-attachments/assets/74e8c42d-fcbb-428f-b32f-46baabb3b7cd" />
 
 ---
 
