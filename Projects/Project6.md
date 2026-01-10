@@ -1,4 +1,4 @@
-# ⚡ Project 6 – High-Performance Web Hosting Platform (Within Course Scope)
+# ⚡ Project 6 – High-Performance Web Hosting Platform
 
 **Duration:** 8–10 hours  
 **Total Marks:** 100  
@@ -34,8 +34,6 @@ You will document:
 - Customer onboarding procedure for adding new websites.
 
 **Key Concepts (Course Scope):** Multi-tenancy (via server blocks), Nginx virtual hosts, Nginx load balancing, backup server, SSL termination, caching, PHP-FPM, bash scripting, Git workflow, Terraform modules, Ansible roles
-
-<img width="1905" height="2673" alt="diagram-export-12-29-2025-2_40_00-AM" src="https://github.com/user-attachments/assets/2cc3dfd1-912a-4d39-8d6d-5757edc8827a" />
 
 ---
 
