@@ -1,4 +1,4 @@
-# 🔵🟢 Project 8 – Blue-Green Deployment Infrastructure (Within Course Scope)
+# 🔵🟢 Project 8 – Blue-Green Deployment Infrastructure 
 
 **Duration:** 8–10 hours  
 **Total Marks:** 100  
@@ -43,8 +43,6 @@ You will:
   - Rollback decision tree.
 
 **Key Concepts (Course Scope):** Blue-green deployment strategy, zero-downtime updates using Nginx upstream switching, automated smoke tests, rollback procedures, Git-based change workflow, Terraform+Ansible integration
-
-<img width="1480" height="2206" alt="diagram-export-12-29-2025-2_54_17-AM" src="https://github.com/user-attachments/assets/6196db7f-eb62-410e-bf19-bb41995c319e" />
 
 ---
 
