@@ -17,7 +17,7 @@ Instructions: Complete all tasks using a **GitHub Codespace (Linux environment)*
 
 In this lab you will:
 
-- Use **GitHub Codespaces** and **GH CLI** as your development environment.
+- Use **GitHub Codespaces** or **GH CLI** as your development environment.
 - Clone and work with an existing Terraform + Ansible project.
 - Use Terraform to provision EC2 instances and security groups.
 - Use Ansible to:
