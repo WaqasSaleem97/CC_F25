@@ -41,8 +41,6 @@ You will:
 
 **Key Concepts (Course Scope + Allowed Borderline):** Infrastructure as Code, Git workflows, PR reviews, Terraform modules/state/outputs, S3 remote backend, VPC/EC2/IAM, NAT Gateway (borderline), Ansible deployment, Nginx, documentation/runbooks
 
-<img width="1797" height="1312" alt="diagram-export-12-29-2025-2_32_59-AM" src="https://github.com/user-attachments/assets/58bacfe7-b3ac-40ad-aa5b-b9c4b6c97589" />
-
 ---
 
 ## 🎯 Learning Objectives
