@@ -1,4 +1,4 @@
-# 📡 Project 9 – Infrastructure Monitoring and Log Collection System (Within Course Scope)
+# 📡 Project 9 – Infrastructure Monitoring and Log Collection System
 
 **Duration:** 8–10 hours  
 **Total Marks:** 100  
@@ -39,8 +39,6 @@ You will:
   - Shows latest status and links to latest reports/log snapshots.
 
 **Key Concepts (Course Scope):** Monitoring with bash + cron, log collection with Ansible, Nginx logging, Terraform provisioning, documentation and runbooks
-
-<img width="1756" height="2368" alt="diagram-export-12-29-2025-3_01_55-AM" src="https://github.com/user-attachments/assets/b97be9da-9e69-4d7a-ba13-f3f04767359e" />
 
 ---
 
