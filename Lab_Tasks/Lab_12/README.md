@@ -897,7 +897,7 @@ TOKEN=$(curl -s -X PUT "http://169.254.169.254/latest/api/token" \
 echo "<h2>Private IP: $(curl -s -H "X-aws-ec2-metadata-token: $TOKEN"  http://169.254.169.254/latest/meta-data/local-ipv4)</h2>" >> /var/www/html/index.html
 echo "<h2>Public IP: $(curl -s -H "X-aws-ec2-metadata-token: $TOKEN"  http://169.254.169.254/latest/meta-data/public-ipv4)</h2>" >> /var/www/html/index.html
 echo "<h2>Public DNS: $(curl -s -H "X-aws-ec2-metadata-token: $TOKEN"  http://169.254.169.254/latest/meta-data/public-hostname)</h2>" >> /var/www/html/index.html
-echo "<h2>Deployed via Terraform</h2>" >> /var/www/html/index. html
+echo "<h2>Deployed via Terraform</h2>" >> /var/www/html/index.html
 ```
 - **Save screenshot as:** `task7_apache_script.png` — content of apache.sh file.
 
