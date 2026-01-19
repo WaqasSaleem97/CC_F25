@@ -1,4 +1,4 @@
-# Lab Exam – Cloud & DevOps (IAM, Terraform, Ansible) – Reference Solution (Updated Provider Block)
+# Lab Exam – Cloud Computing (IAM, Terraform, Ansible) – Reference Solution
 
 We must actually run the commands, create resources, and take the required screenshots in your own AWS account and repo.
 
