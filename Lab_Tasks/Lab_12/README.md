@@ -59,7 +59,7 @@ gh codespace ssh -c <your_codespace_name>
 - **Save screenshot as:** `task0_codespace_ssh_connected.png` — terminal inside the Codespace shell after ssh. 
 
 **Screenshots Required:**
-- `task0_codespace_create_and_list. png`
+- `task0_codespace_create_and_list.png`
 - `task0_codespace_ssh_connected.png`
 
 ---
