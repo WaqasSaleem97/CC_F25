@@ -127,7 +127,7 @@ instance_type = "t3.micro"
 public_key = "~/.ssh/id_ed25519.pub"
 private_key = "~/.ssh/id_ed25519"
 ```
-- **Save screenshot as:** `task1_terraform_tfvars. png` — content of terraform.tfvars file.
+- **Save screenshot as:** `task1_terraform_tfvars.png` — content of terraform.tfvars file.
 
 7. Create `main.tf` with the following content:
 
@@ -944,7 +944,7 @@ terraform output
 ```bash
 ssh ec2-user@<webserver-public-ip>
 ```
-- **Save screenshot as:** `task7_ssh_webserver. png` — SSH session to webserver.
+- **Save screenshot as:** `task7_ssh_webserver.png` — SSH session to webserver.
 
 7. Edit the Nginx configuration: 
 ```bash
