@@ -6,6 +6,8 @@
 - Submit your work on **Google Classroom** as well as on your GitHub repository named `cc_<studentname>_<rollnumber>`.
 - Ensure all repositories are public unless specified otherwise.
 - Submit required links/screenshots in your final submission.
+- Store every required screenshot in `CC_Assignments/Assignment01/screenshots/` using the exact filename specified in each task.
+- Screenshots must be clear and must show the completed work. Never expose passwords, personal access tokens, private keys, AWS keys, or other credentials in a screenshot.
 
 ---
 
@@ -43,7 +45,13 @@
      ```
      e.g. `git remote add gitea https://Admin:<NEW_TOKEN>@crispy-tribble-wrjwvwjwqpvv25rvg-3000.app.github.dev/Admin/StudentsDemo.git`
      
-   - Push your initial commit containing the `README.md` to Gitea.
+   - Pull your initial commit containing the `README.md` to Gitea.
+
+📸 Screenshots (required):
+
+- Show the Gitea server running in your Codespace. Do not display a password or token. Save screenshot as: `task1_gitea_running.png`
+- Show the Gitea repository page with the repository name and rendered `README.md` containing the students' names and roll numbers. Save screenshot as: `task1_gitea_repository.png`
+- Show the successful initial pull in the terminal. Your GitHub username must be visible in the terminal prompt, but the Gitea token must not be visible. Save screenshot as: `task1_gitea_push.png`
 
 ---
 
@@ -67,6 +75,12 @@
 5. **Verify Remotes:**
    - Run `git remote -v` and ensure both remotes (`gitea` and `github`) are listed.
 
+📸 Screenshots (required):
+
+- Show the successful push to the GitHub remote in the terminal. Save screenshot as: `task2_github_push.png`
+- Show the output of `git remote -v` containing both `gitea` and `github`. Hide or redact the Gitea token before taking the screenshot. Save screenshot as: `task2_remotes.png`
+- Show the GitHub `assignment 1` repository page with the rendered `README.md`. Save screenshot as: `task2_github_repository.png`
+
 ---
 
 ## Task 3: Use Git LFS for Large Files
@@ -86,6 +100,12 @@
    - Commit and push these large files to your GitHub `assignment 1` repo.
    - Ensure the files are referenced correctly in your repository history.
 
+📸 Screenshots (required):
+
+- Show `git lfs version`, the `git lfs track` command, and the resulting `.gitattributes` entry in the terminal. Save screenshot as: `task3_lfs_setup.png`
+- Run `git lfs ls-files` and show all three LFS-tracked files in the terminal. Save screenshot as: `task3_lfs_files.png`
+- Show the successful commit and push of the LFS files to the GitHub repository. Save screenshot as: `task3_lfs_push.png`
+
 ---
 
 ## Task 4: Create a Portfolio/CV with GitHub Pages
@@ -102,14 +122,44 @@
    - Enable GitHub Pages in your repository settings if not automatically enabled.
    - Publish your site and share the link.
 
+📸 Screenshots (required):
+
+- Show the `<your-username>.github.io` repository page containing the portfolio/CV source files. Save screenshot as: `task4_pages_repository.png`
+- Show the GitHub Pages deployment as successfully published in the repository settings or Actions page. Save screenshot as: `task4_pages_deployment.png`
+- Open the public `<your-username>.github.io` URL and show the working portfolio/CV in the browser with the URL visible. Save screenshot as: `task4_portfolio_live.png`
+
 ---
 
 ## Submission Checklist
 
-- [ ] **Screenshot of your Gitea repository (showing README listing names & roll numbers)**
-- [ ] GitHub assignment 1 repo link (with README and large files)
-- [ ] Screenshot or output of `git remote -v` showing both remotes
-- [ ] GitHub Pages link to your CV/portfolio
+Create and push a repository named:
+
+`CC_Assignments/Assignment01`
+
+Repository structure:
+
+```
+Assignment01/
+  screenshots/                         # include ALL screenshots listed in this Assignment
+  Assignment01.md                      # this assignment manual (this file optional)
+  Assignment01_solution.docx           # assignment solution in MS Word
+  Assignment01_solution.pdf            # assignment solution in PDF
+```
+
+Confirm that your `screenshots/` directory contains these files:
+
+- `task1_gitea_running.png`
+- `task1_gitea_repository.png`
+- `task1_gitea_push.png`
+- `task2_github_push.png`
+- `task2_remotes.png`
+- `task2_github_repository.png`
+- `task3_lfs_setup.png`
+- `task3_lfs_files.png`
+- `task3_lfs_push.png`
+- `task4_pages_repository.png`
+- `task4_pages_deployment.png`
+- `task4_portfolio_live.png`
 
 ---
 
