@@ -241,27 +241,6 @@
 
 ---
 
-## Task 11: Detailed Branch Strategy (Develop/Staging)
-
-1. **Create the following branches** to simulate a professional branching strategy:
-   - `develop`
-   - `staging`
-   - `feature/*`
-   - `bugfix/*`
-
-2. **Example Workflow:**
-   - Developers work on `feature/*` and `bugfix/*` branches.
-   - Merge completed work into `develop`.
-   - Merge `develop` into `staging` for testing.
-   - Finally, merge `staging` into `main` (production).
-
-3. **Documentation with Screenshots:**
-   - Branch list → `branch_strategy.png`
-   - Merges into `develop` and `staging` → `branch_merges.png`
-   - Final merge into `main` → `final_merge.png`
-
----
-
 ## Task 12: Code Review Workflow
 
 1. **Create a Pull Request (PR) / Merge Request (MR):**
