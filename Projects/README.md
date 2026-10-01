@@ -9,4 +9,4 @@
 | Reena Qureshi<br>Rabeea Fatima | 9 | Tehreem khan<br>Zunaira Khatoon<br>Musfira Farooq | 8 | Umber Qasim<br>Sabahat Fatima<br>Zainab Shahid | 7 |
 | Manahil Habib<br>Maria Irfan<br>Rowaida Jameel | 6 | Zunaira Khatoon<br>Hadia Zakir<br>Uqba Gulzar | 5 | Seerat Fatima<br>Tooba Shafique | 4 |
 | Sadaf Riaz<br>Rafiya Fayaz<br>Zuha Irfan | 3 | Nimra Mursleen<br>Rughma Malik | 2 | Zaheena Anwar<br>Shumaila Munsib<br>Urwa Zahra | 1 |
-| Ushna Saad<br>Noor ul Fajar 2 | 1 |
+| Ushna Saad<br>Noor ul Fajar | 1 |
