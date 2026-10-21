@@ -283,13 +283,13 @@ cat /etc/passwd
 
 1) Create `Student`:
 ```bash
-sudo adduser Student
+sudo adduser student
 ```
 - Save screenshot as: `task5_create_student.png`
 
 2) Switch to Student and create files:
 ```bash
-su - Student
+su - student
 touch file1
 mkdir -p dir1
 touch dir1/file2
@@ -338,7 +338,7 @@ Target file: `~/file1` (run these as the Student user)
 
 1) Ensure Student and file present:
 ```bash
-su - Student
+su - student
 cd ~
 ls -l file1
 ```
@@ -393,7 +393,7 @@ ls -l file1
 
 Ensure you are Student:
 ```bash
-su - Student
+su - student
 cd ~
 ls -l file1
 ```
@@ -432,7 +432,7 @@ ls -l file1
 
 Ensure you are Student:
 ```bash
-su - Student
+su - student
 cd ~
 ls -l file1
 ```
