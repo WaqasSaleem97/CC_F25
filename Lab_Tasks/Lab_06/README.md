@@ -175,26 +175,26 @@ Goal: Create users using both `adduser` and `useradd`, demonstrate login/passwor
 
 1) Create users:
 ```bash
-sudo adduser Jerry
-sudo useradd Scooby
+sudo adduser jerry
+sudo useradd scooby
 ```
 - Save screenshot as: `task4_add_users.png`
 
 2) Try to log in as Scooby immediately (expected authentication failure because there is no password yet):
 ```bash
-su - Scooby
+su - scooby
 ```
 - Save screenshot as: `task4_scooby_su_auth_failure.png`
 
 3) Set a password for Scooby:
 ```bash
-sudo passwd Scooby
+sudo passwd scooby
 ```
 - Save screenshot as: `task4_set_password_scooby.png`
 
 4) Try logging in as Scooby again (home directory still missing; expect a message such as “No directory, logging in with HOME=/”):
 ```bash
-su - Scooby
+su - scooby
 ```
 - Save screenshot as: `task4_scooby_su_no_home.png`
 
@@ -202,22 +202,22 @@ su - Scooby
 ```bash
 exit
 cat /etc/passwd
-ls -ld /home/Scooby
+ls -ld /home/scooby
 ```
 - Save screenshot as: `task4_scooby_no_home.png`
 
 6) Manually create Scooby’s home directory and set proper ownership and permissions:
 ```bash
-sudo mkdir -p /home/Scooby
-sudo chown Scooby:Scooby /home/Scooby
-sudo chmod 750 /home/Scooby
-ls -ld /home/Scooby
+sudo mkdir -p /home/scooby
+sudo chown scooby:scooby /home/scooby
+sudo chmod 750 /home/scooby
+ls -ld /home/scooby
 ```
 - Save screenshot as: `task4_scooby_create_home.png`
 
 7) Log in as Scooby again and verify you land in the correct home directory:
 ```bash
-su - Scooby
+su - scooby
 pwd
 ls -la
 ```
@@ -232,8 +232,8 @@ cat /etc/passwd
 
 9) Change the shell from `/bin/sh` to `/bin/bash`
 ```bash
-sudo usermod -s /bin/bash Scooby
-su - Scooby
+sudo usermod -s /bin/bash scooby
+su - scooby
 ```
 - Save screenshot as: `task4_shell_switching.png`
 
@@ -256,8 +256,8 @@ sudo delgroup jolly
 sudo groupdel anime
 cat /etc/group
 
-sudo deluser --remove-home Jerry
-sudo userdel -r Scooby
+sudo deluser --remove-home jerry
+sudo userdel -r scooby
 cat /etc/passwd
 ```
 - Save screenshots as: `task4_delete_groups.png`, `task4_delete_users.png`
